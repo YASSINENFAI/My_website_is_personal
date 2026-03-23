@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 
 <head>
     <meta charset="UTF-8">
@@ -8,7 +8,7 @@
     <!-- SEO Meta Tags -->
     <title>Yassine Nfouh | AI Developer & Chatbot Specialist</title>
     <meta name="description"
-        content="AI Developer specializing in Chatbots, LLM Integration, AI Training. and Automation. Expert in GPT-4. Claude. Gemini APIs. OpenAI. Fine-tuning. RAG systems.">
+        content="AI Developer specializing in Chatbots, LLM Integration, AI Training, and Automation. Expert in GPT-4, Claude, Gemini APIs, OpenAI, Fine-tuning, RAG systems.">
     <meta name="keywords" content="AI developer, chatbot developer, AI training, LLM integration, prompt engineering, GPT-4, Claude, Gemini, OpenAI, fine-tuning, RAG, automation, Python">
     <meta name="author" content="Yassine Nfouh">
 
@@ -16,7 +16,7 @@
     <meta property="og:type" content="website">
     <meta property="og:title" content="Yassine Nfouh | AI Developer & Chatbot Specialist">
     <meta property="og:description"
-        content="AI Developer specializing in Chatbots, LLM Integration. AI Training. and Automation.">
+        content="AI Developer specializing in Chatbots, LLM Integration, AI Training, and Automation.">
     <meta property="og:image" content="assets/og-image.jpg">
 
     <!-- Twitter Card -->
@@ -29,13 +29,97 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Tajawal:wght@300;400;500;700;800&display=swap"
         rel="stylesheet">
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/chat-widget.css">
     <link rel="stylesheet" href="css/style-extras.css">
+    
+    <style>
+        /* RTL Support */
+        [dir="rtl"] body {
+            font-family: 'Tajawal', 'Inter', sans-serif;
+        }
+        
+        [dir="rtl"] .navbar .container {
+            flex-direction: row-reverse;
+        }
+        
+        [dir="rtl"] .nav-links {
+            flex-direction: row-reverse;
+        }
+        
+        [dir="rtl"] .hero-content {
+            text-align: right;
+        }
+        
+        [dir="rtl"] .about-content {
+            text-align: right;
+        }
+        
+        [dir="rtl"] .contact-info {
+            text-align: right;
+        }
+        
+        [dir="rtl"] .service-card {
+            text-align: right;
+        }
+        
+        [dir="rtl"] .portfolio-info {
+            text-align: right;
+        }
+        
+        [dir="rtl"] .footer-content {
+            flex-direction: row-reverse;
+        }
+        
+        [dir="rtl"] .footer-links {
+            flex-direction: row-reverse;
+        }
+        
+        [dir="rtl"] .hero-buttons {
+            justify-content: flex-end;
+        }
+        
+        [dir="rtl"] .about-stats {
+            justify-content: flex-end;
+        }
+        
+        [dir="rtl"] .social-links {
+            justify-content: flex-start;
+        }
+        
+        [dir="rtl"] .btn .btn-icon {
+            margin-left: 0;
+            margin-right: 8px;
+            transform: rotate(180deg);
+        }
+        
+        /* Lang Toggle */
+        .lang-toggle {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            margin-right: 12px;
+        }
+        
+        .lang-toggle:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        
+        [dir="rtl"] .lang-toggle {
+            margin-right: 0;
+            margin-left: 12px;
+        }
+    </style>
 </head>
 
 <body>
@@ -55,14 +139,14 @@
             </a>
 
             <nav class="nav-links">
-                <a href="#about" class="nav-link">About</a>
-                <a href="#skills" class="nav-link">Skills</a>
-                <a href="#services" class="nav-link">Services</a>
-                <a href="#portfolio" class="nav-link">Projects</a>
-                <a href="#contact" class="nav-link">Contact</a>
+                <a href="#about" class="nav-link" data-i18n="nav_about">About</a>
+                <a href="#skills" class="nav-link" data-i18n="nav_skills">Skills</a>
+                <a href="#services" class="nav-link" data-i18n="nav_services">Services</a>
+                <a href="#portfolio" class="nav-link" data-i18n="nav_work">Projects</a>
+                <a href="#contact" class="nav-link" data-i18n="nav_contact">Contact</a>
             </nav>
 
-            <a href="#contact" class="nav-cta">
+            <a href="#contact" class="nav-cta" data-i18n="nav_cta">
                 Hire Me
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M5 12h14M12 5l7 7-7 7" />
@@ -87,29 +171,29 @@
                 <div class="hero-content">
                     <div class="hero-badge fade-in">
                         <span class="status-dot"></span>
-                        <span>Available for AI Projects</span>
+                        <span data-i18n="hero_status">Available for AI Projects</span>
                     </div>
 
                     <h1 class="fade-in fade-in-delay-1">
-                        AI Developer &
-                        <span class="gradient-text">Chatbot Specialist</span>
+                        <span data-i18n="hero_title_1">AI Developer &</span>
+                        <span class="gradient-text" data-i18n="hero_title_2">Chatbot Specialist</span>
                     </h1>
 
-                    <p class="fade-in fade-in-delay-2">
-                        I build intelligent chatbots. train AI models. and automate workflows using
-                        GPT-4. Claude. Gemini. and OpenAI APIs.
-                        Specialized in LLM integration. RAG systems. and fine-tuning.
+                    <p class="fade-in fade-in-delay-2" data-i18n="hero_desc">
+                        I build intelligent chatbots, train AI models, and automate workflows using
+                        GPT-4, Claude, Gemini, and OpenAI APIs.
+                        Specialized in LLM integration, RAG systems, and fine-tuning.
                     </p>
 
                     <div class="hero-buttons fade-in fade-in-delay-3">
                         <a href="#portfolio" class="btn btn-primary">
-                            <span>View My Projects</span>
+                            <span data-i18n="hero_btn_1">View My Projects</span>
                             <svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" stroke-width="2">
                                 <path d="M5 12h14M12 5l7 7-7 7" />
                             </svg>
                         </a>
-                        <a href="#contact" class="btn btn-secondary">
+                        <a href="#contact" class="btn btn-secondary" data-i18n="hero_btn_2">
                             Let's Work Together
                         </a>
                     </div>
@@ -121,7 +205,7 @@
                 <div class="mouse">
                     <div class="wheel"></div>
                 </div>
-                <span>Scroll</span>
+                <span data-i18n="scroll">Scroll</span>
             </div>
         </section>
 
@@ -140,35 +224,35 @@
                     </div>
 
                     <div class="about-content">
-                        <span class="section-label fade-in">About Me</span>
+                        <span class="section-label fade-in" data-i18n="about_label">About Me</span>
                         <h2 class="section-title fade-in fade-in-delay-1">
-                            Building <span class="gradient-text">Intelligent</span> AI Solutions
+                            <span data-i18n="about_title_1">Building</span> <span class="gradient-text" data-i18n="about_title_2">Intelligent</span> <span data-i18n="about_title_3">AI Solutions</span>
                         </h2>
 
-                        <p class="about-text fade-in fade-in-delay-2">
+                        <p class="about-text fade-in fade-in-delay-2" data-i18n="about_text_1">
                             I'm an AI Developer and Chatbot Specialist with hands-on experience in building
-                            intelligent conversational agents and training AI models. I work with GPT-4. Claude.
-                            Gemini. and OpenAI to create smart automation solutions.
+                            intelligent conversational agents and training AI models. I work with GPT-4, Claude,
+                            Gemini, and OpenAI to create smart automation solutions.
                         </p>
 
-                        <p class="about-text fade-in fade-in-delay-3">
-                            My expertise includes LLM integration. prompt engineering. RAG systems.
-                            fine-tuning models. and building production-ready chatbots. I help businesses
+                        <p class="about-text fade-in fade-in-delay-3" data-i18n="about_text_2">
+                            My expertise includes LLM integration, prompt engineering, RAG systems,
+                            fine-tuning models, and building production-ready chatbots. I help businesses
                             leverage AI to automate processes and enhance customer experiences.
                         </p>
 
                         <div class="about-stats fade-in fade-in-delay-4">
                             <div class="stat-item">
                                 <div class="stat-number">3+</div>
-                                <div class="stat-label">Years in AI</div>
+                                <div class="stat-label" data-i18n="about_stat_1">Years in AI</div>
                             </div>
                             <div class="stat-item">
                                 <div class="stat-number">18+</div>
-                                <div class="stat-label">Projects Built</div>
+                                <div class="stat-label" data-i18n="about_stat_2">Projects Built</div>
                             </div>
                             <div class="stat-item">
                                 <div class="stat-number">6+</div>
-                                <div class="stat-label">Live Products</div>
+                                <div class="stat-label" data-i18n="about_stat_3">Live Products</div>
                             </div>
                         </div>
                     </div>
@@ -182,9 +266,9 @@
         <section id="skills" class="services">
             <div class="container">
                 <div class="services-header">
-                    <span class="section-label fade-in">My Expertise</span>
-                    <h2 class="section-title fade-in fade-in-delay-1">Technical Skills</h2>
-                    <p class="section-description fade-in fade-in-delay-2">
+                    <span class="section-label fade-in" data-i18n="skills_label">My Expertise</span>
+                    <h2 class="section-title fade-in fade-in-delay-1" data-i18n="skills_title">Technical Skills</h2>
+                    <p class="section-description fade-in fade-in-delay-2" data-i18n="skills_desc">
                         Technologies and tools I use to build AI solutions
                     </p>
                 </div>
@@ -199,8 +283,8 @@
                                 <path d="M2 12l10 5 10-5"/>
                             </svg>
                         </div>
-                        <h3>AI & LLMs</h3>
-                        <p>
+                        <h3 data-i18n="skill_1_title">AI & LLMs</h3>
+                        <p data-i18n="skill_1_desc">
                             GPT-4 • Claude • Gemini • OpenAI API • Llama • Mistral
                         </p>
                     </article>
@@ -212,8 +296,8 @@
                                 <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
                             </svg>
                         </div>
-                        <h3>Chatbot Development</h3>
-                        <p>
+                        <h3 data-i18n="skill_2_title">Chatbot Development</h3>
+                        <p data-i18n="skill_2_desc">
                             Conversational AI • RAG Systems • Voice Assistants • Multi-modal Bots
                         </p>
                     </article>
@@ -227,8 +311,8 @@
                                 <path d="M12 14v7"/>
                             </svg>
                         </div>
-                        <h3>AI Training & Fine-tuning</h3>
-                        <p>
+                        <h3 data-i18n="skill_3_title">AI Training & Fine-tuning</h3>
+                        <p data-i18n="skill_3_desc">
                             Model Fine-tuning • Prompt Engineering • Dataset Preparation • Evaluation
                         </p>
                     </article>
@@ -241,8 +325,8 @@
                                 <path d="M4 9h16M9 4v16"/>
                             </svg>
                         </div>
-                        <h3>Workflow Automation</h3>
-                        <p>
+                        <h3 data-i18n="skill_4_title">Workflow Automation</h3>
+                        <p data-i18n="skill_4_desc">
                             Make (Integromat) • n8n • Zapier • Custom Scripts • API Integration
                         </p>
                     </article>
@@ -255,8 +339,8 @@
                                 <polyline points="8 6 2 12 8 18"/>
                             </svg>
                         </div>
-                        <h3>Programming</h3>
-                        <p>
+                        <h3 data-i18n="skill_5_title">Programming</h3>
+                        <p data-i18n="skill_5_desc">
                             Python • TypeScript • JavaScript • REST APIs • SQL
                         </p>
                     </article>
@@ -268,8 +352,8 @@
                                 <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
                             </svg>
                         </div>
-                        <h3>Tools & Platforms</h3>
-                        <p>
+                        <h3 data-i18n="skill_6_title">Tools & Platforms</h3>
+                        <p data-i18n="skill_6_desc">
                             Supabase • Vercel • Hugging Face • LangChain • Pinecone
                         </p>
                     </article>
@@ -283,8 +367,8 @@
         <section id="services" class="services" style="background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);">
             <div class="container">
                 <div class="services-header">
-                    <span class="section-label fade-in" style="color: #60a5fa;">What I Do</span>
-                    <h2 class="section-title fade-in fade-in-delay-1" style="color: white;">Services I Offer</h2>
+                    <span class="section-label fade-in" style="color: #60a5fa;" data-i18n="services_label">What I Do</span>
+                    <h2 class="section-title fade-in fade-in-delay-1" style="color: white;" data-i18n="services_title">Services I Offer</h2>
                 </div>
 
                 <div class="services-grid">
@@ -295,10 +379,10 @@
                                 <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
                             </svg>
                         </div>
-                        <h3 style="color: white;">Chatbot Development</h3>
-                        <p style="color: #94a3b8;">
-                            Custom chatbots powered by GPT-4. Claude. and Gemini.
-                            RAG systems. voice assistants. and multi-modal bots.
+                        <h3 style="color: white;" data-i18n="service_1_title">Chatbot Development</h3>
+                        <p style="color: #94a3b8;" data-i18n="service_1_desc">
+                            Custom chatbots powered by GPT-4, Claude, and Gemini.
+                            RAG systems, voice assistants, and multi-modal bots.
                         </p>
                     </article>
 
@@ -310,8 +394,8 @@
                                 <path d="M12 14v7"/>
                             </svg>
                         </div>
-                        <h3 style="color: white;">AI Training & Fine-tuning</h3>
-                        <p style="color: #94a3b8;">
+                        <h3 style="color: white;" data-i18n="service_2_title">AI Training & Fine-tuning</h3>
+                        <p style="color: #94a3b8;" data-i18n="service_2_desc">
                             Fine-tune models for your specific use case.
                             Prompt engineering and dataset preparation.
                         </p>
@@ -325,9 +409,9 @@
                                 <path d="M4 9h16M9 4v16"/>
                             </svg>
                         </div>
-                        <h3 style="color: white;">Workflow Automation</h3>
-                        <p style="color: #94a3b8;">
-                            Automate business processes with Make. n8n. and custom scripts.
+                        <h3 style="color: white;" data-i18n="service_3_title">Workflow Automation</h3>
+                        <p style="color: #94a3b8;" data-i18n="service_3_desc">
+                            Automate business processes with Make, n8n, and custom scripts.
                             Save time and reduce errors.
                         </p>
                     </article>
@@ -340,10 +424,10 @@
                                 <path d="M3 12h18"/>
                             </svg>
                         </div>
-                        <h3 style="color: white;">API Integration</h3>
-                        <p style="color: #94a3b8;">
+                        <h3 style="color: white;" data-i18n="service_4_title">API Integration</h3>
+                        <p style="color: #94a3b8;" data-i18n="service_4_desc">
                             Connect AI models to your existing systems.
-                            REST APIs. webhooks. and databases.
+                            REST APIs, webhooks, and databases.
                         </p>
                     </article>
                 </div>
@@ -357,9 +441,9 @@
             <div class="container">
                 <div class="portfolio-header">
                     <div>
-                        <span class="section-label fade-in">My Work</span>
-                        <h2 class="section-title fade-in fade-in-delay-1">Featured Projects</h2>
-                        <p class="section-description fade-in fade-in-delay-2">
+                        <span class="section-label fade-in" data-i18n="portfolio_label">My Work</span>
+                        <h2 class="section-title fade-in fade-in-delay-1" data-i18n="portfolio_title">Featured Projects</h2>
+                        <p class="section-description fade-in fade-in-delay-2" data-i18n="portfolio_desc">
                             AI-powered applications and chatbots I've built
                         </p>
                     </div>
@@ -374,18 +458,18 @@
                             <a href="https://invoice-saas-xi.vercel.app" target="_blank"
                                 rel="noopener noreferrer" class="portfolio-overlay">
                                 <div class="portfolio-overlay-content">
-                                    <h4>Live Demo</h4>
+                                    <h4 data-i18n="live_demo">Live Demo</h4>
                                     <p>invoice-saas-xi.vercel.app</p>
                                 </div>
                             </a>
                         </div>
                         <div class="portfolio-info">
-                            <h3>InvoiceFlow</h3>
-                            <p>AI-ready invoice management system with smart automation features.</p>
+                            <h3 data-i18n="project_1_title">InvoiceFlow</h3>
+                            <p data-i18n="project_1_desc">AI-ready invoice management system with smart automation features.</p>
                             <div class="portfolio-tags">
-                                <span class="portfolio-tag">Next.js</span>
-                                <span class="portfolio-tag">Supabase</span>
-                                <span class="portfolio-tag">AI</span>
+                                <span class="portfolio-tag" data-i18n="tag_nextjs">Next.js</span>
+                                <span class="portfolio-tag" data-i18n="tag_supabase">Supabase</span>
+                                <span class="portfolio-tag" data-i18n="tag_ai">AI</span>
                             </div>
                         </div>
                     </article>
@@ -398,17 +482,17 @@
                             <a href="https://www.cvpersonal.xyz" target="_blank"
                                 rel="noopener noreferrer" class="portfolio-overlay">
                                 <div class="portfolio-overlay-content">
-                                    <h4>Live Demo</h4>
+                                    <h4 data-i18n="live_demo">Live Demo</h4>
                                     <p>cvpersonal.xyz</p>
                                 </div>
                             </a>
                         </div>
                         <div class="portfolio-info">
-                            <h3>CV Pro Builder</h3>
-                            <p>Professional CV builder with AI-powered content suggestions.</p>
+                            <h3 data-i18n="project_2_title">CV Pro Builder</h3>
+                            <p data-i18n="project_2_desc">Professional CV builder with AI-powered content suggestions.</p>
                             <div class="portfolio-tags">
-                                <span class="portfolio-tag">JavaScript</span>
-                                <span class="portfolio-tag">AI</span>
+                                <span class="portfolio-tag" data-i18n="tag_javascript">JavaScript</span>
+                                <span class="portfolio-tag" data-i18n="tag_ai">AI</span>
                             </div>
                         </div>
                     </article>
@@ -421,17 +505,17 @@
                             <a href="https://github.com/YASSINENFAI/bac-calculator-morocco" target="_blank"
                                 rel="noopener noreferrer" class="portfolio-overlay">
                                 <div class="portfolio-overlay-content">
-                                    <h4>View on GitHub</h4>
-                                    <p>Open Source</p>
+                                    <h4 data-i18n="view_github">View on GitHub</h4>
+                                    <p data-i18n="open_source">Open Source</p>
                                 </div>
                             </a>
                         </div>
                         <div class="portfolio-info">
-                            <h3>Bac Calculator Morocco</h3>
-                            <p>Smart grade calculator for Moroccan students.</p>
+                            <h3 data-i18n="project_3_title">Bac Calculator Morocco</h3>
+                            <p data-i18n="project_3_desc">Smart grade calculator for Moroccan students.</p>
                             <div class="portfolio-tags">
-                                <span class="portfolio-tag">HTML</span>
-                                <span class="portfolio-tag">Education</span>
+                                <span class="portfolio-tag" data-i18n="tag_html">HTML</span>
+                                <span class="portfolio-tag" data-i18n="tag_education">Education</span>
                             </div>
                         </div>
                     </article>
@@ -444,17 +528,17 @@
                             <a href="https://age-calculator-droxai.vercel.app" target="_blank"
                                 rel="noopener noreferrer" class="portfolio-overlay">
                                 <div class="portfolio-overlay-content">
-                                    <h4>Live Demo</h4>
+                                    <h4 data-i18n="live_demo">Live Demo</h4>
                                     <p>age-calculator-droxai.vercel.app</p>
                                 </div>
                             </a>
                         </div>
                         <div class="portfolio-info">
-                            <h3>Age Calculator</h3>
-                            <p>AI-powered age calculation with natural language processing.</p>
+                            <h3 data-i18n="project_4_title">Age Calculator</h3>
+                            <p data-i18n="project_4_desc">AI-powered age calculation with natural language processing.</p>
                             <div class="portfolio-tags">
-                                <span class="portfolio-tag">JavaScript</span>
-                                <span class="portfolio-tag">AI</span>
+                                <span class="portfolio-tag" data-i18n="tag_javascript">JavaScript</span>
+                                <span class="portfolio-tag" data-i18n="tag_ai">AI</span>
                             </div>
                         </div>
                     </article>
@@ -467,17 +551,17 @@
                             <a href="https://github.com/YASSINENFAI/AI-YouTube-Thumbnail-Generator" target="_blank"
                                 rel="noopener noreferrer" class="portfolio-overlay">
                                 <div class="portfolio-overlay-content">
-                                    <h4>View on GitHub</h4>
-                                    <p>Open Source</p>
+                                    <h4 data-i18n="view_github">View on GitHub</h4>
+                                    <p data-i18n="open_source">Open Source</p>
                                 </div>
                             </a>
                         </div>
                         <div class="portfolio-info">
-                            <h3>AI Thumbnail Generator</h3>
-                            <p>Generate YouTube thumbnails using AI image generation.</p>
+                            <h3 data-i18n="project_5_title">AI Thumbnail Generator</h3>
+                            <p data-i18n="project_5_desc">Generate YouTube thumbnails using AI image generation.</p>
                             <div class="portfolio-tags">
-                                <span class="portfolio-tag">TypeScript</span>
-                                <span class="portfolio-tag">AI Image</span>
+                                <span class="portfolio-tag" data-i18n="tag_typescript">TypeScript</span>
+                                <span class="portfolio-tag" data-i18n="tag_image">AI Image</span>
                             </div>
                         </div>
                     </article>
@@ -490,17 +574,17 @@
                             <a href="https://github.com/YASSINENFAI/prompt" target="_blank"
                                 rel="noopener noreferrer" class="portfolio-overlay">
                                 <div class="portfolio-overlay-content">
-                                    <h4>View on GitHub</h4>
-                                    <p>Open Source</p>
+                                    <h4 data-i18n="view_github">View on GitHub</h4>
+                                    <p data-i18n="open_source">Open Source</p>
                                 </div>
                             </a>
                         </div>
                         <div class="portfolio-info">
-                            <h3>Prompt Manager</h3>
-                            <p>AI prompt library and management system for developers.</p>
+                            <h3 data-i18n="project_6_title">Prompt Manager</h3>
+                            <p data-i18n="project_6_desc">AI prompt library and management system for developers.</p>
                             <div class="portfolio-tags">
-                                <span class="portfolio-tag">HTML</span>
-                                <span class="portfolio-tag">Prompt Engineering</span>
+                                <span class="portfolio-tag" data-i18n="tag_html">HTML</span>
+                                <span class="portfolio-tag" data-i18n="tag_prompt">Prompt Engineering</span>
                             </div>
                         </div>
                     </article>
@@ -514,11 +598,11 @@
         <section class="quote-section">
             <div class="container">
                 <div class="quote-content fade-in">
-                    <p class="quote-text">
-                        "AI should augment human capabilities. not replace them.
+                    <p class="quote-text" data-i18n="quote_text">
+                        "AI should augment human capabilities, not replace them.
                         Every intelligent system should solve real problems for real people."
                     </p>
-                    <span class="quote-author">— My AI Philosophy</span>
+                    <span class="quote-author" data-i18n="quote_author">— My AI Philosophy</span>
                 </div>
             </div>
         </section>
@@ -530,11 +614,11 @@
             <div class="container">
                 <div class="contact-grid">
                     <div class="contact-info">
-                        <span class="section-label fade-in">Get in Touch</span>
+                        <span class="section-label fade-in" data-i18n="contact_label">Get in Touch</span>
                         <h2 class="section-title fade-in fade-in-delay-1">
-                            Let's build something <span class="gradient-text">intelligent</span>
+                            <span data-i18n="contact_title_1">Let's build something</span> <span class="gradient-text" data-i18n="contact_title_2">intelligent</span>
                         </h2>
-                        <p class="fade-in fade-in-delay-2">
+                        <p class="fade-in fade-in-delay-2" data-i18n="contact_desc">
                             Have an AI project in mind? Let's discuss how I can help bring your ideas to life.
                         </p>
 
@@ -582,32 +666,32 @@
                     <div class="contact-form fade-in">
                         <form action="https://formspree.io/f/YOUR_ID" method="POST">
                             <div class="form-group">
-                                <label for="name">Your Name</label>
-                                <input type="text" id="name" name="name" placeholder="John Doe" required>
+                                <label for="name" data-i18n="form_name">Your Name</label>
+                                <input type="text" id="name" name="name" data-i18n-placeholder="form_name" required>
                             </div>
 
                             <div class="form-group">
-                                <label for="email">Email Address</label>
-                                <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                                <label for="email" data-i18n="form_email">Email Address</label>
+                                <input type="email" id="email" name="email" data-i18n-placeholder="form_email" required>
                             </div>
 
                             <div class="form-group">
-                                <label for="project_type">Project Type</label>
+                                <label for="project_type" data-i18n="form_project">Project Type</label>
                                 <select id="project_type" name="project_type">
-                                    <option value="chatbot">Chatbot Development</option>
-                                    <option value="ai_training">AI Training/Fine-tuning</option>
-                                    <option value="automation">Workflow Automation</option>
-                                    <option value="other">Other</option>
+                                    <option value="chatbot" data-i18n="project_chatbot">Chatbot Development</option>
+                                    <option value="ai_training" data-i18n="project_training">AI Training/Fine-tuning</option>
+                                    <option value="automation" data-i18n="project_automation">Workflow Automation</option>
+                                    <option value="other" data-i18n="project_other">Other</option>
                                 </select>
                             </div>
 
                             <div class="form-group">
-                                <label for="message">Project Details</label>
-                                <textarea id="message" name="message" placeholder="Tell me about your AI project..." required></textarea>
+                                <label for="message" data-i18n="form_message">Project Details</label>
+                                <textarea id="message" name="message" data-i18n-placeholder="form_message" required></textarea>
                             </div>
 
                             <button type="submit" class="btn btn-primary">
-                                <span>Send Message</span>
+                                <span data-i18n="form_submit">Send Message</span>
                                 <svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
                                     stroke="currentColor" stroke-width="2">
                                     <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" />
@@ -632,16 +716,16 @@
                 </a>
 
                 <nav class="footer-links">
-                    <a href="#about">About</a>
-                    <a href="#skills">Skills</a>
-                    <a href="#services">Services</a>
-                    <a href="#portfolio">Projects</a>
-                    <a href="#contact">Contact</a>
+                    <a href="#about" data-i18n="nav_about">About</a>
+                    <a href="#skills" data-i18n="nav_skills">Skills</a>
+                    <a href="#services" data-i18n="nav_services">Services</a>
+                    <a href="#portfolio" data-i18n="nav_work">Projects</a>
+                    <a href="#contact" data-i18n="nav_contact">Contact</a>
                 </nav>
             </div>
 
             <div class="footer-bottom">
-                <p>&copy; 2026 Yassine Nfouh. Building the future with AI.</p>
+                <p>&copy; 2026 Yassine Nfouh. <span data-i18n="footer_rights">Building the future with AI.</span></p>
             </div>
         </div>
     </footer>
