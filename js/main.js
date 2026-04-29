@@ -101,6 +101,8 @@ const translations = {
         project_7_desc: "Modern bilingual website for a scientific club with dark mode.",
         project_8_title: "Hirafi App",
         project_8_desc: "Skills marketplace connecting skilled workers with customers.",
+        project_9_title: "LeadGenius",
+        project_9_desc: "Free AI-powered lead generation and email outreach tool.",
         live_demo: "Live Demo",
         view_github: "View on GitHub",
         open_source: "Open Source",
@@ -139,7 +141,8 @@ const translations = {
         tag_education: "Education",
         tag_prompt: "Prompt Engineering",
         tag_tailwind: "Tailwind CSS",
-        tag_image: "AI Image"
+        tag_image: "AI Image",
+        tag_opensource: "Open Source"
     },
     ar: {
         // Navigation
@@ -164,7 +167,7 @@ const translations = {
         about_title_1: "أبني حلول",
         about_title_2: "ذكية",
         about_title_3: "بالذكاء الاصطناعي",
-        about_text_1: "مطور ذكاء اصطناعي ومتخصص في روبوتات المحادثة مع خبرة عملية في بناء وكلاء محادثة أذكياء وتدريب نماذج AI. أعمل مع GPT-4 وClaude وGemini لإنشاء حلول أتمتة ذكية.",
+        about_text_1: "مطور ذكاء اصطناعي ومتخصص في روبوتات المحادثة مع خبرة عملية في بناء وكلاء محادثة أذكياء وتدريب نماذج AI. أعمل مع GPT-4 و Claude و Gemini لإنشاء حلول أتمتة ذكية.",
         about_text_2: "تشمل خبرتي دمج LLM، هندسة الأوامر، أنظمة RAG، ضبط النماذج، وبناء روبوتات محادثة جاهزة للإنتاج. أساعد الشركات على الاستفادة من AI لأتمتة العمليات.",
         about_stat_1: "سنوات في AI",
         about_stat_2: "مشروع منجز",
@@ -235,6 +238,8 @@ const translations = {
         project_7_desc: "موقع حديث ثنائي اللغة لنادي علمي مع الوضع الليلي.",
         project_8_title: "تطبيق Hirafi",
         project_8_desc: "سوق للمهارات يربط العمال المهرة بالزبائن.",
+        project_9_title: "LeadGenius",
+        project_9_desc: "أداة مجانية للبحث عن العملاء وإرسال الإيميلات بالذكاء الاصطناعي.",
         live_demo: "معاينة حية",
         view_github: "عرض على GitHub",
         open_source: "مفتوح المصدر",
@@ -273,7 +278,8 @@ const translations = {
         tag_education: "تعليم",
         tag_prompt: "هندسة الأوامر",
         tag_tailwind: "Tailwind CSS",
-        tag_image: "صور AI"
+        tag_image: "صور AI",
+        tag_opensource: "مفتوح المصدر"
     },
     fr: {
         // Navigation
