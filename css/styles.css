@@ -203,25 +203,34 @@ button {
 
 .bg-glow {
     position: fixed;
-    width: 600px;
-    height: 600px;
+    width: 60vw;
+    height: 60vw;
     border-radius: 50%;
-    filter: blur(150px);
-    opacity: 0.15;
+    filter: blur(120px);
+    opacity: 0.12;
     pointer-events: none;
     z-index: 0;
+    transition: transform 1s cubic-bezier(0.2, 0, 0.2, 1);
+    animation: moveGlow 20s infinite alternate;
 }
 
 .bg-glow-1 {
-    top: -200px;
-    right: -200px;
-    background: var(--accent);
+    top: -10vw;
+    right: -10vw;
+    background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
 }
 
 .bg-glow-2 {
-    bottom: -200px;
-    left: -200px;
-    background: #06b6d4;
+    bottom: -10vw;
+    left: -10vw;
+    background: radial-gradient(circle, #06b6d4 0%, transparent 70%);
+}
+
+@keyframes moveGlow {
+    0% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(5%, 10%) scale(1.1); }
+    66% { transform: translate(-5%, 5%) scale(0.9); }
+    100% { transform: translate(0, 0) scale(1); }
 }
 
 /* --- Navigation --- */
@@ -591,8 +600,10 @@ button {
 }
 
 .service-card {
-    background: var(--bg-primary);
-    border: 1px solid var(--border-color);
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
     border-radius: var(--radius-lg);
     padding: 40px;
     position: relative;
@@ -719,7 +730,6 @@ button {
 }
 
 .portfolio-item {
-    group: hover;
     position: relative;
 }
 
@@ -727,8 +737,9 @@ button {
     position: relative;
     border-radius: var(--radius-lg);
     overflow: hidden;
-    aspect-ratio: 4/3;
+    aspect-ratio: 16/9;
     background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
 }
 
 .portfolio-image img {

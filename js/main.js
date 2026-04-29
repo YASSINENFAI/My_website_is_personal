@@ -36,6 +36,22 @@ const translations = {
         about_stat_2: "Projects Built",
         about_stat_3: "Live Products",
         
+        // Experience
+        exp_label: "My Journey",
+        exp_title: "Professional Experience",
+        exp_1_title: "Lead AI Developer",
+        exp_1_desc: "Specializing in custom LLM solutions, RAG pipeline development, and automated AI agents.",
+        exp_2_title: "Chatbot Specialist",
+        exp_2_desc: "Built and deployed intelligent customer support bots integrated with CRM systems.",
+        exp_3_title: "Full Stack Developer",
+        exp_3_desc: "Developed responsive web applications with a focus on AI integrations.",
+
+        // Testimonials
+        test_label: "Testimonials",
+        test_title: "What Clients Say",
+        test_1_text: '"Yassine delivered an AI chatbot that exceeded our expectations. Our customer support efficiency increased by 40%."',
+        test_2_text: '"The RAG system Yassine built for our documentation is incredibly accurate. Highly professional developer."',
+
         // Skills
         skills_label: "My Expertise",
         skills_title: "Technical Skills",
@@ -81,6 +97,10 @@ const translations = {
         project_5_desc: "Generate YouTube thumbnails using AI image generation.",
         project_6_title: "Prompt Manager",
         project_6_desc: "AI prompt library and management system for developers.",
+        project_7_title: "SCSIL Club",
+        project_7_desc: "Modern bilingual website for a scientific club with dark mode.",
+        project_8_title: "Hirafi App",
+        project_8_desc: "Skills marketplace connecting skilled workers with customers.",
         live_demo: "Live Demo",
         view_github: "View on GitHub",
         open_source: "Open Source",
@@ -118,6 +138,7 @@ const translations = {
         tag_typescript: "TypeScript",
         tag_education: "Education",
         tag_prompt: "Prompt Engineering",
+        tag_tailwind: "Tailwind CSS",
         tag_image: "AI Image"
     },
     ar: {
@@ -148,6 +169,22 @@ const translations = {
         about_stat_1: "سنوات في AI",
         about_stat_2: "مشروع منجز",
         about_stat_3: "منتج حي",
+
+        // Experience
+        exp_label: "مساري المهني",
+        exp_title: "الخبرة الاحترافية",
+        exp_1_title: "مطور ذكاء اصطناعي أول",
+        exp_1_desc: "متخصص في حلول LLM المخصصة، تطوير أنظمة RAG، ووكلاء الذكاء الاصطناعي الأوتوماتيكية.",
+        exp_2_title: "متخصص شات بوت",
+        exp_2_desc: "بناء ونشر بوتات دعم فني ذكية مدمجة مع أنظمة إدارة العملاء CRM.",
+        exp_3_title: "مطور ويب شامل",
+        exp_3_desc: "تطوير تطبيقات ويب متجاوبة مع التركيز على دمج تقنيات الذكاء الاصطناعي.",
+
+        // Testimonials
+        test_label: "آراء العملاء",
+        test_title: "ماذا يقول العملاء",
+        test_1_text: '"قدم ياسين شات بوت تجاوز توقعاتنا. زادت كفاءة دعم العملاء لدينا بنسبة 40%."',
+        test_2_text: '"نظام RAG الذي بناه ياسين لتوثيقنا دقيق بشكل لا يصدق. مطور محترف للغاية."',
         
         // Skills
         skills_label: "خبراتي",
@@ -194,6 +231,10 @@ const translations = {
         project_5_desc: "إنشاء صور مصغرة ليوتيوب باستخدام توليد الصور بالذكاء الاصطناعي.",
         project_6_title: "مدير الأوامر",
         project_6_desc: "مكتبة أوامر AI ونظام إدارة للمطورين.",
+        project_7_title: "نادي SCSIL",
+        project_7_desc: "موقع حديث ثنائي اللغة لنادي علمي مع الوضع الليلي.",
+        project_8_title: "تطبيق Hirafi",
+        project_8_desc: "سوق للمهارات يربط العمال المهرة بالزبائن.",
         live_demo: "معاينة حية",
         view_github: "عرض على GitHub",
         open_source: "مفتوح المصدر",
@@ -231,7 +272,105 @@ const translations = {
         tag_typescript: "TypeScript",
         tag_education: "تعليم",
         tag_prompt: "هندسة الأوامر",
+        tag_tailwind: "Tailwind CSS",
         tag_image: "صور AI"
+    },
+    fr: {
+        // Navigation
+        nav_about: "À propos",
+        nav_skills: "Compétences",
+        nav_services: "Services",
+        nav_work: "Projets",
+        nav_contact: "Contact",
+        nav_cta: "Recrutez-moi",
+        
+        // Hero
+        hero_status: "Disponible pour projets AI",
+        hero_title_1: "Développeur AI &",
+        hero_title_2: "Spécialiste Chatbot",
+        hero_desc: "Je construis des chatbots intelligents, j'entraîne des modèles AI et j'automatise des flux de travail en utilisant GPT-4, Claude et Gemini.",
+        hero_btn_1: "Voir mes projets",
+        hero_btn_2: "Travaillons ensemble",
+        scroll: "Défiler",
+        
+        // About
+        about_label: "À propos de moi",
+        about_title_1: "Création de",
+        about_title_2: "Solutions AI",
+        about_title_3: "Intelligentes",
+        about_text_1: "Je suis un développeur AI spécialisé dans la création d'agents conversationnels intelligents et l'automatisation intelligente.",
+        about_text_2: "Mon expertise inclut l'intégration de LLM, le prompt engineering et les systèmes RAG.",
+        about_stat_1: "Années en AI",
+        about_stat_2: "Projets réalisés",
+        about_stat_3: "Produits en ligne",
+
+        // Experience
+        exp_label: "Mon Parcours",
+        exp_title: "Expérience Professionnelle",
+        exp_1_title: "Développeur AI Principal",
+        exp_1_desc: "Spécialisé dans les solutions LLM personnalisées, le développement RAG et les agents AI autonomes.",
+        exp_2_title: "Spécialiste Chatbot",
+        exp_2_desc: "Déploiement de bots de support client intelligents intégrés aux systèmes CRM.",
+        exp_3_title: "Développeur Full Stack",
+        exp_3_desc: "Développement d'applications web réactives avec focus sur les intégrations AI.",
+
+        // Testimonials
+        test_label: "Témoignages",
+        test_title: "Ce que disent les clients",
+        test_1_text: '"Yassine a livré un chatbot AI qui a dépassé nos attentes. Notre efficacité a augmenté de 40%."',
+        test_2_text: '"Le système RAG construit par Yassine pour notre documentation est incroyablement précis."',
+        
+        // Skills
+        skills_label: "Mon Expertise",
+        skills_title: "Compétences Techniques",
+        skills_desc: "Technologies et outils que j'utilise",
+        skill_1_title: "AI & LLMs",
+        skill_1_desc: "GPT-4 • Claude • Gemini • Llama • Mistral",
+        skill_2_title: "Développement Chatbot",
+        skill_2_desc: "AI Conversationnelle • Systèmes RAG • Assistants Vocaux",
+        
+        // Services
+        services_label: "Ce que je fais",
+        services_title: "Mes Services",
+        service_1_title: "Développement Chatbot",
+        service_1_desc: "Chatbots personnalisés propulsés par GPT-4, Claude et Gemini.",
+        
+        // Portfolio
+        portfolio_label: "Mon Travail",
+        portfolio_title: "Projets Phares",
+        portfolio_desc: "Applications AI et chatbots que j'ai construits",
+        project_1_title: "InvoiceFlow",
+        project_1_desc: "Système de gestion de factures avec automatisation intelligente.",
+        project_2_title: "CV Pro Builder",
+        project_2_desc: "Générateur de CV professionnel avec suggestions AI.",
+        live_demo: "Démo en direct",
+        view_github: "Voir sur GitHub",
+        open_source: "Open Source",
+        
+        // Contact
+        contact_label: "Contact",
+        contact_title_1: "Construisons quelque chose",
+        contact_title_2: "d'intelligent",
+        contact_desc: "Un projet AI en tête ? Discutons de la manière dont je peux vous aider.",
+        form_name: "Votre Nom",
+        form_email: "Adresse Email",
+        form_project: "Type de Projet",
+        form_message: "Détails du Projet",
+        form_submit: "Envoyer le Message",
+        form_sending: "Envoi en cours...",
+        form_sent: "Message Envoyé !",
+        
+        // Footer
+        footer_rights: "Construisons le futur avec l'AI.",
+        
+        // Tags
+        tag_nextjs: "Next.js",
+        tag_supabase: "Supabase",
+        tag_ai: "AI",
+        tag_javascript: "JavaScript",
+        tag_html: "HTML",
+        tag_typescript: "TypeScript",
+        tag_tailwind: "Tailwind CSS"
     }
 };
 
@@ -241,6 +380,7 @@ const translations = {
 let currentLang = localStorage.getItem('lang') || 'en';
 
 function setLanguage(lang) {
+    if (!translations[lang]) return;
     currentLang = lang;
     localStorage.setItem('lang', lang);
     
@@ -252,10 +392,17 @@ function setLanguage(lang) {
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
         if (translations[lang][key]) {
-            el.textContent = translations[lang][key];
+            // Check if element has spans or needs innerHTML
+            if (el.querySelector('span')) {
+                // If it has complex structure, we might need a more specific logic
+                // But for most headers, innerHTML is fine or replace text nodes
+                el.innerHTML = el.innerHTML.replace(el.textContent.trim(), translations[lang][key]);
+            } else {
+                el.textContent = translations[lang][key];
+            }
         }
     });
-    
+
     // Update placeholders
     document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
         const key = el.getAttribute('data-i18n-placeholder');
@@ -267,9 +414,40 @@ function setLanguage(lang) {
     // Update language toggle button
     const langToggle = document.querySelector('.lang-toggle');
     if (langToggle) {
-        langToggle.textContent = lang === 'en' ? 'العربية' : 'English';
+        langToggle.textContent = lang === 'en' ? 'العربية' : (lang === 'ar' ? 'English' : 'العربية');
     }
+
+    // Refresh scroll animations as content height might change
+    initScrollAnimations();
 }
+
+// =====================================================
+// GLOBAL ACTIONS FOR AI & UI (Compatibility with site-controls.js)
+// =====================================================
+window.siteActions = {
+    setLang: function (lang) {
+        setLanguage(lang);
+    },
+
+    setTheme: function (mode) {
+        if (mode === 'dark') {
+            document.body.classList.add('dark-mode');
+        } else {
+            document.body.classList.remove('dark-mode');
+        }
+    },
+
+    navigate: function (sectionId) {
+        const section = document.getElementById(sectionId);
+        if (section) {
+            const offsetTop = section.getBoundingClientRect().top + window.pageYOffset - 80;
+            window.scrollTo({
+                top: offsetTop,
+                behavior: 'smooth'
+            });
+        }
+    }
+};
 
 function initLanguageSwitcher() {
     // Create language toggle button
