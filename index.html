@@ -1,833 +1,384 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-    <!-- SEO Meta Tags -->
-    <title>Yassine Nfouh | AI Developer & Chatbot Specialist</title>
-    <meta name="description"
-        content="AI Developer specializing in Chatbots, LLM Integration, AI Training, and Automation. Expert in GPT-4, Claude, Gemini APIs, OpenAI, Fine-tuning, RAG systems.">
-    <meta name="keywords" content="AI developer, chatbot developer, AI training, LLM integration, prompt engineering, GPT-4, Claude, Gemini, OpenAI, fine-tuning, RAG, automation, Python">
-    <meta name="author" content="Yassine Nfouh">
+<!-- SEO Meta Tags -->
+<title>Yassine Nfouh — AI Developer & Creative Designer</title>
+<meta name="description" content="AI Developer and Web Designer with hands-on experience building AI-powered applications, LLM integrations, and intelligent automation systems. Specialized in GPT-4, Claude API, Gemini, prompt engineering, and full-stack development with Next.js and React.">
+<meta name="keywords" content="AI developer, web designer, chatbot developer, LLM integration, prompt engineering, GPT-4, Claude, Gemini, OpenAI, Next.js, React, Tailwind CSS, automation">
+<meta name="author" content="Yassine Nfouh">
 
-    <!-- Open Graph / Social Media -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Yassine Nfouh | AI Developer & Chatbot Specialist">
-    <meta property="og:description"
-        content="AI Developer specializing in Chatbots, LLM Integration, AI Training, and Automation.">
-    <meta property="og:image" content="assets/og-image.jpg">
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Yassine Nfouh — AI Developer & Creative Designer">
+<meta property="og:description" content="AI Developer and Web Designer building intelligent automation systems and polished web interfaces.">
+<meta property="og:image" content="assets/profile.jpg">
+<meta property="og:url" content="https://yassine-olive.vercel.app">
 
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Yassine Nfouh — AI Developer & Creative Designer">
+<meta name="twitter:description" content="AI Developer and Web Designer building intelligent automation systems and polished web interfaces.">
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml"
-        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%233b82f6'/><text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle' font-size='60' font-weight='bold' fill='white'>Y</text></svg>">
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%2300d4ff'/><text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle' font-size='60' font-weight='bold' fill='%230a0f1e'>Y</text></svg>">
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Tajawal:wght@300;400;500;700;800&display=swap"
-        rel="stylesheet">
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
 
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/chat-widget.css">
-    <link rel="stylesheet" href="css/style-extras.css">
-    
-    <style>
-        /* RTL Support */
-        [dir="rtl"] body {
-            font-family: 'Tajawal', 'Inter', sans-serif;
-        }
-        
-        [dir="rtl"] .navbar .container {
-            flex-direction: row-reverse;
-        }
-        
-        [dir="rtl"] .nav-links {
-            flex-direction: row-reverse;
-        }
-        
-        [dir="rtl"] .hero-content {
-            text-align: right;
-        }
-        
-        [dir="rtl"] .about-content {
-            text-align: right;
-        }
-        
-        [dir="rtl"] .contact-info {
-            text-align: right;
-        }
-        
-        [dir="rtl"] .service-card {
-            text-align: right;
-        }
-        
-        [dir="rtl"] .portfolio-info {
-            text-align: right;
-        }
-        
-        [dir="rtl"] .footer-content {
-            flex-direction: row-reverse;
-        }
-        
-        [dir="rtl"] .footer-links {
-            flex-direction: row-reverse;
-        }
-        
-        [dir="rtl"] .hero-buttons {
-            justify-content: flex-end;
-        }
-        
-        [dir="rtl"] .about-stats {
-            justify-content: flex-end;
-        }
-        
-        [dir="rtl"] .social-links {
-            justify-content: flex-start;
-        }
-        
-        [dir="rtl"] .btn .btn-icon {
-            margin-left: 0;
-            margin-right: 8px;
-            transform: rotate(180deg);
-        }
-        
-        /* Lang Toggle */
-        .lang-toggle {
-            background: rgba(255,255,255,0.1);
-            border: 1px solid rgba(255,255,255,0.2);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 14px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            margin-right: 12px;
-        }
-        
-        .lang-toggle:hover {
-            background: rgba(255,255,255,0.2);
-        }
-        
-        [dir="rtl"] .lang-toggle {
-            margin-right: 0;
-            margin-left: 12px;
-        }
-    </style>
+<!-- Stylesheets -->
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/chat-widget.css">
+
+<style>
+  /* RTL Support */
+  [dir="rtl"] .nav-inner { flex-direction: row-reverse; }
+  [dir="rtl"] .nav-links { flex-direction: row-reverse; }
+  [dir="rtl"] .tl-head { flex-direction: row-reverse; }
+  [dir="rtl"] .timeline-item { padding-left: 0; padding-right: 2rem; border-left: none; border-right: 1px solid rgba(255,255,255,0.1); }
+  [dir="rtl"] .timeline-item::before { left: auto; right: -5px; }
+  [dir="rtl"] .tl-list li { padding-left: 0; padding-right: 1.2rem; }
+  [dir="rtl"] .tl-list li::before { left: auto; right: 0; }
+  [dir="rtl"] .contact-links { flex-direction: row-reverse; }
+  [dir="rtl"] .social-row { flex-direction: row-reverse; }
+  [dir="rtl"] .about-content { text-align: right; }
+
+  /* Lang Toggle */
+  .lang-toggle {
+    background: rgba(0,212,255,0.1);
+    border: 1px solid rgba(0,212,255,0.3);
+    color: var(--primary);
+    padding: 6px 14px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 600;
+    transition: all 0.2s;
+    margin-right: 12px;
+    font-family: 'Outfit', sans-serif;
+  }
+  .lang-toggle:hover { background: rgba(0,212,255,0.2); }
+  [dir="rtl"] .lang-toggle { margin-right: 0; margin-left: 12px; }
+
+  /* Mobile menu */
+  .mobile-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+  }
+  .mobile-toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--text);
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+  .mobile-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+  .mobile-toggle.active span:nth-child(2) { opacity: 0; }
+  .mobile-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+  @media(max-width:640px) {
+    .mobile-toggle { display: flex; }
+    .nav-links {
+      display: none;
+      position: fixed;
+      top: 64px;
+      left: 0;
+      right: 0;
+      background: rgba(10,15,30,0.95);
+      backdrop-filter: blur(16px);
+      flex-direction: column;
+      padding: 2rem;
+      gap: 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-links.mobile-open { display: flex; }
+    .btn-outline { display: none; }
+    .skills-grid { grid-template-columns: 1fr; }
+    .projects-grid { grid-template-columns: 1fr; }
+  }
+</style>
 </head>
-
 <body>
-    <!-- Background Effects -->
-    <div class="bg-grid"></div>
-    <div class="bg-glow bg-glow-1"></div>
-    <div class="bg-glow bg-glow-2"></div>
 
-    <!-- =====================================================
-         NAVIGATION
-         ===================================================== -->
-    <header class="navbar">
-        <div class="container">
-            <a href="#" class="logo">
-                <div class="logo-icon">Y</div>
-                <span>Yassine</span>
-            </a>
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#about" class="logo">Y.N</a>
+    <ul class="nav-links">
+      <li><a href="#about" data-i18n="nav_about">About</a></li>
+      <li><a href="#skills" data-i18n="nav_skills">Skills</a></li>
+      <li><a href="#experience" data-i18n="nav_experience">Experience</a></li>
+      <li><a href="#projects" data-i18n="nav_projects">Projects</a></li>
+      <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="btn-outline" data-i18n="nav_cta">Get in Touch</a>
+    <button class="mobile-toggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
 
-            <nav class="nav-links">
-                <a href="#about" class="nav-link" data-i18n="nav_about">About</a>
-                <a href="#experience" class="nav-link" data-i18n="exp_label">Experience</a>
-                <a href="#skills" class="nav-link" data-i18n="nav_skills">Skills</a>
-                <a href="#services" class="nav-link" data-i18n="nav_services">Services</a>
-                <a href="#portfolio" class="nav-link" data-i18n="nav_work">Projects</a>
-                <a href="#contact" class="nav-link" data-i18n="nav_contact">Contact</a>
-            </nav>
+<main>
+  <!-- HERO -->
+  <section id="about" class="hero">
+    <div class="container">
+      <div class="avatar-wrap reveal">
+        <div class="avatar-glow"></div>
+        <img class="avatar" src="assets/profile.jpg" alt="Yassine Nfouh"/>
+      </div>
+      <h1 class="reveal">YASSINE NFOUH</h1>
+      <p class="subtitle reveal" data-i18n="hero_subtitle">AI Developer | Web Designer | App Interface Designer | Automation Specialist</p>
+      <p class="summary reveal" data-i18n="hero_summary">
+        AI Developer and Web Designer with 1+ year of hands-on experience building AI-powered applications, LLM integrations, and intelligent automation systems — alongside responsive website design and app interface design. Proficient in integrating GPT-4, Claude API, and Gemini into production-grade tools. Specialized in prompt engineering, end-to-end AI pipeline development, and crafting polished web and mobile UI using Next.js, React, and Tailwind CSS.
+      </p>
+      <div class="btn-group reveal">
+        <a href="#projects" class="btn-primary" data-i18n="hero_btn_projects">View Projects</a>
+        <a href="#contact" class="btn-ghost" data-i18n="hero_btn_contact">Contact Me</a>
+      </div>
+    </div>
+  </section>
 
-            <a href="#contact" class="nav-cta" data-i18n="nav_cta">
-                Hire Me
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
-            </a>
-
-            <!-- Mobile Menu Toggle -->
-            <button class="mobile-toggle" aria-label="Toggle menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="container">
+      <h2 class="sec-title reveal"><span>◆</span> <span data-i18n="skills_title">Technical Expertise</span></h2>
+      <div class="skills-grid">
+        <div class="skill-card reveal">
+          <h3>AI / LLM</h3>
+          <div class="badge-row">
+            <span class="badge">GPT-4</span>
+            <span class="badge">Claude API</span>
+            <span class="badge">Gemini API</span>
+            <span class="badge">OpenAI API</span>
+            <span class="badge">NLP</span>
+            <span class="badge">RAG</span>
+            <span class="badge" data-i18n="badge_prompt_eng">Prompt Engineering</span>
+            <span class="badge">AI Agents</span>
+            <span class="badge" data-i18n="badge_chatbot">Chatbot Dev</span>
+          </div>
         </div>
-    </header>
-
-    <main>
-        <!-- =====================================================
-             HERO SECTION
-             ===================================================== -->
-        <section class="hero">
-            <div class="container">
-                <div class="hero-content">
-                    <div class="hero-badge fade-in">
-                        <span class="status-dot"></span>
-                        <span data-i18n="hero_status">Available for AI Projects</span>
-                    </div>
-
-                    <h1 class="fade-in fade-in-delay-1">
-                        <span data-i18n="hero_title_1">AI Developer &</span>
-                        <span class="gradient-text" data-i18n="hero_title_2">Chatbot Specialist</span>
-                    </h1>
-
-                    <p class="fade-in fade-in-delay-2" data-i18n="hero_desc">
-                        I build intelligent chatbots, train AI models, and automate workflows using
-                        GPT-4, Claude, Gemini, and OpenAI APIs.
-                        Specialized in LLM integration, RAG systems, and fine-tuning.
-                    </p>
-
-                    <div class="hero-buttons fade-in fade-in-delay-3">
-                        <a href="#portfolio" class="btn btn-primary">
-                            <span data-i18n="hero_btn_1">View My Projects</span>
-                            <svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2">
-                                <path d="M5 12h14M12 5l7 7-7 7" />
-                            </svg>
-                        </a>
-                        <a href="#contact" class="btn btn-secondary" data-i18n="hero_btn_2">
-                            Let's Work Together
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Scroll Indicator -->
-            <div class="scroll-indicator">
-                <div class="mouse">
-                    <div class="wheel"></div>
-                </div>
-                <span data-i18n="scroll">Scroll</span>
-            </div>
-        </section>
-
-        <!-- =====================================================
-             ABOUT SECTION
-             ===================================================== -->
-        <section id="about" class="about">
-            <div class="container">
-                <div class="about-grid">
-                    <div class="about-image fade-in">
-                        <div class="about-image-wrapper">
-                            <img src="assets/profile.jpg"
-                                alt="Profile portrait" loading="lazy">
-                        </div>
-                        <div class="about-image-decoration"></div>
-                    </div>
-
-                    <div class="about-content">
-                        <span class="section-label fade-in" data-i18n="about_label">About Me</span>
-                        <h2 class="section-title fade-in fade-in-delay-1">
-                            <span data-i18n="about_title_1">Building</span> <span class="gradient-text" data-i18n="about_title_2">Intelligent</span> <span data-i18n="about_title_3">AI Solutions</span>
-                        </h2>
-
-                        <p class="about-text fade-in fade-in-delay-2" data-i18n="about_text_1">
-                            I'm an AI Developer and Chatbot Specialist with hands-on experience in building
-                            intelligent conversational agents and training AI models. I work with GPT-4, Claude,
-                            Gemini, and OpenAI to create smart automation solutions.
-                        </p>
-
-                        <p class="about-text fade-in fade-in-delay-3" data-i18n="about_text_2">
-                            My expertise includes LLM integration, prompt engineering, RAG systems,
-                            fine-tuning models, and building production-ready chatbots. I help businesses
-                            leverage AI to automate processes and enhance customer experiences.
-                        </p>
-
-                        <div class="about-stats fade-in fade-in-delay-4">
-                            <div class="stat-item">
-                                <div class="stat-number" data-target="3">3+</div>
-                                <div class="stat-label" data-i18n="about_stat_1">Years in AI</div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="stat-number" data-target="18">18+</div>
-                                <div class="stat-label" data-i18n="about_stat_2">Projects Built</div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="stat-number" data-target="6">6+</div>
-                                <div class="stat-label" data-i18n="about_stat_3">Live Products</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- =====================================================
-             SKILLS SECTION
-             ===================================================== -->
-        <section id="skills" class="services">
-            <div class="container">
-                <div class="services-header">
-                    <span class="section-label fade-in" data-i18n="skills_label">My Expertise</span>
-                    <h2 class="section-title fade-in fade-in-delay-1" data-i18n="skills_title">Technical Skills</h2>
-                    <p class="section-description fade-in fade-in-delay-2" data-i18n="skills_desc">
-                        Technologies and tools I use to build AI solutions
-                    </p>
-                </div>
-
-                <div class="services-grid">
-                    <!-- AI & LLMs -->
-                    <article class="service-card fade-in">
-                        <div class="service-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path d="M12 2L2 7l10 5 10 5-10 5L2 12l10-5"/>
-                                <path d="M2 17l10 5 10-5"/>
-                                <path d="M2 12l10 5 10-5"/>
-                            </svg>
-                        </div>
-                        <h3 data-i18n="skill_1_title">AI & LLMs</h3>
-                        <p data-i18n="skill_1_desc">
-                            GPT-4 • Claude • Gemini • OpenAI API • Llama • Mistral
-                        </p>
-                    </article>
-
-                    <!-- Chatbot Development -->
-                    <article class="service-card fade-in fade-in-delay-1">
-                        <div class="service-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-                            </svg>
-                        </div>
-                        <h3 data-i18n="skill_2_title">Chatbot Development</h3>
-                        <p data-i18n="skill_2_desc">
-                            Conversational AI • RAG Systems • Voice Assistants • Multi-modal Bots
-                        </p>
-                    </article>
-
-                    <!-- AI Training -->
-                    <article class="service-card fade-in fade-in-delay-2">
-                        <div class="service-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path d="M12 14l9-5-9-5-9 5 9 5z"/>
-                                <path d="M12 14l6.16-3.422a12.083 12.083 0 0 1 .665 6.479A11.952 11.952 0 0 0 12 20.055a11.952 11.952 0 0 0-6.824-2.998 12.078 12.078 0 0 1 .665-6.479L12 14z"/>
-                                <path d="M12 14v7"/>
-                            </svg>
-                        </div>
-                        <h3 data-i18n="skill_3_title">AI Training & Fine-tuning</h3>
-                        <p data-i18n="skill_3_desc">
-                            Model Fine-tuning • Prompt Engineering • Dataset Preparation • Evaluation
-                        </p>
-                    </article>
-
-                    <!-- Automation -->
-                    <article class="service-card fade-in fade-in-delay-3">
-                        <div class="service-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path d="M4 4h16v16H4V4z"/>
-                                <path d="M4 9h16M9 4v16"/>
-                            </svg>
-                        </div>
-                        <h3 data-i18n="skill_4_title">Workflow Automation</h3>
-                        <p data-i18n="skill_4_desc">
-                            Make (Integromat) • n8n • Zapier • Custom Scripts • API Integration
-                        </p>
-                    </article>
-
-                    <!-- Programming -->
-                    <article class="service-card fade-in fade-in-delay-4">
-                        <div class="service-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <polyline points="16 18 22 12 16 6"/>
-                                <polyline points="8 6 2 12 8 18"/>
-                            </svg>
-                        </div>
-                        <h3 data-i18n="skill_5_title">Programming</h3>
-                        <p data-i18n="skill_5_desc">
-                            Python • TypeScript • JavaScript • REST APIs • SQL
-                        </p>
-                    </article>
-
-                    <!-- Tools -->
-                    <article class="service-card fade-in fade-in-delay-5">
-                        <div class="service-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
-                            </svg>
-                        </div>
-                        <h3 data-i18n="skill_6_title">Tools & Platforms</h3>
-                        <p data-i18n="skill_6_desc">
-                            Supabase • Vercel • Hugging Face • LangChain • Pinecone
-                        </p>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- =====================================================
-             SERVICES SECTION
-             ===================================================== -->
-        <section id="services" class="services" style="background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);">
-            <div class="container">
-                <div class="services-header">
-                    <span class="section-label fade-in" style="color: #60a5fa;" data-i18n="services_label">What I Do</span>
-                    <h2 class="section-title fade-in fade-in-delay-1" style="color: white;" data-i18n="services_title">Services I Offer</h2>
-                </div>
-
-                <div class="services-grid">
-                    <!-- Service 1: Chatbot Development -->
-                    <article class="service-card fade-in" style="background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.1);">
-                        <div class="service-icon" style="color: #60a5fa;">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-                            </svg>
-                        </div>
-                        <h3 style="color: white;" data-i18n="service_1_title">Chatbot Development</h3>
-                        <p style="color: #94a3b8;" data-i18n="service_1_desc">
-                            Custom chatbots powered by GPT-4, Claude, and Gemini.
-                            RAG systems, voice assistants, and multi-modal bots.
-                        </p>
-                    </article>
-
-                    <!-- Service 2: AI Training -->
-                    <article class="service-card fade-in fade-in-delay-1" style="background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.1);">
-                        <div class="service-icon" style="color: #34d399;">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path d="M12 14l9-5-9-5-9 5 9 5z"/>
-                                <path d="M12 14v7"/>
-                            </svg>
-                        </div>
-                        <h3 style="color: white;" data-i18n="service_2_title">AI Training & Fine-tuning</h3>
-                        <p style="color: #94a3b8;" data-i18n="service_2_desc">
-                            Fine-tune models for your specific use case.
-                            Prompt engineering and dataset preparation.
-                        </p>
-                    </article>
-
-                    <!-- Service 3: Automation -->
-                    <article class="service-card fade-in fade-in-delay-2" style="background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.1);">
-                        <div class="service-icon" style="color: #a78bfa;">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path d="M4 4h16v16H4V4z"/>
-                                <path d="M4 9h16M9 4v16"/>
-                            </svg>
-                        </div>
-                        <h3 style="color: white;" data-i18n="service_3_title">Workflow Automation</h3>
-                        <p style="color: #94a3b8;" data-i18n="service_3_desc">
-                            Automate business processes with Make, n8n, and custom scripts.
-                            Save time and reduce errors.
-                        </p>
-                    </article>
-
-                    <!-- Service 4: API Integration -->
-                    <article class="service-card fade-in fade-in-delay-3" style="background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.1);">
-                        <div class="service-icon" style="color: #f472b6;">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path d="M21 12a9 9 0 1 1-9 9H3a9 9 0 1 1-9-9 9-9-9-9-9 9-9 9z"/>
-                                <path d="M3 12h18"/>
-                            </svg>
-                        </div>
-                        <h3 style="color: white;" data-i18n="service_4_title">API Integration</h3>
-                        <p style="color: #94a3b8;" data-i18n="service_4_desc">
-                            Connect AI models to your existing systems.
-                            REST APIs, webhooks, and databases.
-                        </p>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- =====================================================
-             EXPERIENCE SECTION
-             ===================================================== -->
-        <section id="experience" class="experience">
-            <div class="container">
-                <div class="services-header">
-                    <span class="section-label fade-in" data-i18n="exp_label">My Journey</span>
-                    <h2 class="section-title fade-in fade-in-delay-1" data-i18n="exp_title">Professional Experience</h2>
-                </div>
-
-                <div class="timeline">
-                    <!-- Experience 1 -->
-                    <div class="timeline-item fade-in">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <span class="timeline-date">2024 - Present</span>
-                            <h3 data-i18n="exp_1_title">Lead AI Developer</h3>
-                            <p class="timeline-company">Freelance | Remote</p>
-                            <p data-i18n="exp_1_desc">Specializing in custom LLM solutions, RAG pipeline development, and automated AI agents for international clients.</p>
-                        </div>
-                    </div>
-
-                    <!-- Experience 2 -->
-                    <div class="timeline-item fade-in fade-in-delay-1">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <span class="timeline-date">2023 - 2024</span>
-                            <h3 data-i18n="exp_2_title">Chatbot Specialist</h3>
-                            <p class="timeline-company">Tech Solutions Inc.</p>
-                            <p data-i18n="exp_2_desc">Built and deployed intelligent customer support bots integrated with Shopify and custom CRM systems.</p>
-                        </div>
-                    </div>
-
-                    <!-- Experience 3 -->
-                    <div class="timeline-item fade-in fade-in-delay-2">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <span class="timeline-date">2022 - 2023</span>
-                            <h3 data-i18n="exp_3_title">Full Stack Developer</h3>
-                            <p class="timeline-company">Digital Agency</p>
-                            <p data-i18n="exp_3_desc">Developed responsive web applications using React, Next.js, and Node.js with a focus on AI integrations.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- =====================================================
-             TESTIMONIALS SECTION
-             ===================================================== -->
-        <section id="testimonials" class="testimonials">
-            <div class="container">
-                <div class="services-header">
-                    <span class="section-label fade-in" data-i18n="test_label">Testimonials</span>
-                    <h2 class="section-title fade-in fade-in-delay-1" data-i18n="test_title">What Clients Say</h2>
-                </div>
-
-                <div class="testimonials-grid">
-                    <div class="testimonial-card fade-in">
-                        <div class="quote-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M14.017 21L14.017 18C14.017 16.8954 14.9124 16 16.017 16H19.017C19.5693 16 20.017 15.5523 20.017 15V9C20.017 8.44772 19.5693 8 19.017 8H16.017C15.4647 8 15.017 8.44772 15.017 9V12C15.017 12.5523 14.5693 13 14.017 13H13.017V21H14.017ZM6.017 21L6.017 18C6.017 16.8954 6.91243 16 8.017 16H11.017C11.5693 16 12.017 15.5523 12.017 15V9C12.017 8.44772 11.5693 8 11.017 8H8.017C7.46472 8 7.017 8.44772 7.017 9V12C7.017 12.5523 6.56928 13 6.017 13H5.017V21H6.017Z" />
-                            </svg>
-                        </div>
-                        <p class="testimonial-text" data-i18n="test_1_text">"Yassine delivered an AI chatbot that exceeded our expectations. Our customer support efficiency increased by 40%."</p>
-                        <div class="testimonial-author">
-                            <div class="author-info">
-                                <h4 class="author-name">Sarah Johnson</h4>
-                                <p class="author-role">E-commerce Owner</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="testimonial-card fade-in fade-in-delay-1">
-                        <div class="quote-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M14.017 21L14.017 18C14.017 16.8954 14.9124 16 16.017 16H19.017C19.5693 16 20.017 15.5523 20.017 15V9C20.017 8.44772 19.5693 8 19.017 8H16.017C15.4647 8 15.017 8.44772 15.017 9V12C15.017 12.5523 14.5693 13 14.017 13H13.017V21H14.017ZM6.017 21L6.017 18C6.017 16.8954 6.91243 16 8.017 16H11.017C11.5693 16 12.017 15.5523 12.017 15V9C12.017 8.44772 11.5693 8 11.017 8H8.017C7.46472 8 7.017 8.44772 7.017 9V12C7.017 12.5523 6.56928 13 6.017 13H5.017V21H6.017Z" />
-                            </svg>
-                        </div>
-                        <p class="testimonial-text" data-i18n="test_2_text">"The RAG system Yassine built for our documentation is incredibly accurate. Highly professional and skilled developer."</p>
-                        <div class="testimonial-author">
-                            <div class="author-info">
-                                <h4 class="author-name">Marc Dupont</h4>
-                                <p class="author-role">CTO, DataTech</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- =====================================================
-             PORTFOLIO SECTION
-             ===================================================== -->
-        <section id="portfolio" class="portfolio">
-            <div class="container">
-                <div class="portfolio-header">
-                    <div>
-                        <span class="section-label fade-in" data-i18n="portfolio_label">My Work</span>
-                        <h2 class="section-title fade-in fade-in-delay-1" data-i18n="portfolio_title">Featured Projects</h2>
-                        <p class="section-description fade-in fade-in-delay-2" data-i18n="portfolio_desc">
-                            AI-powered applications and chatbots I've built
-                        </p>
-                    </div>
-                </div>
-
-                <div class="portfolio-grid">
-                    <!-- Project 1: InvoiceFlow -->
-                    <article class="portfolio-item fade-in" data-category="web">
-                        <div class="portfolio-image">
-                            <img src="assets/invoiceflow.jpg"
-                                alt="InvoiceFlow - Invoice Management System" loading="lazy">
-                            <a href="https://invoice-saas-xi.vercel.app" target="_blank"
-                                rel="noopener noreferrer" class="portfolio-overlay">
-                                <div class="portfolio-overlay-content">
-                                    <h4 data-i18n="live_demo">Live Demo</h4>
-                                    <p>invoice-saas-xi.vercel.app</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="portfolio-info">
-                            <h3 data-i18n="project_1_title">InvoiceFlow</h3>
-                            <p data-i18n="project_1_desc">AI-ready invoice management system with smart automation features.</p>
-                            <div class="portfolio-tags">
-                                <span class="portfolio-tag" data-i18n="tag_nextjs">Next.js</span>
-                                <span class="portfolio-tag" data-i18n="tag_supabase">Supabase</span>
-                                <span class="portfolio-tag" data-i18n="tag_ai">AI</span>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Project 2: CV Pro Builder -->
-                    <article class="portfolio-item fade-in fade-in-delay-1" data-category="web">
-                        <div class="portfolio-image">
-                            <img src="assets/cvbuilder.jpg"
-                                alt="CV Pro Builder" loading="lazy">
-                            <a href="https://www.cvpersonal.xyz" target="_blank"
-                                rel="noopener noreferrer" class="portfolio-overlay">
-                                <div class="portfolio-overlay-content">
-                                    <h4 data-i18n="live_demo">Live Demo</h4>
-                                    <p>cvpersonal.xyz</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="portfolio-info">
-                            <h3 data-i18n="project_2_title">CV Pro Builder</h3>
-                            <p data-i18n="project_2_desc">Professional CV builder with AI-powered content suggestions.</p>
-                            <div class="portfolio-tags">
-                                <span class="portfolio-tag" data-i18n="tag_javascript">JavaScript</span>
-                                <span class="portfolio-tag" data-i18n="tag_ai">AI</span>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Project 3: Bac Calculator -->
-                    <article class="portfolio-item fade-in fade-in-delay-2" data-category="web">
-                        <div class="portfolio-image">
-                            <img src="https://images.unsplash.com/photo-1509228468518-180dd4864904?w=800&h=600&fit=crop"
-                                alt="Bac Calculator Morocco" loading="lazy">
-                            <a href="https://github.com/YASSINENFAI/bac-calculator-morocco" target="_blank"
-                                rel="noopener noreferrer" class="portfolio-overlay">
-                                <div class="portfolio-overlay-content">
-                                    <h4 data-i18n="view_github">View on GitHub</h4>
-                                    <p data-i18n="open_source">Open Source</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="portfolio-info">
-                            <h3 data-i18n="project_3_title">Bac Calculator Morocco</h3>
-                            <p data-i18n="project_3_desc">Smart grade calculator for Moroccan students.</p>
-                            <div class="portfolio-tags">
-                                <span class="portfolio-tag" data-i18n="tag_html">HTML</span>
-                                <span class="portfolio-tag" data-i18n="tag_education">Education</span>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Project 4: Age Calculator -->
-                    <article class="portfolio-item fade-in fade-in-delay-3" data-category="web">
-                        <div class="portfolio-image">
-                            <img src="https://images.unsplash.com/photo-1633158829585-23ba8f7c8caf?w=800&h=600&fit=crop"
-                                alt="Age Calculator" loading="lazy">
-                            <a href="https://age-calculator-droxai.vercel.app" target="_blank"
-                                rel="noopener noreferrer" class="portfolio-overlay">
-                                <div class="portfolio-overlay-content">
-                                    <h4 data-i18n="live_demo">Live Demo</h4>
-                                    <p>age-calculator-droxai.vercel.app</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="portfolio-info">
-                            <h3 data-i18n="project_4_title">Age Calculator</h3>
-                            <p data-i18n="project_4_desc">AI-powered age calculation with natural language processing.</p>
-                            <div class="portfolio-tags">
-                                <span class="portfolio-tag" data-i18n="tag_javascript">JavaScript</span>
-                                <span class="portfolio-tag" data-i18n="tag_ai">AI</span>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Project 5: AI YouTube Thumbnail -->
-                    <article class="portfolio-item fade-in fade-in-delay-4" data-category="design">
-                        <div class="portfolio-image">
-                            <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&h=600&fit=crop"
-                                alt="AI YouTube Thumbnail Generator" loading="lazy">
-                            <a href="https://github.com/YASSINENFAI/AI-YouTube-Thumbnail-Generator" target="_blank"
-                                rel="noopener noreferrer" class="portfolio-overlay">
-                                <div class="portfolio-overlay-content">
-                                    <h4 data-i18n="view_github">View on GitHub</h4>
-                                    <p data-i18n="open_source">Open Source</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="portfolio-info">
-                            <h3 data-i18n="project_5_title">AI Thumbnail Generator</h3>
-                            <p data-i18n="project_5_desc">Generate YouTube thumbnails using AI image generation.</p>
-                            <div class="portfolio-tags">
-                                <span class="portfolio-tag" data-i18n="tag_typescript">TypeScript</span>
-                                <span class="portfolio-tag" data-i18n="tag_image">AI Image</span>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Project 6: Prompt App -->
-                    <article class="portfolio-item fade-in fade-in-delay-5" data-category="web">
-                        <div class="portfolio-image">
-                            <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=600&fit=crop"
-                                alt="Prompt App" loading="lazy">
-                            <a href="https://github.com/YASSINENFAI/prompt" target="_blank"
-                                rel="noopener noreferrer" class="portfolio-overlay">
-                                <div class="portfolio-overlay-content">
-                                    <h4 data-i18n="view_github">View on GitHub</h4>
-                                    <p data-i18n="open_source">Open Source</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="portfolio-info">
-                            <h3 data-i18n="project_6_title">Prompt Manager</h3>
-                            <p data-i18n="project_6_desc">AI prompt library and management system for developers.</p>
-                            <div class="portfolio-tags">
-                                <span class="portfolio-tag" data-i18n="tag_html">HTML</span>
-                                <span class="portfolio-tag" data-i18n="tag_prompt">Prompt Engineering</span>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Project 7: Hirafi App -->
-                    <article class="portfolio-item fade-in fade-in-delay-6" data-category="web">
-                        <div class="portfolio-image">
-                            <img src="assets/hirafi-app.jpg"
-                                alt="Hirafi - Skills Marketplace App" loading="lazy">
-                            <a href="https://github.com/YASSINENFAI/hirafi" target="_blank"
-                                rel="noopener noreferrer" class="portfolio-overlay">
-                                <div class="portfolio-overlay-content">
-                                    <h4 data-i18n="view_github">View on GitHub</h4>
-                                    <p data-i18n="open_source">Open Source</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="portfolio-info">
-                            <h3 data-i18n="project_7_title">Hirafi App</h3>
-                            <p data-i18n="project_7_desc">Skills marketplace connecting skilled workers with customers. Modern UI with bilingual support.</p>
-                            <div class="portfolio-tags">
-                                <span class="portfolio-tag" data-i18n="tag_nextjs">Next.js</span>
-                                <span class="portfolio-tag" data-i18n="tag_tailwind">Tailwind CSS</span>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Project 8: LeadGenius -->
-                    <article class="portfolio-item fade-in fade-in-delay-7" data-category="web">
-                        <div class="portfolio-image">
-                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop"
-                                alt="LeadGenius - AI Lead Generation Tool" loading="lazy">
-                            <a href="https://github.com/YASSINENFAI/LeadGenius" target="_blank"
-                                rel="noopener noreferrer" class="portfolio-overlay">
-                                <div class="portfolio-overlay-content">
-                                    <h4 data-i18n="view_github">View on GitHub</h4>
-                                    <p data-i18n="open_source">Open Source</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="portfolio-info">
-                            <h3 data-i18n="project_8_title">LeadGenius</h3>
-                            <p data-i18n="project_8_desc">Free AI-powered lead generation and email outreach tool. Find leads, generate personalized emails, automate outreach.</p>
-                            <div class="portfolio-tags">
-                                <span class="portfolio-tag" data-i18n="tag_nextjs">Next.js</span>
-                                <span class="portfolio-tag" data-i18n="tag_ai">AI</span>
-                                <span class="portfolio-tag" data-i18n="tag_opensource">Open Source</span>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- =====================================================
-             QUOTE SECTION
-             ===================================================== -->
-        <section class="quote-section">
-            <div class="container">
-                <div class="quote-content fade-in">
-                    <p class="quote-text" data-i18n="quote_text">
-                        "AI should augment human capabilities, not replace them.
-                        Every intelligent system should solve real problems for real people."
-                    </p>
-                    <span class="quote-author" data-i18n="quote_author">— My AI Philosophy</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- =====================================================
-             CONTACT SECTION
-             ===================================================== -->
-        <section id="contact" class="contact">
-            <div class="container">
-                <div class="contact-info" style="max-width: 700px; margin: 0 auto; text-align: center;">
-                    <span class="section-label fade-in" data-i18n="contact_label">Get in Touch</span>
-                    <h2 class="section-title fade-in fade-in-delay-1">
-                        <span data-i18n="contact_title_1">Let's build something</span> <span class="gradient-text" data-i18n="contact_title_2">intelligent</span>
-                    </h2>
-                    <p class="fade-in fade-in-delay-2" data-i18n="contact_desc">
-                        Have an AI project in mind? Let's discuss how I can help bring your ideas to life.
-                    </p>
-
-                    <div class="contact-methods fade-in fade-in-delay-3" style="justify-content: center; margin-top: 40px;">
-                        <a href="mailto:azffhk@gmail.com" class="contact-method">
-                            <div class="contact-method-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <rect x="2" y="4" width="20" height="16" rx="2" />
-                                    <path d="M22 6L12 13 2 6" />
-                                </svg>
-                            </div>
-                            <span>azffhk@gmail.com</span>
-                        </a>
-                        <a href="https://t.me/FGMANO" class="contact-method" target="_blank" rel="noopener noreferrer">
-                            <div class="contact-method-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M21.198 2.433a2.242 2.242 0 0 0-1.022.215l-8.609 3.33c-2.068.8-4.133 1.598-5.724 2.21a405.15 405.15 0 0 1-2.849 1.09c-.42.147-.99.332-1.473.901-.728.855.055 1.665.608 2.012.495.31.967.497 1.468.686l3.012 1.167c.127.306.398.96.622 1.522l1.45 3.733c.168.433.378.907.753 1.197.437.339 1.023.442 1.507.166.448-.255.724-.663.944-1.065l1.77-3.238 3.496 2.777c.537.434 1.173.867 1.918.867.8 0 1.4-.502 1.783-1.018.452-.608.727-1.342.938-2.024l2.88-9.297c.398-1.302.272-2.5-.564-3.206a2.248 2.248 0 0 0-1.5-.513z"/>
-                                </svg>
-                            </div>
-                            <span>@FGMANO</span>
-                        </a>
-                        <a href="https://github.com/YASSINENFAI" class="contact-method" target="_blank" rel="noopener noreferrer">
-                            <div class="contact-method-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24">
-                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" fill="currentColor"/>
-                                </svg>
-                            </div>
-                            <span>GitHub</span>
-                        </a>
-                        <a href="tel:+212656921789" class="contact-method">
-                            <div class="contact-method-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-                                </svg>
-                            </div>
-                            <span>+212 656 921 789</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- =====================================================
-         FOOTER
-         ===================================================== -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <a href="#" class="footer-logo">
-                    <div class="logo-icon">Y</div>
-                    <span>Yassine</span>
-                </a>
-
-                <nav class="footer-links">
-                    <a href="#about" data-i18n="nav_about">About</a>
-                    <a href="#skills" data-i18n="nav_skills">Skills</a>
-                    <a href="#services" data-i18n="nav_services">Services</a>
-                    <a href="#portfolio" data-i18n="nav_work">Projects</a>
-                    <a href="#contact" data-i18n="nav_contact">Contact</a>
-                </nav>
-            </div>
-
-            <div class="footer-bottom">
-                <p>&copy; 2026 Yassine Nfouh. <span data-i18n="footer_rights">Building the future with AI.</span></p>
-            </div>
+        <div class="skill-card reveal">
+          <h3 data-i18n="skill_dev_title">Development & Cloud</h3>
+          <div class="badge-row">
+            <span class="badge">Python</span>
+            <span class="badge">Next.js</span>
+            <span class="badge">React</span>
+            <span class="badge">TypeScript</span>
+            <span class="badge">JavaScript</span>
+            <span class="badge">Tailwind CSS</span>
+            <span class="badge">Supabase</span>
+            <span class="badge">PostgreSQL</span>
+            <span class="badge">Vercel</span>
+            <span class="badge">REST APIs</span>
+          </div>
         </div>
-    </footer>
+        <div class="skill-card reveal">
+          <h3 data-i18n="skill_design_title">Web & App Design</h3>
+          <div class="badge-row">
+            <span class="badge" data-i18n="badge_web_design">Web Design</span>
+            <span class="badge" data-i18n="badge_app_design">App Interface Design</span>
+            <span class="badge">UI/UX Design</span>
+            <span class="badge" data-i18n="badge_responsive">Responsive Design</span>
+            <span class="badge">Mobile UI</span>
+            <span class="badge" data-i18n="badge_brand">Brand Identity</span>
+            <span class="badge">StitchAI</span>
+          </div>
+        </div>
+        <div class="skill-card reveal">
+          <h3 data-i18n="skill_auto_title">Automation & Tools</h3>
+          <div class="badge-row">
+            <span class="badge">Make (Integromat)</span>
+            <span class="badge">n8n</span>
+            <span class="badge">RPA</span>
+            <span class="badge">Webhooks</span>
+            <span class="badge">GitHub</span>
+            <span class="badge">Git</span>
+            <span class="badge">VS Code</span>
+            <span class="badge">CI/CD</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <!-- JavaScript -->
-    <script src="js/main.js"></script>
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="container">
+      <h2 class="sec-title reveal"><span>◆</span> <span data-i18n="exp_title">Professional Experience</span></h2>
+      <div class="timeline">
+        <div class="timeline-item reveal">
+          <div class="tl-head">
+            <h3 data-i18n="exp_1_title">AI Developer & Automation Specialist</h3>
+            <span class="tl-date">2023 — Present</span>
+          </div>
+          <p class="tl-company" data-i18n="exp_1_company">Freelance / Remote</p>
+          <ul class="tl-list">
+            <li data-i18n="exp_1_1">Designed and deployed end-to-end AI-powered automation pipelines using Make and n8n, integrating LLMs for automated content generation, reducing manual processing time by 70%.</li>
+            <li data-i18n="exp_1_2">Integrated GPT-4, Claude API, and Gemini APIs into production applications, implementing NLP solutions and intelligent chatbot systems for real-world client use cases.</li>
+            <li data-i18n="exp_1_3">Developed advanced prompt engineering strategies to produce consistent, high-quality AI outputs across multiple LLM providers.</li>
+            <li data-i18n="exp_1_4">Architected AI API connections to third-party platforms via REST APIs and webhooks, delivering fully automated, scalable systems for business process automation.</li>
+            <li data-i18n="exp_1_5">Built and deployed full-stack web applications (InvoiceFlow, LeadGenius) using Next.js, Supabase, and Vercel.</li>
+            <li data-i18n="exp_1_6">Implemented retrieval-augmented generation (RAG) architectures and AI agent workflows to extend LLM capabilities with external data sources.</li>
+          </ul>
+        </div>
+        <div class="timeline-item faded reveal">
+          <div class="tl-head">
+            <h3>UI/UX Designer</h3>
+            <span class="tl-date" style="color:rgba(0,212,255,.6)">2022 — 2023</span>
+          </div>
+          <p class="tl-company" data-i18n="exp_2_company">Freelance / Remote</p>
+          <ul class="tl-list">
+            <li data-i18n="exp_2_1">Designed responsive web and mobile interfaces using StitchAI, delivering brand identity systems and digital product designs for early-stage startups.</li>
+            <li data-i18n="exp_2_2">Leveraged AI-powered design tools to accelerate UI/UX workflows, reducing design iteration cycles and improving time-to-market for client products.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="container">
+      <h2 class="sec-title reveal"><span>◆</span> <span data-i18n="projects_title">Selected Projects</span></h2>
+      <div class="projects-grid">
+        <div class="proj-card reveal">
+          <h3>InvoiceFlow</h3>
+          <a href="https://invoice-saas-xi.vercel.app" target="_blank" rel="noopener" class="proj-link">invoice-saas-xi.vercel.app ↗</a>
+          <p class="proj-desc" data-i18n="proj_1_desc">AI-ready invoice management SaaS with automated invoice generation, AI-powered data extraction, and real-time financial tracking.</p>
+          <div class="tag-row">
+            <span class="tag">Next.js</span><span class="tag">Supabase</span><span class="tag">PostgreSQL</span><span class="tag">Vercel</span>
+          </div>
+        </div>
+        <div class="proj-card reveal">
+          <h3>LeadGenius</h3>
+          <a href="https://github.com/YASSINENFAI/LeadGenius" target="_blank" rel="noopener" class="proj-link">github.com/YASSINENFAI/LeadGenius ↗</a>
+          <p class="proj-desc" data-i18n="proj_2_desc">Open-source AI-powered lead generation and personalized email outreach automation tool with LLM-driven personalization at scale.</p>
+          <div class="tag-row">
+            <span class="tag">Python</span><span class="tag">OpenAI API</span><span class="tag">n8n</span>
+          </div>
+        </div>
+        <div class="proj-card reveal">
+          <h3>CV Pro Builder</h3>
+          <a href="https://cvpersonal.xyz" target="_blank" rel="noopener" class="proj-link">cvpersonal.xyz ↗</a>
+          <p class="proj-desc" data-i18n="proj_3_desc">Professional CV builder web application with AI-powered content suggestions and ATS optimization features.</p>
+          <div class="tag-row">
+            <span class="tag">Next.js</span><span class="tag">Claude API</span><span class="tag">Tailwind CSS</span>
+          </div>
+        </div>
+        <div class="proj-card reveal">
+          <h3>Hirafi App</h3>
+          <a href="https://github.com/YASSINENFAI/hirafi" target="_blank" rel="noopener" class="proj-link">github.com/YASSINENFAI/hirafi ↗</a>
+          <p class="proj-desc" data-i18n="proj_4_desc">Bilingual (Arabic/English) skills marketplace application with full-stack architecture.</p>
+          <div class="tag-row">
+            <span class="tag">Next.js</span><span class="tag">Tailwind CSS</span><span class="tag">Supabase</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION + COMPETENCIES -->
+  <section id="education">
+    <div class="container">
+      <div class="two-col">
+        <div>
+          <h2 class="sec-title reveal"><span>◆</span> <span data-i18n="edu_title">Education & Languages</span></h2>
+          <div class="info-card reveal">
+            <h3 data-i18n="edu_label">Self-Directed Learning</h3>
+            <p class="sub" data-i18n="edu_sub">AI Development, Web Design, App Interface Design & Automation</p>
+            <div class="badge-row">
+              <span class="badge">Coursera</span>
+              <span class="badge">Udemy</span>
+              <span class="badge">Google Digital Garage</span>
+              <span class="badge" data-i18n="edu_projects">Hands-on Projects</span>
+            </div>
+          </div>
+          <div class="info-card reveal">
+            <h3 data-i18n="lang_title">Languages</h3>
+            <div class="lang-row">
+              <div class="lang-label"><span data-i18n="lang_ar">Arabic</span><span style="color:var(--muted);font-size:.82rem" data-i18n="lang_ar_level">Native</span></div>
+              <div class="lang-bar"><div class="lang-fill" style="width:100%"></div></div>
+            </div>
+            <div class="lang-row">
+              <div class="lang-label"><span>English</span><span style="color:var(--muted);font-size:.82rem" data-i18n="lang_en_level">Intermediate (Technical)</span></div>
+              <div class="lang-bar"><div class="lang-fill" style="width:70%"></div></div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h2 class="sec-title reveal"><span>◆</span> <span data-i18n="comp_title">Core Competencies</span></h2>
+          <div class="info-card reveal" style="height:fit-content">
+            <div class="comp-tags">
+              <span class="badge" data-i18n="comp_1">Artificial Intelligence (AI)</span>
+              <span class="badge" data-i18n="comp_2">Natural Language Processing</span>
+              <span class="badge" data-i18n="comp_3">Large Language Models</span>
+              <span class="badge" data-i18n="comp_4">Generative AI</span>
+              <span class="badge" data-i18n="comp_5">AI Application Development</span>
+              <span class="badge" data-i18n="comp_6">LLM Integration</span>
+              <span class="badge" data-i18n="comp_7">API Development</span>
+              <span class="badge" data-i18n="comp_8">Automation Engineering</span>
+              <span class="badge" data-i18n="comp_9">Web Design</span>
+              <span class="badge" data-i18n="comp_10">App Interface Design</span>
+              <span class="badge">UI/UX Design</span>
+              <span class="badge" data-i18n="comp_11">Python Development</span>
+              <span class="badge" data-i18n="comp_12">Full-Stack Development</span>
+              <span class="badge" data-i18n="comp_13">Cloud Deployment</span>
+              <span class="badge" data-i18n="comp_14">Agile Development</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <div class="contact-wrap">
+        <h2 class="reveal" data-i18n="contact_title">Let's Build Something</h2>
+        <p class="reveal" data-i18n="contact_desc">Currently available for freelance projects and remote opportunities in AI development and web design.</p>
+        <div class="contact-links reveal">
+          <a href="mailto:azffhk@gmail.com" class="contact-link">
+            <div class="contact-icon">✉</div>
+            azffhk@gmail.com
+          </a>
+          <a href="tel:+212762428906" class="contact-link">
+            <div class="contact-icon">📞</div>
+            +212 762 428 906
+          </a>
+          <a href="https://t.me/FGMANO" target="_blank" rel="noopener" class="contact-link">
+            <div class="contact-icon">💬</div>
+            @FGMANO
+          </a>
+        </div>
+        <div class="social-row reveal">
+          <a href="https://github.com/YASSINENFAI" target="_blank" rel="noopener" class="social-link">GitHub</a>
+          <span style="color:var(--border)">|</span>
+          <a href="mailto:azffhk@gmail.com" class="social-link">Email</a>
+          <span style="color:var(--border)">|</span>
+          <span style="color:var(--muted);font-size:.9rem" data-i18n="contact_location">Morocco (Remote)</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  &copy; 2026 Yassine Nfouh. <span data-i18n="footer_text">Built with passion.</span>
+</footer>
+
+<!-- JavaScript -->
+<script src="js/main.js"></script>
+<script src="js/chat-widget.js"></script>
 </body>
-
 </html>
