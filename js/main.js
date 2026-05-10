@@ -1,6 +1,6 @@
 /**
- * Yassine Nfouh — Interactive CV JavaScript
- * Handles scroll animations, language switching, smooth scroll, mobile menu
+ * Yassine Nfouh — Premium Portfolio JavaScript
+ * Particle system, counter animations, scroll effects, language switching
  */
 
 // =====================================================
@@ -8,21 +8,20 @@
 // =====================================================
 const translations = {
     en: {
-        // Navigation
         nav_about: "About",
         nav_skills: "Skills",
         nav_experience: "Experience",
         nav_projects: "Projects",
         nav_contact: "Contact",
         nav_cta: "Get in Touch",
-
-        // Hero
         hero_subtitle: "AI Developer | Web Designer | App Interface Designer | Automation Specialist",
         hero_summary: "AI Developer and Web Designer with 1+ year of hands-on experience building AI-powered applications, LLM integrations, and intelligent automation systems — alongside responsive website design and app interface design. Proficient in integrating GPT-4, Claude API, and Gemini into production-grade tools. Specialized in prompt engineering, end-to-end AI pipeline development, and crafting polished web and mobile UI using Next.js, React, and Tailwind CSS.",
         hero_btn_projects: "View Projects",
         hero_btn_contact: "Contact Me",
-
-        // Skills
+        stat_projects: "Projects",
+        stat_experience: "Year Experience",
+        stat_tools: "AI Tools",
+        stat_efficiency: "% Efficiency Gain",
         skills_title: "Technical Expertise",
         skill_dev_title: "Development & Cloud",
         skill_design_title: "Web & App Design",
@@ -33,8 +32,6 @@ const translations = {
         badge_app_design: "App Interface Design",
         badge_responsive: "Responsive Design",
         badge_brand: "Brand Identity",
-
-        // Experience
         exp_title: "Professional Experience",
         exp_1_title: "AI Developer & Automation Specialist",
         exp_1_company: "Freelance / Remote",
@@ -47,15 +44,11 @@ const translations = {
         exp_2_company: "Freelance / Remote",
         exp_2_1: "Designed responsive web and mobile interfaces using StitchAI, delivering brand identity systems and digital product designs for early-stage startups.",
         exp_2_2: "Leveraged AI-powered design tools to accelerate UI/UX workflows, reducing design iteration cycles and improving time-to-market for client products.",
-
-        // Projects
         projects_title: "Selected Projects",
         proj_1_desc: "AI-ready invoice management SaaS with automated invoice generation, AI-powered data extraction, and real-time financial tracking.",
         proj_2_desc: "Open-source AI-powered lead generation and personalized email outreach automation tool with LLM-driven personalization at scale.",
         proj_3_desc: "Professional CV builder web application with AI-powered content suggestions and ATS optimization features.",
         proj_4_desc: "Bilingual (Arabic/English) skills marketplace application with full-stack architecture.",
-
-        // Education
         edu_title: "Education & Languages",
         edu_label: "Self-Directed Learning",
         edu_sub: "AI Development, Web Design, App Interface Design & Automation",
@@ -64,8 +57,6 @@ const translations = {
         lang_ar: "Arabic",
         lang_ar_level: "Native",
         lang_en_level: "Intermediate (Technical)",
-
-        // Competencies
         comp_title: "Core Competencies",
         comp_1: "Artificial Intelligence (AI)",
         comp_2: "Natural Language Processing",
@@ -81,97 +72,80 @@ const translations = {
         comp_12: "Full-Stack Development",
         comp_13: "Cloud Deployment",
         comp_14: "Agile Development",
-
-        // Contact
         contact_title: "Let's Build Something",
         contact_desc: "Currently available for freelance projects and remote opportunities in AI development and web design.",
         contact_location: "Morocco (Remote)",
-
-        // Footer
         footer_text: "Built with passion."
     },
     ar: {
-        // Navigation
-        nav_about: "من أنا",
-        nav_skills: "المهارات",
-        nav_experience: "الخبرة",
-        nav_projects: "المشاريع",
-        nav_contact: "تواصل",
-        nav_cta: "تواصل معي",
-
-        // Hero
-        hero_subtitle: "مطور ذكاء اصطناعي | مصمم ويب | مصمم واجهات تطبيقات | متخصص في الأتمتة",
-        hero_summary: "مطور ذكاء اصطناعي ومصمم ويب مع أكثر من سنة من الخبرة العملية في بناء تطبيقات مدعومة بالذكاء الاصطناعي، ودمج نماذج LLM، وأنظمة الأتمتة الذكية — إلى جانب تصميم مواقع ويب متجاوبة وواجهات تطبيقات. بارع في دمج GPT-4 و Claude API و Gemini في أدوات جاهزة للإنتاج. متخصص في هندسة الأوامر، وتطوير مسارات عمل الذكاء الاصطناعي من البداية للنهاية، وتصميم واجهات ويب وموبايل مصقولة باستخدام Next.js و React و Tailwind CSS.",
-        hero_btn_projects: "شاهد مشاريعي",
-        hero_btn_contact: "تواصل معي",
-
-        // Skills
-        skills_title: "الخبرات التقنية",
-        skill_dev_title: "التطوير والسحابة",
-        skill_design_title: "تصميم الويب والتطبيقات",
-        skill_auto_title: "الأتمتة والأدوات",
-        badge_prompt_eng: "هندسة الأوامر",
-        badge_chatbot: "تطوير الشات بوت",
-        badge_web_design: "تصميم الويب",
-        badge_app_design: "تصميم واجهات التطبيقات",
-        badge_responsive: "تصميم متجاوب",
-        badge_brand: "الهوية البصرية",
-
-        // Experience
-        exp_title: "الخبرة المهنية",
-        exp_1_title: "مطور ذكاء اصطناعي ومتخصص في الأتمتة",
-        exp_1_company: "عمل حر / عن بُعد",
-        exp_1_1: "تصميم ونشر مسارات أتمتة شاملة مدعومة بالذكاء الاصطناعي باستخدام Make و n8n، ودمج نماذج LML لتوليد المحتوى تلقائياً، مما قلل وقت المعالجة اليدوية بنسبة 70%.",
-        exp_1_2: "دمج GPT-4 و Claude API و Gemini APIs في تطبيقات إنتاجية، وتنفيذ حلول NLP وأنظمة شات بوت ذكية لحالات استخدام حقيقية.",
-        exp_1_3: "تطوير استراتيجيات متقدمة لهندسة الأوامر لإنتاج مخرجات ذكاء اصطناعي متسقة وعالية الجودة عبر مزودي LLM متعددين.",
-        exp_1_4: "هندسة اتصالات API للذكاء الاصطناعي مع منصات خارجية عبر REST APIs و webhooks، وتقديم أنظمة آلية قابلة للتوسع لأتمتة العمليات التجارية.",
-        exp_1_5: "بناء ونشر تطبيقات ويب شاملة (InvoiceFlow, LeadGenius) باستخدام Next.js و Supabase و Vercel.",
-        exp_1_6: "تنفيذ هياكل RAG وسير عمل وكلاء AI لتوسيع قدرات LLM مع مصادر بيانات خارجية.",
-        exp_2_company: "عمل حر / عن بُعد",
-        exp_2_1: "تصميم واجهات ويب وموبايل متجاوبة باستخدام StitchAI، وتقديم أنظمة هوية بصرية وتصميمات منتجات رقمية للشركات الناشئة.",
-        exp_2_2: "استغلال أدوات التصميم المدعومة بالذكاء الاصطناعي لتسريع سير عمل UI/UX، وتقليل دورات التصميم وتحسين سرعة الوصول للسوق.",
-
-        // Projects
-        projects_title: "مشاريع مختارة",
-        proj_1_desc: "SaaS لإدارة الفواتير جاهز للذكاء الاصطناعي مع إنشاء فواتير آلي واستخراج بيانات ذكي وتتبع مالي في الوقت الحقيقي.",
-        proj_2_desc: "أداة مفتوحة المصدر مدعومة بالذكاء الاصطناعي للبحث عن العملاء وأتمتة التواصل عبر البريد الإلكتروني مع تخصيص شخصي عبر LLM.",
-        proj_3_desc: "تطبيق ويب احترافي لإنشاء السير الذاتية مع اقتراحات محتوى ذكية وميزات تحسين ATS.",
-        proj_4_desc: "تطبيق سوق مهارات ثنائي اللغة (العربية/الإنجليزية) بهيكلية تطوير شاملة.",
-
-        // Education
-        edu_title: "التعليم واللغات",
-        edu_label: "التعلم الذاتي",
-        edu_sub: "تطوير الذكاء الاصطناعي، تصميم الويب، تصميم واجهات التطبيقات والأتمتة",
-        edu_projects: "مشاريع عملية",
-        lang_title: "اللغات",
-        lang_ar: "العربية",
-        lang_ar_level: "لغة أم",
-        lang_en_level: "متوسط (تقني)",
-
-        // Competencies
-        comp_title: "الكفاءات الأساسية",
-        comp_1: "الذكاء الاصطناعي",
-        comp_2: "معالجة اللغة الطبيعية",
-        comp_3: "النماذج اللغوية الكبيرة",
-        comp_4: "الذكاء الاصطناعي التوليدي",
-        comp_5: "تطوير تطبيقات الذكاء الاصطناعي",
-        comp_6: "دمج LLM",
-        comp_7: "تطوير API",
-        comp_8: "هندسة الأتمتة",
-        comp_9: "تصميم الويب",
-        comp_10: "تصميم واجهات التطبيقات",
-        comp_11: "تطوير بايثون",
-        comp_12: "تطوير شامل",
-        comp_13: "النشر السحابي",
-        comp_14: "التطوير الرشيق",
-
-        // Contact
-        contact_title: "لنبني شيئاً معاً",
-        contact_desc: "متاح حالياً للمشاريع المستقلة والفرص عن بُعد في تطوير الذكاء الاصطناعي وتصميم الويب.",
-        contact_location: "المغرب (عن بُعد)",
-
-        // Footer
-        footer_text: "بُني بشغف."
+        nav_about: "\u0645\u0646 \u0623\u0646\u0627",
+        nav_skills: "\u0627\u0644\u0645\u0647\u0627\u0631\u0627\u062a",
+        nav_experience: "\u0627\u0644\u062e\u0628\u0631\u0629",
+        nav_projects: "\u0627\u0644\u0645\u0634\u0627\u0631\u064a\u0639",
+        nav_contact: "\u062a\u0648\u0627\u0635\u0644",
+        nav_cta: "\u062a\u0648\u0627\u0635\u0644 \u0645\u0639\u064a",
+        hero_subtitle: "\u0645\u0637\u0648\u0631 \u0630\u0643\u0627\u0621 \u0627\u0635\u0637\u0646\u0627\u0639\u064a | \u0645\u0635\u0645\u0645 \u0648\u064a\u0628 | \u0645\u0635\u0645\u0645 \u0648\u0627\u062c\u0647\u0627\u062a \u062a\u0637\u0628\u064a\u0642\u0627\u062a | \u0645\u062a\u062e\u0635\u0635 \u0641\u064a \u0627\u0644\u0623\u062a\u0645\u062a\u0629",
+        hero_summary: "\u0645\u0637\u0648\u0631 \u0630\u0643\u0627\u0621 \u0627\u0635\u0637\u0646\u0627\u0639\u064a \u0648\u0645\u0635\u0645\u0645 \u0648\u064a\u0628 \u0645\u0639 \u0623\u0643\u062b\u0631 \u0645\u0646 \u0633\u0646\u0629 \u0645\u0646 \u0627\u0644\u062e\u0628\u0631\u0629 \u0627\u0644\u0639\u0645\u0644\u064a\u0629 \u0641\u064a \u0628\u0646\u0627\u0621 \u062a\u0637\u0628\u064a\u0642\u0627\u062a \u0645\u062f\u0639\u0648\u0645\u0629 \u0628\u0627\u0644\u0630\u0643\u0627\u0621 \u0627\u0644\u0627\u0635\u0637\u0646\u0627\u0639\u064a\u060c \u0648\u062f\u0645\u062c \u0646\u0645\u0627\u0630\u062c LLM\u060c \u0648\u0623\u0646\u0638\u0645\u0629 \u0627\u0644\u0623\u062a\u0645\u062a\u0629 \u0627\u0644\u0630\u0643\u064a\u0629 \u2014 \u0625\u0644\u0649 \u062c\u0627\u0646\u0628 \u062a\u0635\u0645\u064a\u0645 \u0645\u0648\u0627\u0642\u0639 \u0648\u064a\u0628 \u0645\u062a\u062c\u0627\u0648\u0628\u0629 \u0648\u0648\u0627\u062c\u0647\u0627\u062a \u062a\u0637\u0628\u064a\u0642\u0627\u062a. \u0628\u0627\u0631\u0639 \u0641\u064a \u062f\u0645\u062c GPT-4 \u0648 Claude API \u0648 Gemini \u0641\u064a \u0623\u062f\u0648\u0627\u062a \u062c\u0627\u0647\u0632\u0629 \u0644\u0644\u0625\u0646\u062a\u0627\u062c. \u0645\u062a\u062e\u0635\u0635 \u0641\u064a \u0647\u0646\u062f\u0633\u0629 \u0627\u0644\u0623\u0648\u0627\u0645\u0631\u060c \u0648\u062a\u0637\u0648\u064a\u0631 \u0645\u0633\u0627\u0631\u0627\u062a \u0639\u0645\u0644 \u0627\u0644\u0630\u0643\u0627\u0621 \u0627\u0644\u0627\u0635\u0637\u0646\u0627\u0639\u064a \u0645\u0646 \u0627\u0644\u0628\u062f\u0627\u064a\u0629 \u0644\u0644\u0646\u0647\u0627\u064a\u0629\u060c \u0648\u062a\u0635\u0645\u064a\u0645 \u0648\u0627\u062c\u0647\u0627\u062a \u0648\u064a\u0628 \u0648\u0645\u0648\u0628\u0627\u064a\u0644 \u0645\u0635\u0642\u0648\u0644\u0629 \u0628\u0627\u0633\u062a\u062e\u062f\u0627\u0645 Next.js \u0648 React \u0648 Tailwind CSS.",
+        hero_btn_projects: "\u0634\u0627\u0647\u062f \u0645\u0634\u0627\u0631\u064a\u0639\u064a",
+        hero_btn_contact: "\u062a\u0648\u0627\u0635\u0644 \u0645\u0639\u064a",
+        stat_projects: "\u0645\u0634\u0627\u0631\u064a\u0639",
+        stat_experience: "\u0633\u0646\u0629 \u062e\u0628\u0631\u0629",
+        stat_tools: "\u0623\u062f\u0627\u0629 \u0630\u0643\u0627\u0621 \u0627\u0635\u0637\u0646\u0627\u0639\u064a",
+        stat_efficiency: "% \u0632\u064a\u0627\u062f\u0629 \u0641\u064a \u0627\u0644\u0643\u0641\u0627\u0621\u0629",
+        skills_title: "\u0627\u0644\u062e\u0628\u0631\u0627\u062a \u0627\u0644\u062a\u0642\u0646\u064a\u0629",
+        skill_dev_title: "\u0627\u0644\u062a\u0637\u0648\u064a\u0631 \u0648\u0627\u0644\u0633\u062d\u0627\u0628\u0629",
+        skill_design_title: "\u062a\u0635\u0645\u064a\u0645 \u0627\u0644\u0648\u064a\u0628 \u0648\u0627\u0644\u062a\u0637\u0628\u064a\u0642\u0627\u062a",
+        skill_auto_title: "\u0627\u0644\u0623\u062a\u0645\u062a\u0629 \u0648\u0627\u0644\u0623\u062f\u0648\u0627\u062a",
+        badge_prompt_eng: "\u0647\u0646\u062f\u0633\u0629 \u0627\u0644\u0623\u0648\u0627\u0645\u0631",
+        badge_chatbot: "\u062a\u0637\u0648\u064a\u0631 \u0627\u0644\u0634\u0627\u062a \u0628\u0648\u062a",
+        badge_web_design: "\u062a\u0635\u0645\u064a\u0645 \u0627\u0644\u0648\u064a\u0628",
+        badge_app_design: "\u062a\u0635\u0645\u064a\u0645 \u0648\u0627\u062c\u0647\u0627\u062a \u0627\u0644\u062a\u0637\u0628\u064a\u0642\u0627\u062a",
+        badge_responsive: "\u062a\u0635\u0645\u064a\u0645 \u0645\u062a\u062c\u0627\u0648\u0628",
+        badge_brand: "\u0627\u0644\u0647\u0648\u064a\u0629 \u0627\u0644\u0628\u0635\u0631\u064a\u0629",
+        exp_title: "\u0627\u0644\u062e\u0628\u0631\u0629 \u0627\u0644\u0645\u0647\u0646\u064a\u0629",
+        exp_1_title: "\u0645\u0637\u0648\u0631 \u0630\u0643\u0627\u0621 \u0627\u0635\u0637\u0646\u0627\u0639\u064a \u0648\u0645\u062a\u062e\u0635\u0635 \u0641\u064a \u0627\u0644\u0623\u062a\u0645\u062a\u0629",
+        exp_1_company: "\u0639\u0645\u0644 \u062d\u0631 / \u0639\u0646 \u0628\u064f\u0639\u062f",
+        exp_1_1: "\u062a\u0635\u0645\u064a\u0645 \u0648\u0646\u0634\u0631 \u0645\u0633\u0627\u0631\u0627\u062a \u0623\u062a\u0645\u062a\u0629 \u0634\u0627\u0645\u0644\u0629 \u0645\u062f\u0639\u0648\u0645\u0629 \u0628\u0627\u0644\u0630\u0643\u0627\u0621 \u0627\u0644\u0627\u0635\u0637\u0646\u0627\u0639\u064a \u0628\u0627\u0633\u062a\u062e\u062f\u0627\u0645 Make \u0648 n8n\u060c \u0648\u062f\u0645\u062c \u0646\u0645\u0627\u0630\u062c LML \u0644\u062a\u0648\u0644\u064a\u062f \u0627\u0644\u0645\u062d\u062a\u0648\u0649 \u062a\u0644\u0642\u0627\u0626\u064a\u0627\u064b\u060c \u0645\u0645\u0627 \u0642\u0644\u0644 \u0648\u0642\u062a \u0627\u0644\u0645\u0639\u0627\u0644\u062c\u0629 \u0627\u0644\u064a\u062f\u0648\u064a\u0629 \u0628\u0646\u0633\u0628\u0629 70%.",
+        exp_1_2: "\u062f\u0645\u062c GPT-4 \u0648 Claude API \u0648 Gemini APIs \u0641\u064a \u062a\u0637\u0628\u064a\u0642\u0627\u062a \u0625\u0646\u062a\u0627\u062c\u064a\u0629\u060c \u0648\u062a\u0646\u0641\u064a\u0630 \u062d\u0644\u0648\u0644 NLP \u0648\u0623\u0646\u0638\u0645\u0629 \u0634\u0627\u062a \u0628\u0648\u062a \u0630\u0643\u064a\u0629 \u0644\u062d\u0627\u0644\u0627\u062a \u0627\u0633\u062a\u062e\u062f\u0627\u0645 \u062d\u0642\u064a\u0642\u064a\u0629.",
+        exp_1_3: "\u062a\u0637\u0648\u064a\u0631 \u0627\u0633\u062a\u0631\u0627\u062a\u064a\u062c\u064a\u0627\u062a \u0645\u062a\u0642\u062f\u0645\u0629 \u0644\u0647\u0646\u062f\u0633\u0629 \u0627\u0644\u0623\u0648\u0627\u0645\u0631 \u0644\u0625\u0646\u062a\u0627\u062c \u0645\u062e\u0631\u062c\u0627\u062a \u0630\u0643\u0627\u0621 \u0627\u0635\u0637\u0646\u0627\u0639\u064a \u0645\u062a\u0633\u0642\u0629 \u0648\u0639\u0627\u0644\u064a\u0629 \u0627\u0644\u062c\u0648\u062f\u0629 \u0639\u0628\u0631 \u0645\u0632\u0648\u062f\u064a LLM \u0645\u062a\u0639\u062f\u062f\u064a\u0646.",
+        exp_1_4: "\u0647\u0646\u062f\u0633\u0629 \u0627\u062a\u0635\u0627\u0644\u0627\u062a API \u0644\u0644\u0630\u0643\u0627\u0621 \u0627\u0644\u0627\u0635\u0637\u0646\u0627\u0639\u064a \u0645\u0639 \u0645\u0646\u0635\u0627\u062a \u062e\u0627\u0631\u062c\u064a\u0629 \u0639\u0628\u0631 REST APIs \u0648 webhooks\u060c \u0648\u062a\u0642\u062f\u064a\u0645 \u0623\u0646\u0638\u0645\u0629 \u0622\u0644\u064a\u0629 \u0642\u0627\u0628\u0644\u0629 \u0644\u0644\u062a\u0648\u0633\u0639 \u0644\u0623\u062a\u0645\u062a\u0629 \u0627\u0644\u0639\u0645\u0644\u064a\u0627\u062a \u0627\u0644\u062a\u062c\u0627\u0631\u064a\u0629.",
+        exp_1_5: "\u0628\u0646\u0627\u0621 \u0648\u0646\u0634\u0631 \u062a\u0637\u0628\u064a\u0642\u0627\u062a \u0648\u064a\u0628 \u0634\u0627\u0645\u0644\u0629 (InvoiceFlow, LeadGenius) \u0628\u0627\u0633\u062a\u062e\u062f\u0627\u0645 Next.js \u0648 Supabase \u0648 Vercel.",
+        exp_1_6: "\u062a\u0646\u0641\u064a\u0630 \u0647\u064a\u0627\u0643\u0644 RAG \u0648\u0633\u064a\u0631 \u0639\u0645\u0644 \u0648\u0643\u0644\u0627\u0621 AI \u0644\u062a\u0648\u0633\u064a\u0639 \u0642\u062f\u0631\u0627\u062a LLM \u0645\u0639 \u0645\u0635\u0627\u062f\u0631 \u0628\u064a\u0627\u0646\u0627\u062a \u062e\u0627\u0631\u062c\u064a\u0629.",
+        exp_2_company: "\u0639\u0645\u0644 \u062d\u0631 / \u0639\u0646 \u0628\u064f\u0639\u062f",
+        exp_2_1: "\u062a\u0635\u0645\u064a\u0645 \u0648\u0627\u062c\u0647\u0627\u062a \u0648\u064a\u0628 \u0648\u0645\u0648\u0628\u0627\u064a\u0644 \u0645\u062a\u062c\u0627\u0648\u0628\u0629 \u0628\u0627\u0633\u062a\u062e\u062f\u0627\u0645 StitchAI\u060c \u0648\u062a\u0642\u062f\u064a\u0645 \u0623\u0646\u0638\u0645\u0629 \u0647\u0648\u064a\u0629 \u0628\u0635\u0631\u064a\u0629 \u0648\u062a\u0635\u0645\u064a\u0645\u0627\u062a \u0645\u0646\u062a\u062c\u0627\u062a \u0631\u0642\u0645\u064a\u0629 \u0644\u0644\u0634\u0631\u0643\u0627\u062a \u0627\u0644\u0646\u0627\u0634\u0626\u0629.",
+        exp_2_2: "\u0627\u0633\u062a\u063a\u0644\u0627\u0644 \u0623\u062f\u0648\u0627\u062a \u0627\u0644\u062a\u0635\u0645\u064a\u0645 \u0627\u0644\u0645\u062f\u0639\u0648\u0645\u0629 \u0628\u0627\u0644\u0630\u0643\u0627\u0621 \u0627\u0644\u0627\u0635\u0637\u0646\u0627\u0639\u064a \u0644\u062a\u0633\u0631\u064a\u0639 \u0633\u064a\u0631 \u0639\u0645\u0644 UI/UX\u060c \u0648\u062a\u0642\u0644\u064a\u0644 \u062f\u0648\u0631\u0627\u062a \u0627\u0644\u062a\u0635\u0645\u064a\u0645 \u0648\u062a\u062d\u0633\u064a\u0646 \u0633\u0631\u0639\u0629 \u0627\u0644\u0648\u0635\u0648\u0644 \u0644\u0644\u0633\u0648\u0642.",
+        projects_title: "\u0645\u0634\u0627\u0631\u064a\u0639 \u0645\u062e\u062a\u0627\u0631\u0629",
+        proj_1_desc: "SaaS \u0644\u0625\u062f\u0627\u0631\u0629 \u0627\u0644\u0641\u0648\u0627\u062a\u064a\u0631 \u062c\u0627\u0647\u0632 \u0644\u0644\u0630\u0643\u0627\u0621 \u0627\u0644\u0627\u0635\u0637\u0646\u0627\u0639\u064a \u0645\u0639 \u0625\u0646\u0634\u0627\u0621 \u0641\u0648\u0627\u062a\u064a\u0631 \u0622\u0644\u064a \u0648\u0627\u0633\u062a\u062e\u0631\u0627\u062c \u0628\u064a\u0627\u0646\u0627\u062a \u0630\u0643\u064a \u0648\u062a\u062a\u0628\u0639 \u0645\u0627\u0644\u064a \u0641\u064a \u0627\u0644\u0648\u0642\u062a \u0627\u0644\u062d\u0642\u064a\u0642\u064a.",
+        proj_2_desc: "\u0623\u062f\u0627\u0629 \u0645\u0641\u062a\u0648\u062d\u0629 \u0627\u0644\u0645\u0635\u062f\u0631 \u0645\u062f\u0639\u0648\u0645\u0629 \u0628\u0627\u0644\u0630\u0643\u0627\u0621 \u0627\u0644\u0627\u0635\u0637\u0646\u0627\u0639\u064a \u0644\u0644\u0628\u062d\u062b \u0639\u0646 \u0627\u0644\u0639\u0645\u0644\u0627\u0621 \u0648\u0623\u062a\u0645\u062a\u0629 \u0627\u0644\u062a\u0648\u0627\u0635\u0644 \u0639\u0628\u0631 \u0627\u0644\u0628\u0631\u064a\u062f \u0627\u0644\u0625\u0644\u0643\u062a\u0631\u0648\u0646\u064a \u0645\u0639 \u062a\u062e\u0635\u064a\u0635 \u0634\u062e\u0635\u064a \u0639\u0628\u0631 LLM.",
+        proj_3_desc: "\u062a\u0637\u0628\u064a\u0642 \u0648\u064a\u0628 \u0627\u062d\u062a\u0631\u0627\u0641\u064a \u0644\u0625\u0646\u0634\u0627\u0621 \u0627\u0644\u0633\u064a\u0631 \u0627\u0644\u0630\u0627\u062a\u064a\u0629 \u0645\u0639 \u0627\u0642\u062a\u0631\u0627\u062d\u0627\u062a \u0645\u062d\u062a\u0648\u0649 \u0630\u0643\u064a\u0629 \u0648\u0645\u064a\u0632\u0627\u062a \u062a\u062d\u0633\u064a\u0646 ATS.",
+        proj_4_desc: "\u062a\u0637\u0628\u064a\u0642 \u0633\u0648\u0642 \u0645\u0647\u0627\u0631\u0627\u062a \u062b\u0646\u0627\u0626\u064a \u0627\u0644\u0644\u063a\u0629 (\u0627\u0644\u0639\u0631\u0628\u064a\u0629/\u0627\u0644\u0625\u0646\u062c\u0644\u064a\u0632\u064a\u0629) \u0628\u0647\u064a\u0643\u0644\u064a\u0629 \u062a\u0637\u0648\u064a\u0631 \u0634\u0627\u0645\u0644\u0629.",
+        edu_title: "\u0627\u0644\u062a\u0639\u0644\u064a\u0645 \u0648\u0627\u0644\u0644\u063a\u0627\u062a",
+        edu_label: "\u0627\u0644\u062a\u0639\u0644\u0645 \u0627\u0644\u0630\u0627\u062a\u064a",
+        edu_sub: "\u062a\u0637\u0648\u064a\u0631 \u0627\u0644\u0630\u0643\u0627\u0621 \u0627\u0644\u0627\u0635\u0637\u0646\u0627\u0639\u064a\u060c \u062a\u0635\u0645\u064a\u0645 \u0627\u0644\u0648\u064a\u0628\u060c \u062a\u0635\u0645\u064a\u0645 \u0648\u0627\u062c\u0647\u0627\u062a \u0627\u0644\u062a\u0637\u0628\u064a\u0642\u0627\u062a \u0648\u0627\u0644\u0623\u062a\u0645\u062a\u0629",
+        edu_projects: "\u0645\u0634\u0627\u0631\u064a\u0639 \u0639\u0645\u0644\u064a\u0629",
+        lang_title: "\u0627\u0644\u0644\u063a\u0627\u062a",
+        lang_ar: "\u0627\u0644\u0639\u0631\u0628\u064a\u0629",
+        lang_ar_level: "\u0644\u063a\u0629 \u0623\u0645",
+        lang_en_level: "\u0645\u062a\u0648\u0633\u0637 (\u062a\u0642\u0646\u064a)",
+        comp_title: "\u0627\u0644\u0643\u0641\u0627\u0621\u0627\u062a \u0627\u0644\u0623\u0633\u0627\u0633\u064a\u0629",
+        comp_1: "\u0627\u0644\u0630\u0643\u0627\u0621 \u0627\u0644\u0627\u0635\u0637\u0646\u0627\u0639\u064a",
+        comp_2: "\u0645\u0639\u0627\u0644\u062c\u0629 \u0627\u0644\u0644\u063a\u0629 \u0627\u0644\u0637\u0628\u064a\u0639\u064a\u0629",
+        comp_3: "\u0627\u0644\u0646\u0645\u0627\u0630\u062c \u0627\u0644\u0644\u063a\u0648\u064a\u0629 \u0627\u0644\u0643\u0628\u064a\u0631\u0629",
+        comp_4: "\u0627\u0644\u0630\u0643\u0627\u0621 \u0627\u0644\u0627\u0635\u0637\u0646\u0627\u0639\u064a \u0627\u0644\u062a\u0648\u0644\u064a\u062f\u064a",
+        comp_5: "\u062a\u0637\u0648\u064a\u0631 \u062a\u0637\u0628\u064a\u0642\u0627\u062a \u0627\u0644\u0630\u0643\u0627\u0621 \u0627\u0644\u0627\u0635\u0637\u0646\u0627\u0639\u064a",
+        comp_6: "\u062f\u0645\u062c LLM",
+        comp_7: "\u062a\u0637\u0648\u064a\u0631 API",
+        comp_8: "\u0647\u0646\u062f\u0633\u0629 \u0627\u0644\u0623\u062a\u0645\u062a\u0629",
+        comp_9: "\u062a\u0635\u0645\u064a\u0645 \u0627\u0644\u0648\u064a\u0628",
+        comp_10: "\u062a\u0635\u0645\u064a\u0645 \u0648\u0627\u062c\u0647\u0627\u062a \u0627\u0644\u062a\u0637\u0628\u064a\u0642\u0627\u062a",
+        comp_11: "\u062a\u0637\u0648\u064a\u0631 \u0628\u0627\u064a\u062b\u0648\u0646",
+        comp_12: "\u062a\u0637\u0648\u064a\u0631 \u0634\u0627\u0645\u0644",
+        comp_13: "\u0627\u0644\u0646\u0634\u0631 \u0627\u0644\u0633\u062d\u0627\u0628\u064a",
+        comp_14: "\u0627\u0644\u062a\u0637\u0648\u064a\u0631 \u0627\u0644\u0631\u0634\u064a\u0642",
+        contact_title: "\u0644\u0646\u0628\u0646\u064a \u0634\u064a\u0626\u0627\u064b \u0645\u0639\u0627\u064b",
+        contact_desc: "\u0645\u062a\u0627\u062d \u062d\u0627\u0644\u064a\u0627\u064b \u0644\u0644\u0645\u0634\u0627\u0631\u064a\u0639 \u0627\u0644\u0645\u0633\u062a\u0642\u0644\u0629 \u0648\u0627\u0644\u0641\u0631\u0635 \u0639\u0646 \u0628\u064f\u0639\u062f \u0641\u064a \u062a\u0637\u0648\u064a\u0631 \u0627\u0644\u0630\u0643\u0627\u0621 \u0627\u0644\u0627\u0635\u0637\u0646\u0627\u0639\u064a \u0648\u062a\u0635\u0645\u064a\u0645 \u0627\u0644\u0648\u064a\u0628.",
+        contact_location: "\u0627\u0644\u0645\u063a\u0631\u0628 (\u0639\u0646 \u0628\u064f\u0639\u062f)",
+        footer_text: "\u0628\u064f\u0646\u064a \u0628\u0634\u063a\u0641."
     }
 };
 
@@ -184,12 +158,9 @@ function setLanguage(lang) {
     if (!translations[lang]) return;
     currentLang = lang;
     localStorage.setItem('lang', lang);
-
-    // Set RTL for Arabic
     document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
     document.documentElement.lang = lang;
 
-    // Update all translatable elements
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
         if (translations[lang][key]) {
@@ -201,10 +172,9 @@ function setLanguage(lang) {
         }
     });
 
-    // Update language toggle button
     const langToggle = document.querySelector('.lang-toggle');
     if (langToggle) {
-        langToggle.textContent = lang === 'en' ? 'العربية' : 'English';
+        langToggle.textContent = lang === 'en' ? '\u0627\u0644\u0639\u0631\u0628\u064a\u0629' : 'English';
     }
 }
 
@@ -213,13 +183,12 @@ function initLanguageSwitcher() {
     if (navInner) {
         const langToggle = document.createElement('button');
         langToggle.className = 'lang-toggle';
-        langToggle.textContent = currentLang === 'en' ? 'العربية' : 'English';
+        langToggle.textContent = currentLang === 'en' ? '\u0627\u0644\u0639\u0631\u0628\u064a\u0629' : 'English';
 
         langToggle.addEventListener('click', () => {
             setLanguage(currentLang === 'en' ? 'ar' : 'en');
         });
 
-        // Insert before btn-outline
         const btnOutline = navInner.querySelector('.btn-outline');
         const mobileToggle = navInner.querySelector('.mobile-toggle');
         if (btnOutline) {
@@ -230,51 +199,176 @@ function initLanguageSwitcher() {
             navInner.appendChild(langToggle);
         }
     }
-
-    // Apply initial language
     setLanguage(currentLang);
+}
+
+// =====================================================
+// PARTICLE SYSTEM
+// =====================================================
+function initParticles() {
+    const canvas = document.getElementById('particles-canvas');
+    if (!canvas) return;
+
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    let animFrame;
+    let width, height;
+
+    function resize() {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    class Particle {
+        constructor() {
+            this.reset();
+        }
+        reset() {
+            this.x = Math.random() * width;
+            this.y = Math.random() * height;
+            this.size = Math.random() * 2 + 0.5;
+            this.speedX = (Math.random() - 0.5) * 0.4;
+            this.speedY = (Math.random() - 0.5) * 0.4;
+            this.opacity = Math.random() * 0.4 + 0.1;
+            this.hue = Math.random() > 0.5 ? 260 : 200;
+        }
+        update() {
+            this.x += this.speedX;
+            this.y += this.speedY;
+            if (this.x < 0 || this.x > width) this.speedX *= -1;
+            if (this.y < 0 || this.y > height) this.speedY *= -1;
+        }
+        draw() {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.fillStyle = 'hsla(' + this.hue + ', 80%, 70%, ' + this.opacity + ')';
+            ctx.fill();
+        }
+    }
+
+    var count = Math.min(80, Math.floor(width * height / 15000));
+    for (var i = 0; i < count; i++) {
+        particles.push(new Particle());
+    }
+
+    function connectParticles() {
+        for (var i = 0; i < particles.length; i++) {
+            for (var j = i + 1; j < particles.length; j++) {
+                var dx = particles[i].x - particles[j].x;
+                var dy = particles[i].y - particles[j].y;
+                var dist = Math.sqrt(dx * dx + dy * dy);
+                if (dist < 150) {
+                    var opacity = (1 - dist / 150) * 0.12;
+                    ctx.beginPath();
+                    ctx.strokeStyle = 'hsla(260, 60%, 65%, ' + opacity + ')';
+                    ctx.lineWidth = 0.6;
+                    ctx.moveTo(particles[i].x, particles[i].y);
+                    ctx.lineTo(particles[j].x, particles[j].y);
+                    ctx.stroke();
+                }
+            }
+        }
+    }
+
+    function animate() {
+        ctx.clearRect(0, 0, width, height);
+        particles.forEach(function(p) {
+            p.update();
+            p.draw();
+        });
+        connectParticles();
+        animFrame = requestAnimationFrame(animate);
+    }
+    animate();
+}
+
+// =====================================================
+// COUNTER ANIMATION
+// =====================================================
+function initCounters() {
+    var counters = document.querySelectorAll('.stat-number');
+    var observed = new Set();
+
+    var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting && !observed.has(entry.target)) {
+                observed.add(entry.target);
+                animateCounter(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    counters.forEach(function(counter) {
+        observer.observe(counter);
+    });
+}
+
+function animateCounter(el) {
+    var target = parseInt(el.getAttribute('data-count'), 10);
+    var duration = 2000;
+    var start = performance.now();
+
+    function update(now) {
+        var elapsed = now - start;
+        var progress = Math.min(elapsed / duration, 1);
+        var eased = 1 - Math.pow(1 - progress, 4);
+        el.textContent = Math.round(target * eased) + (target === 70 ? '' : '+');
+        if (progress < 1) {
+            requestAnimationFrame(update);
+        }
+    }
+    requestAnimationFrame(update);
 }
 
 // =====================================================
 // SCROLL REVEAL ANIMATIONS
 // =====================================================
 function initScrollReveal() {
-    const revealEls = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(e => {
+    var revealEls = document.querySelectorAll('.reveal');
+    var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
             if (e.isIntersecting) {
                 e.target.classList.add('visible');
                 observer.unobserve(e.target);
             }
         });
-    }, { threshold: 0.12 });
-    revealEls.forEach(el => observer.observe(el));
+    }, { threshold: 0.1 });
+    revealEls.forEach(function(el) { observer.observe(el); });
 
-    // Trigger hero reveals immediately
-    document.querySelectorAll('.hero .reveal').forEach((el, i) => {
-        setTimeout(() => el.classList.add('visible'), i * 120);
+    document.querySelectorAll('.hero .reveal').forEach(function(el, i) {
+        setTimeout(function() { el.classList.add('visible'); }, i * 150);
     });
 }
 
 // =====================================================
-// NAVBAR
+// NAVBAR — Scroll Effect
 // =====================================================
 function initNavbar() {
-    const mobileToggle = document.querySelector('.mobile-toggle');
-    const navLinks = document.querySelector('.nav-links');
+    var nav = document.querySelector('nav');
+    var mobileToggle = document.querySelector('.mobile-toggle');
+    var navLinks = document.querySelector('.nav-links');
+
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 50) {
+            nav.classList.add('scrolled');
+        } else {
+            nav.classList.remove('scrolled');
+        }
+    });
 
     if (mobileToggle) {
-        mobileToggle.addEventListener('click', () => {
+        mobileToggle.addEventListener('click', function() {
             mobileToggle.classList.toggle('active');
             navLinks.classList.toggle('mobile-open');
         });
     }
 
-    // Close mobile menu when clicking a link
-    document.querySelectorAll('.nav-links a').forEach(link => {
-        link.addEventListener('click', () => {
-            mobileToggle?.classList.remove('active');
-            navLinks?.classList.remove('mobile-open');
+    document.querySelectorAll('.nav-links a').forEach(function(link) {
+        link.addEventListener('click', function() {
+            if (mobileToggle) mobileToggle.classList.remove('active');
+            if (navLinks) navLinks.classList.remove('mobile-open');
         });
     });
 }
@@ -283,15 +377,15 @@ function initNavbar() {
 // SMOOTH SCROLL
 // =====================================================
 function initSmoothScroll() {
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
-            const targetId = this.getAttribute('href');
+            var targetId = this.getAttribute('href');
             if (targetId === '#') return;
 
-            const target = document.querySelector(targetId);
+            var target = document.querySelector(targetId);
             if (target) {
-                const offsetTop = target.getBoundingClientRect().top + window.pageYOffset - 80;
+                var offsetTop = target.getBoundingClientRect().top + window.pageYOffset - 80;
                 window.scrollTo({ top: offsetTop, behavior: 'smooth' });
             }
         });
@@ -299,14 +393,39 @@ function initSmoothScroll() {
 }
 
 // =====================================================
-// GLOBAL ACTIONS FOR AI (Compatibility with site-controls.js)
+// TILT EFFECT ON CARDS
+// =====================================================
+function initTiltEffect() {
+    var cards = document.querySelectorAll('.skill-card, .proj-card');
+
+    cards.forEach(function(card) {
+        card.addEventListener('mousemove', function(e) {
+            var rect = card.getBoundingClientRect();
+            var x = e.clientX - rect.left;
+            var y = e.clientY - rect.top;
+            var centerX = rect.width / 2;
+            var centerY = rect.height / 2;
+            var rotateX = (y - centerY) / centerY * -4;
+            var rotateY = (x - centerX) / centerX * 4;
+
+            card.style.transform = 'perspective(800px) rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg) translateY(-4px)';
+        });
+
+        card.addEventListener('mouseleave', function() {
+            card.style.transform = '';
+        });
+    });
+}
+
+// =====================================================
+// GLOBAL ACTIONS FOR AI
 // =====================================================
 window.siteActions = {
     setLang: function(lang) { setLanguage(lang); },
     navigate: function(sectionId) {
-        const section = document.getElementById(sectionId);
+        var section = document.getElementById(sectionId);
         if (section) {
-            const offsetTop = section.getBoundingClientRect().top + window.pageYOffset - 80;
+            var offsetTop = section.getBoundingClientRect().top + window.pageYOffset - 80;
             window.scrollTo({ top: offsetTop, behavior: 'smooth' });
         }
     }
@@ -315,14 +434,16 @@ window.siteActions = {
 // =====================================================
 // DOM READY
 // =====================================================
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', function() {
     initLanguageSwitcher();
+    initParticles();
     initScrollReveal();
+    initCounters();
     initNavbar();
     initSmoothScroll();
+    initTiltEffect();
 });
 
-// Add loaded class
-window.addEventListener('load', () => {
+window.addEventListener('load', function() {
     document.body.classList.add('loaded');
 });
