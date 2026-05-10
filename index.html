@@ -23,12 +23,12 @@
 <meta name="twitter:description" content="AI Developer and Web Designer building intelligent automation systems and polished web interfaces.">
 
 <!-- Favicon -->
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0%' stop-color='%237c3aed'/><stop offset='100%' stop-color='%2306b6d4'/></linearGradient></defs><rect width='100' height='100' rx='20' fill='url(%23g)'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' font-size='60' font-weight='bold' fill='white'>Y</text></svg>">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='8' fill='%230C0C0C'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' font-size='58' font-weight='bold' fill='%23FF3D00'>Y</text></svg>">
 
 <!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <!-- Stylesheets -->
 <link rel="stylesheet" href="css/styles.css">
@@ -38,33 +38,47 @@
   /* RTL Support */
   [dir="rtl"] .nav-inner { flex-direction: row-reverse; }
   [dir="rtl"] .nav-links { flex-direction: row-reverse; }
+  [dir="rtl"] .hero-content { direction: rtl; }
+  [dir="rtl"] .hero-tag { flex-direction: row-reverse; }
+  [dir="rtl"] .hero-tag::before { display: none; }
+  [dir="rtl"] .hero-tag::after { content: ''; width: 40px; height: 1px; background: var(--accent); }
+  [dir="rtl"] .hero-text { text-align: right; }
+  [dir="rtl"] .hero-name { text-align: right; }
   [dir="rtl"] .tl-head { flex-direction: row-reverse; }
-  [dir="rtl"] .timeline-item { padding-left: 0; padding-right: 2.5rem; border-left: none; border-right: 2px solid rgba(167,139,250,0.15); }
-  [dir="rtl"] .timeline-item::before { left: auto; right: -7px; }
+  [dir="rtl"] .timeline-item { padding-left: 0; padding-right: 3rem; border-left: none; border-right: 1px solid var(--border); }
+  [dir="rtl"] .timeline-item::before { left: auto; right: -5px; }
   [dir="rtl"] .tl-list li { padding-left: 0; padding-right: 1.4rem; }
   [dir="rtl"] .tl-list li::before { left: auto; right: 0; }
   [dir="rtl"] .contact-links { flex-direction: row-reverse; }
   [dir="rtl"] .social-row { flex-direction: row-reverse; }
   [dir="rtl"] .about-content { text-align: right; }
+  [dir="rtl"] .skill-card h3 { flex-direction: row-reverse; }
+  [dir="rtl"] .skill-card h3::before { display: none; }
+  [dir="rtl"] .skill-card h3::after { content: ''; width: 20px; height: 2px; background: var(--accent); flex-shrink: 0; }
+  [dir="rtl"] .sec-title { flex-direction: row-reverse; }
+  [dir="rtl"] .stat-item { text-align: right; padding: 0 0 0 3rem; }
+  [dir="rtl"] .stat-item:not(:last-child)::after { right: auto; left: 1.5rem; }
+  [dir="rtl"] .btn-group { justify-content: flex-end; }
 
   /* Lang Toggle */
   .lang-toggle {
-    background: rgba(167,139,250,0.08);
-    border: 1px solid rgba(167,139,250,0.2);
-    color: var(--primary);
+    background: var(--accent-dim);
+    border: 1px solid rgba(255,61,0,0.2);
+    color: var(--accent);
     padding: 6px 16px;
-    border-radius: 999px;
+    border-radius: 2px;
     cursor: pointer;
-    font-size: 0.8rem;
-    font-weight: 600;
-    transition: all 0.35s cubic-bezier(0.16,1,0.3,1);
+    font-size: 0.78rem;
+    font-weight: 700;
+    transition: all 0.35s var(--ease-out);
     margin-right: 12px;
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-body);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
   }
   .lang-toggle:hover {
-    background: rgba(167,139,250,0.15);
-    border-color: rgba(167,139,250,0.35);
-    box-shadow: 0 0 16px rgba(167,139,250,0.1);
+    background: rgba(255,61,0,0.2);
+    border-color: rgba(255,61,0,0.4);
   }
   [dir="rtl"] .lang-toggle { margin-right: 0; margin-left: 12px; }
 
@@ -83,8 +97,8 @@
     width: 24px;
     height: 2px;
     background: var(--text);
-    border-radius: 2px;
-    transition: all 0.4s cubic-bezier(0.16,1,0.3,1);
+    border-radius: 0;
+    transition: all 0.4s var(--ease-out);
   }
   .mobile-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
   .mobile-toggle.active span:nth-child(2) { opacity: 0; }
@@ -98,13 +112,13 @@
       top: 72px;
       left: 0;
       right: 0;
-      background: rgba(6,9,24,0.95);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
+      background: rgba(12,12,12,0.97);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
       flex-direction: column;
       padding: 2rem;
       gap: 1.5rem;
-      border-bottom: 1px solid var(--glass-border);
+      border-bottom: 1px solid var(--border);
     }
     .nav-links.mobile-open { display: flex; }
   }
@@ -112,13 +126,16 @@
 </head>
 <body>
 
+<!-- Grain Texture Overlay -->
+<div class="grain"></div>
+
 <!-- Particle Canvas -->
 <canvas id="particles-canvas"></canvas>
 
 <!-- NAV -->
 <nav>
   <div class="nav-inner">
-    <a href="#about" class="logo">Y.N</a>
+    <a href="#about" class="logo">Y<span class="logo-dot">.</span>N</a>
     <ul class="nav-links">
       <li><a href="#about" data-i18n="nav_about">About</a></li>
       <li><a href="#skills" data-i18n="nav_skills">Skills</a></li>
@@ -134,46 +151,52 @@
 </nav>
 
 <main>
-  <!-- HERO -->
+  <!-- HERO — Asymmetric Editorial Layout -->
   <section id="about" class="hero">
-    <div class="container">
-      <div class="avatar-wrap reveal">
-        <div class="avatar-glow"></div>
-        <img class="avatar" src="assets/profile.jpg" alt="Yassine Nfouh"/>
+    <div class="hero-content">
+      <div class="hero-text">
+        <p class="hero-tag reveal" data-i18n="hero_subtitle">AI Developer | Web Designer | App Interface Designer | Automation Specialist</p>
+        <div class="hero-name" aria-label="Yassine Nfouh">
+          <span class="name-line">YASSINE</span>
+          <span class="name-line name-accent">NFOUH</span>
+        </div>
+        <p class="summary reveal" data-i18n="hero_summary">
+          AI Developer and Web Designer with 3+ years of hands-on experience building AI-powered applications, LLM integrations, and intelligent automation systems — alongside responsive website design and app interface design. Proficient in integrating GPT-4, Claude API, and Gemini into production-grade tools. Specialized in prompt engineering, end-to-end AI pipeline development, and crafting polished web and mobile UI using Next.js, React, and Tailwind CSS.
+        </p>
+        <div class="btn-group reveal">
+          <a href="#projects" class="btn-primary" data-i18n="hero_btn_projects">View Projects</a>
+          <a href="#contact" class="btn-ghost" data-i18n="hero_btn_contact">Contact Me</a>
+        </div>
       </div>
-      <h1 class="reveal">YASSINE NFOUH</h1>
-      <p class="subtitle reveal" data-i18n="hero_subtitle">AI Developer | Web Designer | App Interface Designer | Automation Specialist</p>
-      <p class="summary reveal" data-i18n="hero_summary">
-        AI Developer and Web Designer with 3+ years of hands-on experience building AI-powered applications, LLM integrations, and intelligent automation systems — alongside responsive website design and app interface design. Proficient in integrating GPT-4, Claude API, and Gemini into production-grade tools. Specialized in prompt engineering, end-to-end AI pipeline development, and crafting polished web and mobile UI using Next.js, React, and Tailwind CSS.
-      </p>
-      <div class="btn-group reveal">
-        <a href="#projects" class="btn-primary" data-i18n="hero_btn_projects">View Projects</a>
-        <a href="#contact" class="btn-ghost" data-i18n="hero_btn_contact">Contact Me</a>
+      <div class="hero-visual reveal">
+        <div class="avatar-frame">
+          <img class="avatar" src="assets/profile.jpg" alt="Yassine Nfouh"/>
+        </div>
       </div>
+    </div>
 
-      <!-- Stats Counter -->
-      <div class="stats-row reveal">
-        <div class="stat-item">
-          <div class="stat-number" data-count="10">0</div>
-          <div class="stat-label" data-i18n="stat_projects">Projects</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number" data-count="3">0</div>
-          <div class="stat-label" data-i18n="stat_experience">Years Experience</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number" data-count="15">0</div>
-          <div class="stat-label" data-i18n="stat_tools">AI Tools</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number" data-count="70">0</div>
-          <div class="stat-label" data-i18n="stat_efficiency">% Efficiency Gain</div>
-        </div>
+    <!-- Stats Bar -->
+    <div class="stats-row reveal">
+      <div class="stat-item">
+        <div class="stat-number" data-count="10">0</div>
+        <div class="stat-label" data-i18n="stat_projects">Projects</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number" data-count="3">0</div>
+        <div class="stat-label" data-i18n="stat_experience">Years Experience</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number" data-count="15">0</div>
+        <div class="stat-label" data-i18n="stat_tools">AI Tools</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number" data-count="70">0</div>
+        <div class="stat-label" data-i18n="stat_efficiency">% Efficiency Gain</div>
       </div>
     </div>
   </section>
 
-  <!-- SKILLS -->
+  <!-- SKILLS — Structured Bento Grid -->
   <section id="skills">
     <div class="container">
       <h2 class="sec-title reveal"><span>&#9670;</span> <span data-i18n="skills_title">Technical Expertise</span></h2>
@@ -331,11 +354,11 @@
           <div class="info-card reveal">
             <h3 data-i18n="lang_title">Languages</h3>
             <div class="lang-row">
-              <div class="lang-label"><span data-i18n="lang_ar">Arabic</span><span style="color:var(--muted);font-size:.82rem" data-i18n="lang_ar_level">Native</span></div>
+              <div class="lang-label"><span data-i18n="lang_ar">Arabic</span><span style="color:var(--text-muted);font-size:.82rem" data-i18n="lang_ar_level">Native</span></div>
               <div class="lang-bar"><div class="lang-fill" style="width:100%"></div></div>
             </div>
             <div class="lang-row">
-              <div class="lang-label"><span>English</span><span style="color:var(--muted);font-size:.82rem" data-i18n="lang_en_level">Intermediate (Technical)</span></div>
+              <div class="lang-label"><span>English</span><span style="color:var(--text-muted);font-size:.82rem" data-i18n="lang_en_level">Intermediate (Technical)</span></div>
               <div class="lang-bar"><div class="lang-fill" style="width:70%"></div></div>
             </div>
           </div>
@@ -388,10 +411,10 @@
         </div>
         <div class="social-row reveal">
           <a href="https://github.com/YASSINENFAI" target="_blank" rel="noopener" class="social-link">GitHub</a>
-          <span style="color:var(--glass-border)">|</span>
+          <span style="color:var(--border)">|</span>
           <a href="mailto:azffhk@gmail.com" class="social-link">Email</a>
-          <span style="color:var(--glass-border)">|</span>
-          <span style="color:var(--muted);font-size:.9rem" data-i18n="contact_location">Morocco (Remote)</span>
+          <span style="color:var(--border)">|</span>
+          <span style="color:var(--text-muted);font-size:.85rem" data-i18n="contact_location">Morocco (Remote)</span>
         </div>
       </div>
     </div>
