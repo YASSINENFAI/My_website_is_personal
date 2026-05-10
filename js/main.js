@@ -1,5 +1,6 @@
 /**
- * Yassine Nfouh — Premium Portfolio JavaScript
+ * Yassine Nfouh — Digital Craft Portfolio
+ * Neo-Brutalist Editorial · Vermillion + True Black
  * Particle system, counter animations, scroll effects, language switching
  */
 
@@ -15,7 +16,7 @@ const translations = {
         nav_contact: "Contact",
         nav_cta: "Get in Touch",
         hero_subtitle: "AI Developer | Web Designer | App Interface Designer | Automation Specialist",
-        hero_summary: "AI Developer and Web Designer with 3+ years of hands-on experience building AI-powered applications, LLM integrations, and intelligent automation systems — alongside responsive website design and app interface design. Proficient in integrating GPT-4, Claude API, and Gemini into production-grade tools. Specialized in prompt engineering, end-to-end AI pipeline development, and crafting polished web and mobile UI using Next.js, React, and Tailwind CSS.",
+        hero_summary: "AI Developer and Web Designer with 3+ years of hands-on experience building AI-powered applications, LLM integrations, and intelligent automation systems \u2014 alongside responsive website design and app interface design. Proficient in integrating GPT-4, Claude API, and Gemini into production-grade tools. Specialized in prompt engineering, end-to-end AI pipeline development, and crafting polished web and mobile UI using Next.js, React, and Tailwind CSS.",
         hero_btn_projects: "View Projects",
         hero_btn_contact: "Contact Me",
         stat_projects: "Projects",
@@ -161,8 +162,8 @@ function setLanguage(lang) {
     document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
     document.documentElement.lang = lang;
 
-    document.querySelectorAll('[data-i18n]').forEach(el => {
-        const key = el.getAttribute('data-i18n');
+    document.querySelectorAll('[data-i18n]').forEach(function(el) {
+        var key = el.getAttribute('data-i18n');
         if (translations[lang][key]) {
             if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
                 el.placeholder = translations[lang][key];
@@ -172,25 +173,25 @@ function setLanguage(lang) {
         }
     });
 
-    const langToggle = document.querySelector('.lang-toggle');
+    var langToggle = document.querySelector('.lang-toggle');
     if (langToggle) {
         langToggle.textContent = lang === 'en' ? '\u0627\u0644\u0639\u0631\u0628\u064a\u0629' : 'English';
     }
 }
 
 function initLanguageSwitcher() {
-    const navInner = document.querySelector('.nav-inner');
+    var navInner = document.querySelector('.nav-inner');
     if (navInner) {
-        const langToggle = document.createElement('button');
+        var langToggle = document.createElement('button');
         langToggle.className = 'lang-toggle';
         langToggle.textContent = currentLang === 'en' ? '\u0627\u0644\u0639\u0631\u0628\u064a\u0629' : 'English';
 
-        langToggle.addEventListener('click', () => {
+        langToggle.addEventListener('click', function() {
             setLanguage(currentLang === 'en' ? 'ar' : 'en');
         });
 
-        const btnOutline = navInner.querySelector('.btn-outline');
-        const mobileToggle = navInner.querySelector('.mobile-toggle');
+        var btnOutline = navInner.querySelector('.btn-outline');
+        var mobileToggle = navInner.querySelector('.mobile-toggle');
         if (btnOutline) {
             navInner.insertBefore(langToggle, btnOutline);
         } else if (mobileToggle) {
@@ -203,16 +204,16 @@ function initLanguageSwitcher() {
 }
 
 // =====================================================
-// PARTICLE SYSTEM
+// PARTICLE SYSTEM — Vermillion themed
 // =====================================================
 function initParticles() {
-    const canvas = document.getElementById('particles-canvas');
+    var canvas = document.getElementById('particles-canvas');
     if (!canvas) return;
 
-    const ctx = canvas.getContext('2d');
-    let particles = [];
-    let animFrame;
-    let width, height;
+    var ctx = canvas.getContext('2d');
+    var particles = [];
+    var animFrame;
+    var width, height;
 
     function resize() {
         width = canvas.width = window.innerWidth;
@@ -221,34 +222,36 @@ function initParticles() {
     resize();
     window.addEventListener('resize', resize);
 
-    class Particle {
-        constructor() {
-            this.reset();
-        }
-        reset() {
-            this.x = Math.random() * width;
-            this.y = Math.random() * height;
-            this.size = Math.random() * 2 + 0.5;
-            this.speedX = (Math.random() - 0.5) * 0.4;
-            this.speedY = (Math.random() - 0.5) * 0.4;
-            this.opacity = Math.random() * 0.4 + 0.1;
-            this.hue = Math.random() > 0.5 ? 260 : 200;
-        }
-        update() {
-            this.x += this.speedX;
-            this.y += this.speedY;
-            if (this.x < 0 || this.x > width) this.speedX *= -1;
-            if (this.y < 0 || this.y > height) this.speedY *= -1;
-        }
-        draw() {
-            ctx.beginPath();
-            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-            ctx.fillStyle = 'hsla(' + this.hue + ', 80%, 70%, ' + this.opacity + ')';
-            ctx.fill();
-        }
+    function Particle() {
+        this.reset();
     }
+    Particle.prototype.reset = function() {
+        this.x = Math.random() * width;
+        this.y = Math.random() * height;
+        this.size = Math.random() * 1.5 + 0.3;
+        this.speedX = (Math.random() - 0.5) * 0.3;
+        this.speedY = (Math.random() - 0.5) * 0.3;
+        this.opacity = Math.random() * 0.25 + 0.05;
+        this.warm = Math.random() > 0.7;
+    };
+    Particle.prototype.update = function() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+        if (this.x < 0 || this.x > width) this.speedX *= -1;
+        if (this.y < 0 || this.y > height) this.speedY *= -1;
+    };
+    Particle.prototype.draw = function() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        if (this.warm) {
+            ctx.fillStyle = 'rgba(255, 61, 0, ' + this.opacity + ')';
+        } else {
+            ctx.fillStyle = 'rgba(245, 240, 235, ' + (this.opacity * 0.5) + ')';
+        }
+        ctx.fill();
+    };
 
-    var count = Math.min(80, Math.floor(width * height / 15000));
+    var count = Math.min(60, Math.floor(width * height / 20000));
     for (var i = 0; i < count; i++) {
         particles.push(new Particle());
     }
@@ -259,11 +262,11 @@ function initParticles() {
                 var dx = particles[i].x - particles[j].x;
                 var dy = particles[i].y - particles[j].y;
                 var dist = Math.sqrt(dx * dx + dy * dy);
-                if (dist < 150) {
-                    var opacity = (1 - dist / 150) * 0.12;
+                if (dist < 120) {
+                    var opacity = (1 - dist / 120) * 0.06;
                     ctx.beginPath();
-                    ctx.strokeStyle = 'hsla(260, 60%, 65%, ' + opacity + ')';
-                    ctx.lineWidth = 0.6;
+                    ctx.strokeStyle = 'rgba(255, 61, 0, ' + opacity + ')';
+                    ctx.lineWidth = 0.4;
                     ctx.moveTo(particles[i].x, particles[i].y);
                     ctx.lineTo(particles[j].x, particles[j].y);
                     ctx.stroke();
@@ -323,7 +326,7 @@ function animateCounter(el) {
 }
 
 // =====================================================
-// SCROLL REVEAL ANIMATIONS
+// SCROLL REVEAL
 // =====================================================
 function initScrollReveal() {
     var revealEls = document.querySelectorAll('.reveal');
@@ -334,11 +337,11 @@ function initScrollReveal() {
                 observer.unobserve(e.target);
             }
         });
-    }, { threshold: 0.1 });
+    }, { threshold: 0.08 });
     revealEls.forEach(function(el) { observer.observe(el); });
 
     document.querySelectorAll('.hero .reveal').forEach(function(el, i) {
-        setTimeout(function() { el.classList.add('visible'); }, i * 150);
+        setTimeout(function() { el.classList.add('visible'); }, 600 + i * 200);
     });
 }
 
@@ -393,31 +396,6 @@ function initSmoothScroll() {
 }
 
 // =====================================================
-// TILT EFFECT ON CARDS
-// =====================================================
-function initTiltEffect() {
-    var cards = document.querySelectorAll('.skill-card, .proj-card');
-
-    cards.forEach(function(card) {
-        card.addEventListener('mousemove', function(e) {
-            var rect = card.getBoundingClientRect();
-            var x = e.clientX - rect.left;
-            var y = e.clientY - rect.top;
-            var centerX = rect.width / 2;
-            var centerY = rect.height / 2;
-            var rotateX = (y - centerY) / centerY * -4;
-            var rotateY = (x - centerX) / centerX * 4;
-
-            card.style.transform = 'perspective(800px) rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg) translateY(-4px)';
-        });
-
-        card.addEventListener('mouseleave', function() {
-            card.style.transform = '';
-        });
-    });
-}
-
-// =====================================================
 // GLOBAL ACTIONS FOR AI
 // =====================================================
 window.siteActions = {
@@ -441,7 +419,6 @@ document.addEventListener('DOMContentLoaded', function() {
     initCounters();
     initNavbar();
     initSmoothScroll();
-    initTiltEffect();
 });
 
 window.addEventListener('load', function() {
