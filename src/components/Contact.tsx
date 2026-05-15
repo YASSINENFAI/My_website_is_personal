@@ -1,4 +1,5 @@
 import { motion, useReducedMotion } from 'framer-motion'
+import { useLanguage } from '../context/LanguageContext'
 
 const contactCards = [
   {
@@ -33,6 +34,7 @@ const contactCards = [
 export default function Contact() {
   const reducedMotion = useReducedMotion()
   const initial = reducedMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }
+  const { t } = useLanguage()
 
   return (
     <section id="contact" className="py-32 relative overflow-hidden" aria-labelledby="contact-heading">
@@ -48,7 +50,7 @@ export default function Contact() {
           viewport={{ once: true, margin: '-100px' }}
           transition={reducedMotion ? { duration: 0 } : { duration: 0.8 }}
         >
-          Let&apos;s Build Something
+          {t('contact.title')}
         </motion.h2>
 
         <motion.p
@@ -58,8 +60,7 @@ export default function Contact() {
           viewport={{ once: true, margin: '-100px' }}
           transition={reducedMotion ? { duration: 0 } : { duration: 0.8, delay: 0.1 }}
         >
-          Currently available for freelance projects and remote opportunities in
-          AI development and web design.
+          {t('contact.subtitle')}
         </motion.p>
 
         {/* Contact Cards */}
@@ -101,14 +102,14 @@ export default function Contact() {
             rel="noopener noreferrer"
             className="text-xs uppercase tracking-widest text-ash hover:text-vermillion transition-colors"
           >
-            GitHub
+            {t('contact.github')}
             <span className="sr-only">(opens in new tab)</span>
           </a>
           <a
             href="mailto:azffhk@gmail.com"
             className="text-xs uppercase tracking-widest text-ash hover:text-vermillion transition-colors"
           >
-            Email
+            {t('contact.email')}
           </a>
         </motion.div>
       </div>

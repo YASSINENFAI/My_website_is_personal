@@ -1,9 +1,10 @@
 import { motion, useReducedMotion } from 'framer-motion'
+import { useLanguage } from '../context/LanguageContext'
 
 interface Project {
   number: string
   title: string
-  description: string
+  descriptionKey: string
   link: string
   tags: string[]
   image: string
@@ -13,8 +14,7 @@ const projects: Project[] = [
   {
     number: '01',
     title: 'InvoiceFlow',
-    description:
-      'AI-ready invoice management SaaS with automated generation and real-time tracking.',
+    descriptionKey: 'projects.items.invoiceflow.description',
     link: 'https://invoice-saas-xi.vercel.app',
     tags: ['Next.js', 'Supabase', 'PostgreSQL', 'Vercel'],
     image: '/assets/invoiceflow.jpg',
@@ -22,8 +22,7 @@ const projects: Project[] = [
   {
     number: '02',
     title: 'LeadGenius',
-    description:
-      'Open-source AI-powered lead generation with LLM-driven personalization at scale.',
+    descriptionKey: 'projects.items.leadgenius.description',
     link: 'https://github.com/YASSINENFAI/LeadGenius',
     tags: ['Python', 'OpenAI API', 'n8n'],
     image: '/assets/socioconnect-branding.png',
@@ -31,8 +30,7 @@ const projects: Project[] = [
   {
     number: '03',
     title: 'CV Pro Builder',
-    description:
-      'Professional CV builder with AI content suggestions and ATS optimization.',
+    descriptionKey: 'projects.items.cvbuilder.description',
     link: 'https://cvpersonal.xyz',
     tags: ['Next.js', 'Claude API', 'Tailwind CSS'],
     image: '/assets/cvbuilder.jpg',
@@ -40,8 +38,7 @@ const projects: Project[] = [
   {
     number: '04',
     title: 'Hirafi App',
-    description:
-      'Bilingual skills marketplace application with full-stack architecture.',
+    descriptionKey: 'projects.items.hirafi.description',
     link: 'https://github.com/YASSINENFAI/hirafi',
     tags: ['Next.js', 'Tailwind CSS', 'Supabase'],
     image: '/assets/hirafi-app.jpg',
@@ -51,6 +48,7 @@ const projects: Project[] = [
 function ProjectBlock({ project, index, reducedMotion }: { project: Project; index: number; reducedMotion: boolean }) {
   const isEven = index % 2 === 1
   const initial = reducedMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }
+  const { t } = useLanguage()
 
   return (
     <motion.div
@@ -61,7 +59,7 @@ function ProjectBlock({ project, index, reducedMotion }: { project: Project; ind
       transition={reducedMotion ? { duration: 0 } : { duration: 0.8 }}
     >
       {/* Hover accent line */}
-      <div className="absolute left-0 top-0 w-[2px] h-0 bg-vermillion group-hover:h-full transition-all duration-500" />
+      <div className="absolute start-0 top-0 w-[2px] h-0 bg-vermillion group-hover:h-full transition-all duration-500" />
 
       <div
         className={`flex flex-col lg:flex-row items-center gap-12 lg:gap-20 ${
@@ -77,7 +75,7 @@ function ProjectBlock({ project, index, reducedMotion }: { project: Project; ind
             {project.title}
           </h3>
           <p className="text-ash text-base max-w-md mb-6">
-            {project.description}
+            {t(project.descriptionKey)}
           </p>
           <div className="flex gap-2 flex-wrap mb-4">
             {project.tags.map((tag) => (
@@ -95,10 +93,10 @@ function ProjectBlock({ project, index, reducedMotion }: { project: Project; ind
             rel="noopener noreferrer"
             className="text-sm text-ash hover:text-vermillion flex items-center gap-2 mt-4 transition-colors"
           >
-            View Project
+            {t('projects.viewProject')}
             <span className="sr-only">(opens in new tab)</span>
             <svg
-              className="w-4 h-4"
+              className="w-4 h-4 rtl:rotate-180"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -133,6 +131,7 @@ function ProjectBlock({ project, index, reducedMotion }: { project: Project; ind
 export default function Projects() {
   const reducedMotion = useReducedMotion()
   const initial = reducedMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }
+  const { t } = useLanguage()
 
   return (
     <section id="work" className="py-32" aria-labelledby="work-heading">
@@ -146,7 +145,9 @@ export default function Projects() {
           transition={reducedMotion ? { duration: 0 } : { duration: 0.8 }}
         >
           <div className="w-2 h-2 bg-vermillion rotate-45" />
-          <h2 id="work-heading" className="font-display text-3xl font-bold">Selected Work</h2>
+          <h2 id="work-heading" className="font-display text-3xl font-bold">
+            {t('projects.title')}
+          </h2>
         </motion.div>
 
         {/* Project Blocks */}

@@ -18,8 +18,8 @@ export default {
         smoke: '#444444',
       },
       fontFamily: {
-        display: ['"Clash Display"', 'sans-serif'],
-        body: ['"Cabinet Grotesk"', 'sans-serif'],
+        display: ['"Clash Display"', '"Noto Kufi Arabic"', 'sans-serif'],
+        body: ['"Cabinet Grotesk"', '"Noto Kufi Arabic"', 'sans-serif'],
       },
     },
   },

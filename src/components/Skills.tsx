@@ -1,14 +1,15 @@
 import { motion, useReducedMotion } from 'framer-motion'
+import { useLanguage } from '../context/LanguageContext'
 
 interface SkillDomain {
-  title: string
+  titleKey: string
   skills: string[]
   span?: boolean
 }
 
 const skillDomains: SkillDomain[] = [
   {
-    title: 'AI / LLM',
+    titleKey: 'skills.domains.ai',
     skills: [
       'GPT-4',
       'Claude API',
@@ -23,7 +24,7 @@ const skillDomains: SkillDomain[] = [
     span: true,
   },
   {
-    title: 'Development & Cloud',
+    titleKey: 'skills.domains.dev',
     skills: [
       'Python',
       'Next.js',
@@ -38,7 +39,7 @@ const skillDomains: SkillDomain[] = [
     ],
   },
   {
-    title: 'Web & App Design',
+    titleKey: 'skills.domains.design',
     skills: [
       'Web Design',
       'App Interface Design',
@@ -49,7 +50,7 @@ const skillDomains: SkillDomain[] = [
     ],
   },
   {
-    title: 'Automation & Tools',
+    titleKey: 'skills.domains.automation',
     skills: [
       'Make (Integromat)',
       'n8n',
@@ -65,6 +66,7 @@ const skillDomains: SkillDomain[] = [
 export default function Skills() {
   const reducedMotion = useReducedMotion()
   const initial = reducedMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }
+  const { t } = useLanguage()
 
   return (
     <section id="skills" className="py-32" aria-labelledby="skills-heading">
@@ -79,7 +81,7 @@ export default function Skills() {
         >
           <div className="w-2 h-2 bg-vermillion rotate-45" />
           <h2 id="skills-heading" className="font-display text-3xl font-bold">
-            Technical Expertise
+            {t('skills.title')}
           </h2>
         </motion.div>
 
@@ -87,7 +89,7 @@ export default function Skills() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-[1px] bg-white/5 border border-white/5">
           {skillDomains.map((domain, index) => (
             <motion.div
-              key={domain.title}
+              key={domain.titleKey}
               className={`bg-void p-8 lg:p-10 hover:bg-surface transition-colors duration-300 ${
                 domain.span ? 'md:col-span-2' : ''
               }`}
@@ -98,7 +100,7 @@ export default function Skills() {
             >
               <h3 className="font-display text-lg font-bold text-bone mb-4 flex items-center gap-3">
                 <span className="w-5 h-[2px] bg-vermillion" />
-                {domain.title}
+                {t(domain.titleKey)}
               </h3>
               <div className="flex flex-wrap gap-2">
                 {domain.skills.map((skill) => (

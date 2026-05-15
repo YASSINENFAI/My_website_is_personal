@@ -1,16 +1,18 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-
-const navLinks = [
-  { label: 'About', href: '#about' },
-  { label: 'Work', href: '#work' },
-  { label: 'Skills', href: '#skills' },
-  { label: 'Contact', href: '#contact' },
-]
+import { useLanguage } from '../context/LanguageContext'
 
 export default function Navigation() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
+  const { language, toggleLanguage, t } = useLanguage()
+
+  const navLinks = [
+    { label: t('nav.about'), href: '#about' },
+    { label: t('nav.work'), href: '#work' },
+    { label: t('nav.skills'), href: '#skills' },
+    { label: t('nav.contact'), href: '#contact' },
+  ]
 
   useEffect(() => {
     const handleScroll = () => {
@@ -60,7 +62,7 @@ export default function Navigation() {
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
               <a
-                key={link.label}
+                key={link.href}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
                 className="uppercase text-xs tracking-widest font-body text-bone/70 hover:text-vermillion transition-colors"
@@ -68,12 +70,23 @@ export default function Navigation() {
                 {link.label}
               </a>
             ))}
+
+            {/* Language Toggle */}
+            <motion.button
+              onClick={toggleLanguage}
+              className="border border-white/10 hover:border-vermillion text-bone text-xs uppercase tracking-widest px-4 py-2 transition-colors font-body"
+              whileTap={{ scale: 0.95 }}
+              aria-label={language === 'en' ? 'Switch to Arabic' : 'Switch to English'}
+            >
+              {language === 'en' ? 'عربي' : 'EN'}
+            </motion.button>
+
             <a
               href="#contact"
               onClick={(e) => handleNavClick(e, '#contact')}
               className="border border-white/10 hover:border-vermillion text-bone text-xs uppercase tracking-widest px-5 py-2.5 transition-colors"
             >
-              Let&apos;s Talk
+              {t('nav.letsTalk')}
             </a>
           </div>
 
@@ -113,16 +126,29 @@ export default function Navigation() {
             transition={{ duration: 0.3 }}
           >
             <div className="flex flex-col items-center gap-8">
+              {/* Language Toggle - Mobile */}
+              <motion.button
+                onClick={toggleLanguage}
+                className="border border-white/10 hover:border-vermillion text-bone text-sm uppercase tracking-widest px-6 py-2.5 transition-colors font-body"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 20 }}
+                transition={{ delay: 0, duration: 0.4 }}
+                aria-label={language === 'en' ? 'Switch to Arabic' : 'Switch to English'}
+              >
+                {language === 'en' ? 'عربي' : 'EN'}
+              </motion.button>
+
               {navLinks.map((link, i) => (
                 <motion.a
-                  key={link.label}
+                  key={link.href}
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href)}
                   className="font-display text-3xl font-bold text-bone hover:text-vermillion transition-colors"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 20 }}
-                  transition={{ delay: i * 0.1, duration: 0.4 }}
+                  transition={{ delay: (i + 1) * 0.1, duration: 0.4 }}
                 >
                   {link.label}
                 </motion.a>
@@ -134,9 +160,9 @@ export default function Navigation() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 20 }}
-                transition={{ delay: 0.4, duration: 0.4 }}
+                transition={{ delay: 0.5, duration: 0.4 }}
               >
-                Let&apos;s Talk
+                {t('nav.letsTalk')}
               </motion.a>
             </div>
           </motion.div>

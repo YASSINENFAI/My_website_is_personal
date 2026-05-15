@@ -1,14 +1,16 @@
 import { motion, useReducedMotion } from 'framer-motion'
-
-const stats = [
-  { number: '10+', label: 'Projects' },
-  { number: '3+', label: 'Years Experience' },
-  { number: '15+', label: 'AI Tools' },
-  { number: '70%', label: 'Efficiency Gain' },
-]
+import { useLanguage } from '../context/LanguageContext'
 
 export default function Hero() {
   const prefersReducedMotion = useReducedMotion()
+  const { t } = useLanguage()
+
+  const stats = [
+    { number: '10+', label: t('hero.stats.projects') },
+    { number: '3+', label: t('hero.stats.years') },
+    { number: '15+', label: t('hero.stats.aiTools') },
+    { number: '70%', label: t('hero.stats.efficiency') },
+  ]
 
   const getTransition = (duration: number, delay: number) => {
     if (prefersReducedMotion) {
@@ -36,7 +38,7 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={getTransition(0.8, 1.0)}
             >
-              &mdash;&mdash;&mdash; AI Developer + Creative Designer
+              &mdash;&mdash;&mdash; {t('hero.tagline')}
             </motion.p>
 
             <div className="overflow-hidden">
@@ -67,9 +69,7 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={getTransition(0.8, 1.5)}
             >
-              AI Developer and Web Designer with 3+ years of experience building
-              AI-powered applications, LLM integrations, and intelligent
-              automation systems.
+              {t('hero.description')}
             </motion.p>
 
             <motion.div
@@ -86,7 +86,7 @@ export default function Hero() {
                 }}
                 className="bg-vermillion text-white px-8 py-3 text-sm font-bold uppercase tracking-wide hover:shadow-[0_8px_30px_rgba(255,61,0,0.3)] transition-all"
               >
-                View Work
+                {t('hero.viewWork')}
               </a>
               <a
                 href="#contact"
@@ -96,7 +96,7 @@ export default function Hero() {
                 }}
                 className="border border-white/15 text-bone px-8 py-3 text-sm font-bold uppercase tracking-wide hover:border-vermillion hover:text-vermillion transition-all"
               >
-                Get in Touch
+                {t('hero.getInTouch')}
               </a>
             </motion.div>
           </div>
@@ -108,7 +108,7 @@ export default function Hero() {
             animate={{ opacity: 1, scale: 1 }}
             transition={getTransition(1, 1.5)}
           >
-            <div className="absolute -bottom-4 -right-4 w-[280px] h-[360px] border border-vermillion/20 rounded-sm" />
+            <div className="absolute -bottom-4 ltr:-right-4 rtl:-left-4 w-[280px] h-[360px] border border-vermillion/20 rounded-sm" />
             <img
               src="/assets/profile.jpg"
               alt="Yassine Nfouh"

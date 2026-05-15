@@ -1,33 +1,35 @@
 import { motion, useReducedMotion } from 'framer-motion'
-
-const timeline = [
-  {
-    title: 'AI Developer & Automation Specialist',
-    date: '2024 - Present',
-    company: 'Freelance',
-    points: [
-      'Building AI-powered applications with LLM integrations',
-      'Developing intelligent automation workflows with n8n and Make',
-      'Creating RAG systems and conversational AI agents',
-    ],
-  },
-  {
-    title: 'UI/UX Designer & Web Developer',
-    date: '2022 - 2023',
-    company: 'Freelance',
-    points: [
-      'Designing responsive web interfaces and mobile app UIs',
-      'Building full-stack applications with Next.js and Supabase',
-      'Creating brand identities and visual design systems',
-    ],
-  },
-]
+import { useLanguage } from '../context/LanguageContext'
 
 export default function About() {
   const reducedMotion = useReducedMotion()
+  const { t } = useLanguage()
   const initial = reducedMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }
   const initialSmall = reducedMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
   const transition = reducedMotion ? { duration: 0 } : { duration: 0.8 }
+
+  const timeline = [
+    {
+      title: t('about.timeline.role1.title'),
+      date: t('about.timeline.role1.date'),
+      company: t('about.timeline.role1.company'),
+      points: [
+        t('about.timeline.role1.point1'),
+        t('about.timeline.role1.point2'),
+        t('about.timeline.role1.point3'),
+      ],
+    },
+    {
+      title: t('about.timeline.role2.title'),
+      date: t('about.timeline.role2.date'),
+      company: t('about.timeline.role2.company'),
+      points: [
+        t('about.timeline.role2.point1'),
+        t('about.timeline.role2.point2'),
+        t('about.timeline.role2.point3'),
+      ],
+    },
+  ]
 
   return (
     <section id="about" className="py-32" aria-labelledby="about-heading">
@@ -41,7 +43,9 @@ export default function About() {
           transition={transition}
         >
           <div className="w-2 h-2 bg-vermillion rotate-45" />
-          <h2 id="about-heading" className="font-display text-3xl font-bold">About</h2>
+          <h2 id="about-heading" className="font-display text-3xl font-bold">
+            {t('about.title')}
+          </h2>
         </motion.div>
 
         {/* Two-Column Layout */}
@@ -57,8 +61,7 @@ export default function About() {
               &ldquo;
             </span>
             <p className="text-2xl lg:text-3xl font-display italic leading-snug text-bone/90 -mt-4">
-              I build intelligent systems that feel human and design interfaces
-              that feel alive.
+              {t('about.quote')}
             </p>
           </motion.div>
 
@@ -71,19 +74,12 @@ export default function About() {
               viewport={{ once: true, margin: '-100px' }}
               transition={reducedMotion ? { duration: 0 } : { duration: 0.8, delay: 0.3 }}
             >
-              I&apos;m Yassine Nfouh, an AI Developer and Web Designer based in
-              Morocco. Over the past 3+ years, I&apos;ve focused on bridging the
-              gap between artificial intelligence and human-centered design.
-              From building LLM-powered applications and intelligent automation
-              systems to crafting responsive web interfaces, my work lives at
-              the intersection of technology and creativity. I specialize in
-              GPT-4, Claude API, Next.js, Python, and workflow automation
-              tools like n8n and Make.
+              {t('about.bio')}
             </motion.p>
 
             {/* Timeline */}
             <motion.div
-              className="mt-12 space-y-8 border-l border-white/10 pl-8"
+              className="mt-12 space-y-8 border-s border-white/10 ps-8"
               initial={initial}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-100px' }}
@@ -99,7 +95,7 @@ export default function About() {
                   transition={reducedMotion ? { duration: 0 } : { duration: 0.6, delay: 0.1 * index }}
                 >
                   {/* Diamond marker */}
-                  <div className="absolute -left-[33px] top-2 w-2 h-2 bg-vermillion rotate-45" />
+                  <div className="absolute -start-[33px] top-2 w-2 h-2 bg-vermillion rotate-45" />
                   <h3 className="font-display font-bold text-bone">
                     {item.title}
                   </h3>
@@ -111,7 +107,7 @@ export default function About() {
                     {item.points.map((point) => (
                       <li
                         key={point}
-                        className="text-ash text-sm pl-4 relative before:content-[''] before:absolute before:left-0 before:top-[0.6em] before:w-1.5 before:h-[1px] before:bg-vermillion/50"
+                        className="text-ash text-sm ps-4 relative before:content-[''] before:absolute before:start-0 before:top-[0.6em] before:w-1.5 before:h-[1px] before:bg-vermillion/50"
                       >
                         {point}
                       </li>
