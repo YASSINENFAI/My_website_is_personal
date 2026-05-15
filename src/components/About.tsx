@@ -25,7 +25,7 @@ const timeline = [
 
 export default function About() {
   return (
-    <section id="about" className="py-32">
+    <section id="about" className="py-32" aria-labelledby="about-heading">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         {/* Section Header */}
         <motion.div
@@ -36,7 +36,7 @@ export default function About() {
           transition={{ duration: 0.8 }}
         >
           <div className="w-2 h-2 bg-vermillion rotate-45" />
-          <h2 className="font-display text-3xl font-bold">About</h2>
+          <h2 id="about-heading" className="font-display text-3xl font-bold">About</h2>
         </motion.div>
 
         {/* Two-Column Layout */}

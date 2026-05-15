@@ -82,7 +82,7 @@ function ProjectBlock({ project, index }: { project: Project; index: number }) {
             {project.tags.map((tag) => (
               <span
                 key={tag}
-                className="border border-white/10 px-3 py-1 text-xs uppercase tracking-wide text-smoke hover:text-vermillion hover:border-vermillion/30 transition-colors"
+                className="border border-white/10 px-3 py-1 text-xs uppercase tracking-wide text-ash hover:text-vermillion hover:border-vermillion/30 transition-colors"
               >
                 {tag}
               </span>
@@ -101,6 +101,7 @@ function ProjectBlock({ project, index }: { project: Project; index: number }) {
               viewBox="0 0 24 24"
               stroke="currentColor"
               strokeWidth={2}
+              aria-hidden="true"
             >
               <path
                 strokeLinecap="round"
@@ -117,6 +118,7 @@ function ProjectBlock({ project, index }: { project: Project; index: number }) {
             <img
               src={project.image}
               alt={project.title}
+              loading="lazy"
               className="w-full h-[280px] object-cover grayscale-[30%] hover:grayscale-0 transition-all duration-500"
             />
           </div>
@@ -128,7 +130,7 @@ function ProjectBlock({ project, index }: { project: Project; index: number }) {
 
 export default function Projects() {
   return (
-    <section id="work" className="py-32">
+    <section id="work" className="py-32" aria-labelledby="work-heading">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         {/* Section Header */}
         <motion.div
@@ -139,7 +141,7 @@ export default function Projects() {
           transition={{ duration: 0.8 }}
         >
           <div className="w-2 h-2 bg-vermillion rotate-45" />
-          <h2 className="font-display text-3xl font-bold">Selected Work</h2>
+          <h2 id="work-heading" className="font-display text-3xl font-bold">Selected Work</h2>
         </motion.div>
 
         {/* Project Blocks */}

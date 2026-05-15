@@ -64,7 +64,7 @@ const skillDomains: SkillDomain[] = [
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-32">
+    <section id="skills" className="py-32" aria-labelledby="skills-heading">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         {/* Section Header */}
         <motion.div
@@ -75,7 +75,7 @@ export default function Skills() {
           transition={{ duration: 0.8 }}
         >
           <div className="w-2 h-2 bg-vermillion rotate-45" />
-          <h2 className="font-display text-3xl font-bold">
+          <h2 id="skills-heading" className="font-display text-3xl font-bold">
             Technical Expertise
           </h2>
         </motion.div>
