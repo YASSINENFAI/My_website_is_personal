@@ -1,23 +1,28 @@
-import { motion } from 'framer-motion'
+import PageReveal from './components/PageReveal'
+import Navigation from './components/Navigation'
+import Hero from './components/Hero'
+import About from './components/About'
+import Projects from './components/Projects'
+import Skills from './components/Skills'
+import Contact from './components/Contact'
+import Footer from './components/Footer'
 
 function App() {
   return (
-    <div className="film-grain min-h-screen flex items-center justify-center">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="text-center"
-      >
-        <h1 className="text-5xl font-bold text-bone mb-4">
-          Yassine Nfouh
-        </h1>
-        <p className="text-xl text-ash">
-          AI Developer & Creative Designer
-        </p>
-        <div className="mt-6 w-16 h-1 bg-vermillion mx-auto rounded-full" />
-      </motion.div>
-    </div>
+    <>
+      <PageReveal />
+      <div className="film-grain min-h-screen">
+        <Navigation />
+        <main>
+          <Hero />
+          <About />
+          <Projects />
+          <Skills />
+          <Contact />
+        </main>
+        <Footer />
+      </div>
+    </>
   )
 }
 
