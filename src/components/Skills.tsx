@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
 
 interface SkillDomain {
   title: string
@@ -63,16 +63,19 @@ const skillDomains: SkillDomain[] = [
 ]
 
 export default function Skills() {
+  const reducedMotion = useReducedMotion()
+  const initial = reducedMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }
+
   return (
     <section id="skills" className="py-32" aria-labelledby="skills-heading">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         {/* Section Header */}
         <motion.div
           className="flex items-center gap-3 mb-16"
-          initial={{ opacity: 0, y: 40 }}
+          initial={initial}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.8 }}
+          transition={reducedMotion ? { duration: 0 } : { duration: 0.8 }}
         >
           <div className="w-2 h-2 bg-vermillion rotate-45" />
           <h2 id="skills-heading" className="font-display text-3xl font-bold">
@@ -88,10 +91,10 @@ export default function Skills() {
               className={`bg-void p-8 lg:p-10 hover:bg-surface transition-colors duration-300 ${
                 domain.span ? 'md:col-span-2' : ''
               }`}
-              initial={{ opacity: 0, y: 30 }}
+              initial={reducedMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-100px' }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
+              transition={reducedMotion ? { duration: 0 } : { duration: 0.6, delay: index * 0.1 }}
             >
               <h3 className="font-display text-lg font-bold text-bone mb-4 flex items-center gap-3">
                 <span className="w-5 h-[2px] bg-vermillion" />

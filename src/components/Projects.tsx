@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
 
 interface Project {
   number: string
@@ -48,16 +48,17 @@ const projects: Project[] = [
   },
 ]
 
-function ProjectBlock({ project, index }: { project: Project; index: number }) {
+function ProjectBlock({ project, index, reducedMotion }: { project: Project; index: number; reducedMotion: boolean }) {
   const isEven = index % 2 === 1
+  const initial = reducedMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }
 
   return (
     <motion.div
       className="py-16 border-b border-white/5 group relative"
-      initial={{ opacity: 0, y: 40 }}
+      initial={initial}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-100px' }}
-      transition={{ duration: 0.8 }}
+      transition={reducedMotion ? { duration: 0 } : { duration: 0.8 }}
     >
       {/* Hover accent line */}
       <div className="absolute left-0 top-0 w-[2px] h-0 bg-vermillion group-hover:h-full transition-all duration-500" />
@@ -95,6 +96,7 @@ function ProjectBlock({ project, index }: { project: Project; index: number }) {
             className="text-sm text-ash hover:text-vermillion flex items-center gap-2 mt-4 transition-colors"
           >
             View Project
+            <span className="sr-only">(opens in new tab)</span>
             <svg
               className="w-4 h-4"
               fill="none"
@@ -129,16 +131,19 @@ function ProjectBlock({ project, index }: { project: Project; index: number }) {
 }
 
 export default function Projects() {
+  const reducedMotion = useReducedMotion()
+  const initial = reducedMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }
+
   return (
     <section id="work" className="py-32" aria-labelledby="work-heading">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         {/* Section Header */}
         <motion.div
           className="flex items-center gap-3 mb-16"
-          initial={{ opacity: 0, y: 40 }}
+          initial={initial}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.8 }}
+          transition={reducedMotion ? { duration: 0 } : { duration: 0.8 }}
         >
           <div className="w-2 h-2 bg-vermillion rotate-45" />
           <h2 id="work-heading" className="font-display text-3xl font-bold">Selected Work</h2>
@@ -146,7 +151,7 @@ export default function Projects() {
 
         {/* Project Blocks */}
         {projects.map((project, index) => (
-          <ProjectBlock key={project.title} project={project} index={index} />
+          <ProjectBlock key={project.title} project={project} index={index} reducedMotion={!!reducedMotion} />
         ))}
       </div>
     </section>

@@ -5,19 +5,6 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --color-void: #050505;
-  --color-surface: #0A0A0A;
-  --color-elevated: #111111;
-  --color-vermillion: #FF3D00;
-  --color-ember: #FF6B35;
-  --color-bone: #F0EBE3;
-  --color-ash: #888888;
-  --color-smoke: #444444;
-  --font-display: 'Clash Display', sans-serif;
-  --font-body: 'Cabinet Grotesk', sans-serif;
-}
-
 @layer base {
   body {
     @apply bg-void text-bone font-body antialiased;
@@ -48,19 +35,19 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--color-void);
+  background: #050505;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-smoke);
+  background: #444444;
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-ash);
+  background: #888888;
 }
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: var(--color-smoke) var(--color-void);
+  scrollbar-color: #444444 #050505;
 }

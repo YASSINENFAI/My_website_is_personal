@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
 
 const timeline = [
   {
@@ -24,16 +24,21 @@ const timeline = [
 ]
 
 export default function About() {
+  const reducedMotion = useReducedMotion()
+  const initial = reducedMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }
+  const initialSmall = reducedMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
+  const transition = reducedMotion ? { duration: 0 } : { duration: 0.8 }
+
   return (
     <section id="about" className="py-32" aria-labelledby="about-heading">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         {/* Section Header */}
         <motion.div
           className="flex items-center gap-3 mb-16"
-          initial={{ opacity: 0, y: 40 }}
+          initial={initial}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.8 }}
+          transition={transition}
         >
           <div className="w-2 h-2 bg-vermillion rotate-45" />
           <h2 id="about-heading" className="font-display text-3xl font-bold">About</h2>
@@ -43,10 +48,10 @@ export default function About() {
         <div className="grid grid-cols-1 lg:grid-cols-[2fr_3fr] gap-16">
           {/* Left - Pull Quote */}
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
+            initial={initial}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-100px' }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={reducedMotion ? { duration: 0 } : { duration: 0.8, delay: 0.2 }}
           >
             <span className="text-vermillion text-6xl font-display leading-none">
               &ldquo;
@@ -61,10 +66,10 @@ export default function About() {
           <div>
             <motion.p
               className="text-ash leading-[1.9] text-base"
-              initial={{ opacity: 0, y: 40 }}
+              initial={initial}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-100px' }}
-              transition={{ duration: 0.8, delay: 0.3 }}
+              transition={reducedMotion ? { duration: 0 } : { duration: 0.8, delay: 0.3 }}
             >
               I&apos;m Yassine Nfouh, an AI Developer and Web Designer based in
               Morocco. Over the past 3+ years, I&apos;ve focused on bridging the
@@ -79,19 +84,19 @@ export default function About() {
             {/* Timeline */}
             <motion.div
               className="mt-12 space-y-8 border-l border-white/10 pl-8"
-              initial={{ opacity: 0, y: 40 }}
+              initial={initial}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-100px' }}
-              transition={{ duration: 0.8, delay: 0.4 }}
+              transition={reducedMotion ? { duration: 0 } : { duration: 0.8, delay: 0.4 }}
             >
               {timeline.map((item, index) => (
                 <motion.div
                   key={item.title}
                   className="relative"
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={initialSmall}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.1 * index }}
+                  transition={reducedMotion ? { duration: 0 } : { duration: 0.6, delay: 0.1 * index }}
                 >
                   {/* Diamond marker */}
                   <div className="absolute -left-[33px] top-2 w-2 h-2 bg-vermillion rotate-45" />

@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
 
 const contactCards = [
   {
@@ -31,6 +31,9 @@ const contactCards = [
 ]
 
 export default function Contact() {
+  const reducedMotion = useReducedMotion()
+  const initial = reducedMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }
+
   return (
     <section id="contact" className="py-32 relative overflow-hidden" aria-labelledby="contact-heading">
       {/* Background radial gradient */}
@@ -40,20 +43,20 @@ export default function Contact() {
         <motion.h2
           id="contact-heading"
           className="font-display text-[clamp(2rem,5vw,3.5rem)] font-bold text-bone mb-4"
-          initial={{ opacity: 0, y: 40 }}
+          initial={initial}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.8 }}
+          transition={reducedMotion ? { duration: 0 } : { duration: 0.8 }}
         >
           Let&apos;s Build Something
         </motion.h2>
 
         <motion.p
           className="text-ash mb-10"
-          initial={{ opacity: 0, y: 40 }}
+          initial={initial}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.8, delay: 0.1 }}
+          transition={reducedMotion ? { duration: 0 } : { duration: 0.8, delay: 0.1 }}
         >
           Currently available for freelance projects and remote opportunities in
           AI development and web design.
@@ -62,10 +65,10 @@ export default function Contact() {
         {/* Contact Cards */}
         <motion.div
           className="flex flex-wrap justify-center gap-4 mb-10"
-          initial={{ opacity: 0, y: 40 }}
+          initial={initial}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          transition={reducedMotion ? { duration: 0 } : { duration: 0.8, delay: 0.2 }}
         >
           {contactCards.map((card) => (
             <a
@@ -79,6 +82,7 @@ export default function Contact() {
                 {card.icon}
               </span>
               <span className="text-sm text-bone">{card.label}</span>
+              <span className="sr-only">(opens in new tab)</span>
             </a>
           ))}
         </motion.div>
@@ -86,10 +90,10 @@ export default function Contact() {
         {/* Social Row */}
         <motion.div
           className="mt-10 pt-8 border-t border-white/5 flex justify-center gap-8"
-          initial={{ opacity: 0, y: 40 }}
+          initial={initial}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.8, delay: 0.3 }}
+          transition={reducedMotion ? { duration: 0 } : { duration: 0.8, delay: 0.3 }}
         >
           <a
             href="https://github.com/YASSINENFAI"
@@ -98,6 +102,7 @@ export default function Contact() {
             className="text-xs uppercase tracking-widest text-ash hover:text-vermillion transition-colors"
           >
             GitHub
+            <span className="sr-only">(opens in new tab)</span>
           </a>
           <a
             href="mailto:azffhk@gmail.com"
