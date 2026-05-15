@@ -39,7 +39,7 @@ export default function Contact() {
   return (
     <section id="contact" className="py-32 relative overflow-hidden" aria-labelledby="contact-heading">
       {/* Background radial gradient */}
-      <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse 60% 40% at 50% 50%, rgba(255,61,0,0.03), transparent)' }} />
+      <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse 60% 40% at 50% 50%, rgb(var(--color-accent) / 0.03), transparent)' }} />
 
       <div className="max-w-[680px] mx-auto px-6 text-center relative">
         <motion.h2
@@ -77,7 +77,7 @@ export default function Contact() {
               href={card.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-3 bg-surface border border-white/5 px-5 py-4 rounded-sm hover:border-vermillion/50 hover:shadow-[0_0_20px_rgba(255,61,0,0.08)] transition-all group"
+              className="flex items-center gap-3 bg-surface border border-bone/5 px-5 py-4 rounded-sm hover:border-vermillion/50 hover:shadow-[0_0_20px_rgb(var(--color-accent)/0.08)] transition-all group"
             >
               <span className="w-9 h-9 flex items-center justify-center bg-vermillion/10 text-vermillion text-sm rounded-sm group-hover:bg-vermillion group-hover:text-white transition-colors">
                 {card.icon}
@@ -90,7 +90,7 @@ export default function Contact() {
 
         {/* Social Row */}
         <motion.div
-          className="mt-10 pt-8 border-t border-white/5 flex justify-center gap-8"
+          className="mt-10 pt-8 border-t border-bone/10 flex justify-center gap-8"
           initial={initial}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}

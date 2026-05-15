@@ -86,7 +86,7 @@ export default function Skills() {
         </motion.div>
 
         {/* Bento Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-[1px] bg-white/5 border border-white/5">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-[1px] bg-bone/5 border border-bone/5">
           {skillDomains.map((domain, index) => (
             <motion.div
               key={domain.titleKey}
@@ -106,7 +106,7 @@ export default function Skills() {
                 {domain.skills.map((skill) => (
                   <span
                     key={skill}
-                    className="bg-elevated border border-white/5 px-3 py-1.5 text-xs text-ash hover:text-vermillion hover:bg-vermillion/5 hover:border-vermillion/20 transition-colors cursor-default"
+                    className="bg-elevated border border-bone/5 px-3 py-1.5 text-xs text-ash hover:text-vermillion hover:bg-vermillion/5 hover:border-vermillion/20 transition-colors cursor-default"
                   >
                     {skill}
                   </span>

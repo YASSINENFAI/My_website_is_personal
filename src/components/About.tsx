@@ -79,7 +79,7 @@ export default function About() {
 
             {/* Timeline */}
             <motion.div
-              className="mt-12 space-y-8 border-s border-white/10 ps-8"
+              className="mt-12 space-y-8 border-s border-bone/10 ps-8"
               initial={initial}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-100px' }}

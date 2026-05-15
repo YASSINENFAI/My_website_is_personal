@@ -8,14 +8,14 @@ export default {
   theme: {
     extend: {
       colors: {
-        void: '#050505',
-        surface: '#0A0A0A',
-        elevated: '#111111',
-        vermillion: '#FF3D00',
-        ember: '#FF6B35',
-        bone: '#F0EBE3',
-        ash: '#888888',
-        smoke: '#444444',
+        void: 'rgb(var(--color-void) / <alpha-value>)',
+        surface: 'rgb(var(--color-surface) / <alpha-value>)',
+        elevated: 'rgb(var(--color-elevated) / <alpha-value>)',
+        vermillion: 'rgb(var(--color-accent) / <alpha-value>)',
+        ember: 'rgb(var(--color-accent-hover) / <alpha-value>)',
+        bone: 'rgb(var(--color-text-primary) / <alpha-value>)',
+        ash: 'rgb(var(--color-text-secondary) / <alpha-value>)',
+        smoke: 'rgb(var(--color-text-muted) / <alpha-value>)',
       },
       fontFamily: {
         display: ['"Clash Display"', '"Noto Kufi Arabic"', 'sans-serif'],

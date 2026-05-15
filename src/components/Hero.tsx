@@ -84,7 +84,7 @@ export default function Hero() {
                   e.preventDefault()
                   document.querySelector('#work')?.scrollIntoView({ behavior: 'smooth' })
                 }}
-                className="bg-vermillion text-white px-8 py-3 text-sm font-bold uppercase tracking-wide hover:shadow-[0_8px_30px_rgba(255,61,0,0.3)] transition-all"
+                className="bg-vermillion text-white px-8 py-3 text-sm font-bold uppercase tracking-wide hover:shadow-[0_8px_30px_rgb(var(--color-accent)/0.3)] transition-all"
               >
                 {t('hero.viewWork')}
               </a>
@@ -94,7 +94,7 @@ export default function Hero() {
                   e.preventDefault()
                   document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })
                 }}
-                className="border border-white/15 text-bone px-8 py-3 text-sm font-bold uppercase tracking-wide hover:border-vermillion hover:text-vermillion transition-all"
+                className="border border-bone/10 text-bone px-8 py-3 text-sm font-bold uppercase tracking-wide hover:border-vermillion hover:text-vermillion transition-all"
               >
                 {t('hero.getInTouch')}
               </a>
@@ -120,7 +120,7 @@ export default function Hero() {
 
         {/* Stats Bar */}
         <motion.div
-          className="mt-20 pt-8 border-t border-white/5 flex flex-wrap gap-8 lg:gap-12"
+          className="mt-20 pt-8 border-t border-bone/10 flex flex-wrap gap-8 lg:gap-12"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={getTransition(0.8, 1.8)}

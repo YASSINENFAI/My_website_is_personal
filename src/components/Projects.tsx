@@ -52,7 +52,7 @@ function ProjectBlock({ project, index, reducedMotion }: { project: Project; ind
 
   return (
     <motion.div
-      className="py-16 border-b border-white/5 group relative"
+      className="py-16 border-b border-bone/5 group relative"
       initial={initial}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-100px' }}
@@ -81,7 +81,7 @@ function ProjectBlock({ project, index, reducedMotion }: { project: Project; ind
             {project.tags.map((tag) => (
               <span
                 key={tag}
-                className="border border-white/10 px-3 py-1 text-xs uppercase tracking-wide text-ash hover:text-vermillion hover:border-vermillion/30 transition-colors"
+                className="border border-bone/10 px-3 py-1 text-xs uppercase tracking-wide text-ash hover:text-vermillion hover:border-vermillion/30 transition-colors"
               >
                 {tag}
               </span>

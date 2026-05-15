@@ -1,6 +1,25 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useLanguage } from '../context/LanguageContext'
+import { useTheme } from '../context/ThemeContext'
+
+function ThemeIndicator() {
+  const { cycleTheme, themeConfig } = useTheme()
+
+  return (
+    <motion.button
+      onClick={cycleTheme}
+      className="relative w-8 h-8 rounded-full border border-bone/10 hover:border-vermillion flex items-center justify-center transition-colors group"
+      whileTap={{ scale: 0.9 }}
+      aria-label={`Current theme: ${themeConfig.label}. Click to switch theme.`}
+      title={themeConfig.label}
+    >
+      <span
+        className="w-4 h-4 rounded-full bg-vermillion transition-all duration-300 group-hover:scale-110"
+      />
+    </motion.button>
+  )
+}
 
 export default function Navigation() {
   const [scrolled, setScrolled] = useState(false)
@@ -71,10 +90,13 @@ export default function Navigation() {
               </a>
             ))}
 
+            {/* Theme Toggle */}
+            <ThemeIndicator />
+
             {/* Language Toggle */}
             <motion.button
               onClick={toggleLanguage}
-              className="border border-white/10 hover:border-vermillion text-bone text-xs uppercase tracking-widest px-4 py-2 transition-colors font-body"
+              className="border border-bone/10 hover:border-vermillion text-bone text-xs uppercase tracking-widest px-4 py-2 transition-colors font-body"
               whileTap={{ scale: 0.95 }}
               aria-label={language === 'en' ? 'Switch to Arabic' : 'Switch to English'}
             >
@@ -84,7 +106,7 @@ export default function Navigation() {
             <a
               href="#contact"
               onClick={(e) => handleNavClick(e, '#contact')}
-              className="border border-white/10 hover:border-vermillion text-bone text-xs uppercase tracking-widest px-5 py-2.5 transition-colors"
+              className="border border-bone/10 hover:border-vermillion text-bone text-xs uppercase tracking-widest px-5 py-2.5 transition-colors"
             >
               {t('nav.letsTalk')}
             </a>
@@ -126,14 +148,24 @@ export default function Navigation() {
             transition={{ duration: 0.3 }}
           >
             <div className="flex flex-col items-center gap-8">
-              {/* Language Toggle - Mobile */}
-              <motion.button
-                onClick={toggleLanguage}
-                className="border border-white/10 hover:border-vermillion text-bone text-sm uppercase tracking-widest px-6 py-2.5 transition-colors font-body"
+              {/* Theme Toggle - Mobile */}
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 20 }}
                 transition={{ delay: 0, duration: 0.4 }}
+              >
+                <ThemeIndicator />
+              </motion.div>
+
+              {/* Language Toggle - Mobile */}
+              <motion.button
+                onClick={toggleLanguage}
+                className="border border-bone/10 hover:border-vermillion text-bone text-sm uppercase tracking-widest px-6 py-2.5 transition-colors font-body"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 20 }}
+                transition={{ delay: 0.05, duration: 0.4 }}
                 aria-label={language === 'en' ? 'Switch to Arabic' : 'Switch to English'}
               >
                 {language === 'en' ? 'عربي' : 'EN'}
@@ -148,7 +180,7 @@ export default function Navigation() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 20 }}
-                  transition={{ delay: (i + 1) * 0.1, duration: 0.4 }}
+                  transition={{ delay: (i + 1) * 0.1 + 0.1, duration: 0.4 }}
                 >
                   {link.label}
                 </motion.a>
