@@ -108,13 +108,38 @@ export default function Hero() {
             animate={{ opacity: 1, scale: 1 }}
             transition={getTransition(1, 1.5)}
           >
-            <div className="absolute -bottom-4 -right-4 w-[280px] h-[360px] border border-vermillion/20 rounded-sm" />
-            <img
-              src="/assets/profile.jpg"
-              alt="Yassine Nfouh"
-              loading="lazy"
-              className="w-[280px] h-[360px] object-cover rounded-sm grayscale-[20%] contrast-[1.05] relative z-10"
+            {/* Outer decorative border */}
+            <motion.div
+              className="absolute -bottom-5 -right-5 w-[280px] h-[360px] border border-vermillion/20 rounded-sm"
+              initial={{ opacity: 0, x: 10, y: 10 }}
+              animate={{ opacity: 1, x: 0, y: 0 }}
+              transition={getTransition(0.8, 2.0)}
             />
+
+            {/* Corner accents */}
+            <div className="absolute -top-2 -left-2 w-6 h-6 z-20">
+              <div className="absolute top-0 left-0 w-full h-[2px] bg-vermillion" />
+              <div className="absolute top-0 left-0 w-[2px] h-full bg-vermillion" />
+            </div>
+            <div className="absolute -bottom-2 -right-2 w-6 h-6 z-20">
+              <div className="absolute bottom-0 right-0 w-full h-[2px] bg-vermillion" />
+              <div className="absolute bottom-0 right-0 w-[2px] h-full bg-vermillion" />
+            </div>
+
+            {/* Glow effect behind image */}
+            <div className="absolute inset-0 z-0 blur-2xl opacity-20 bg-vermillion/30 scale-90 rounded-full" />
+
+            {/* Image with border */}
+            <div className="relative z-10 border-2 border-white/10 rounded-sm overflow-hidden group">
+              <img
+                src="/assets/profile.jpg"
+                alt="Yassine Nfouh"
+                loading="lazy"
+                className="w-[280px] h-[360px] object-cover grayscale-[20%] contrast-[1.05] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
+              />
+              {/* Overlay gradient */}
+              <div className="absolute inset-0 bg-gradient-to-t from-void/40 via-transparent to-transparent pointer-events-none" />
+            </div>
           </motion.div>
         </div>
 
