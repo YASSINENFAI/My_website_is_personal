@@ -6,6 +6,10 @@
 @tailwind utilities;
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     @apply bg-void text-bone font-body antialiased;
   }
@@ -102,6 +106,34 @@ html.light-mode .text-bone\/70 {
 
 html.light-mode .text-bone\/90 {
   color: rgba(26, 26, 26, 0.9);
+}
+
+html.light-mode .text-ash\/70 {
+  color: rgba(85, 85, 85, 0.7);
+}
+
+html.light-mode .text-ash\/50 {
+  color: rgba(85, 85, 85, 0.5);
+}
+
+html.light-mode .text-ash\/30 {
+  color: rgba(85, 85, 85, 0.3);
+}
+
+html.light-mode .text-vermillion\/60 {
+  color: rgba(255, 61, 0, 0.6);
+}
+
+html.light-mode .bg-vermillion\/5 {
+  background-color: rgba(255, 61, 0, 0.05);
+}
+
+html.light-mode .bg-vermillion\/10 {
+  background-color: rgba(255, 61, 0, 0.1);
+}
+
+html.light-mode .hover\:border-vermillion\/30:hover {
+  border-color: rgba(255, 61, 0, 0.3);
 }
 
 html.light-mode .film-grain::before {

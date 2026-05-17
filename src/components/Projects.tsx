@@ -7,7 +7,6 @@ interface Project {
   description: string
   link: string
   tags: string[]
-  image: string
 }
 
 const projects: Project[] = [
@@ -18,7 +17,6 @@ const projects: Project[] = [
       'AI-ready invoice management SaaS with automated generation and real-time tracking.',
     link: 'https://invoice-saas-xi.vercel.app',
     tags: ['Next.js', 'Supabase', 'PostgreSQL', 'Vercel'],
-    image: '/assets/invoiceflow.jpg',
   },
   {
     number: '02',
@@ -27,7 +25,6 @@ const projects: Project[] = [
       'Open-source AI-powered lead generation with LLM-driven personalization at scale.',
     link: 'https://github.com/YASSINENFAI/LeadGenius',
     tags: ['Python', 'OpenAI API', 'n8n'],
-    image: '/assets/socioconnect-branding.png',
   },
   {
     number: '03',
@@ -36,7 +33,6 @@ const projects: Project[] = [
       'Professional CV builder with AI content suggestions and ATS optimization.',
     link: 'https://cvpersonal.xyz',
     tags: ['Next.js', 'Claude API', 'Tailwind CSS'],
-    image: '/assets/cvbuilder.jpg',
   },
   {
     number: '04',
@@ -45,90 +41,73 @@ const projects: Project[] = [
       'Bilingual skills marketplace application with full-stack architecture.',
     link: 'https://github.com/YASSINENFAI/hirafi',
     tags: ['Next.js', 'Tailwind CSS', 'Supabase'],
-    image: '/assets/hirafi-app.jpg',
   },
 ]
 
-function ProjectBlock({ project, index, reducedMotion }: { project: Project; index: number; reducedMotion: boolean }) {
+function ProjectCard({ project, index, reducedMotion }: { project: Project; index: number; reducedMotion: boolean }) {
   const { t } = useLanguage()
-  const isEven = index % 2 === 1
-  const initial = reducedMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }
 
   return (
-    <motion.div
-      className="py-16 border-b border-white/5 group relative"
-      initial={initial}
+    <motion.a
+      href={project.link}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group relative block bg-surface border border-white/5 p-8 lg:p-10 rounded-sm overflow-hidden hover:border-vermillion/30 transition-all duration-500"
+      initial={reducedMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-100px' }}
-      transition={reducedMotion ? { duration: 0 } : { duration: 0.8 }}
+      viewport={{ once: true, margin: '-80px' }}
+      transition={reducedMotion ? { duration: 0 } : { duration: 0.6, delay: index * 0.1 }}
+      whileHover={reducedMotion ? {} : { y: -4 }}
     >
-      {/* Hover accent line */}
-      <div className="absolute left-0 top-0 w-[2px] h-0 bg-vermillion group-hover:h-full transition-all duration-500" />
+      {/* Hover glow */}
+      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" style={{ background: 'radial-gradient(ellipse 80% 60% at 50% 0%, rgba(255,61,0,0.06), transparent)' }} />
 
-      <div
-        className={`flex flex-col lg:flex-row items-center gap-12 lg:gap-20 ${
-          isEven ? 'lg:flex-row-reverse' : ''
-        }`}
-      >
-        {/* Text Side */}
-        <div className="flex-1">
-          <p className="text-xs text-ash uppercase tracking-widest mb-2">
-            {project.number}
-          </p>
-          <h3 className="font-display text-3xl lg:text-5xl font-bold text-bone mb-4 group-hover:text-vermillion transition-colors">
-            {project.title}
-          </h3>
-          <p className="text-ash text-base max-w-md mb-6">
-            {project.description}
-          </p>
-          <div className="flex gap-2 flex-wrap mb-4">
-            {project.tags.map((tag) => (
-              <span
-                key={tag}
-                className="border border-white/10 px-3 py-1 text-xs uppercase tracking-wide text-ash hover:text-vermillion hover:border-vermillion/30 transition-colors"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-          <a
-            href={project.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-sm text-ash hover:text-vermillion flex items-center gap-2 mt-4 transition-colors"
+      {/* Top row: number + arrow */}
+      <div className="flex items-center justify-between mb-6">
+        <span className="font-mono text-xs text-vermillion/60 tracking-widest">
+          {project.number}
+        </span>
+        <span className="text-ash group-hover:text-vermillion transition-colors">
+          <svg
+            className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth={2}
+            aria-hidden="true"
           >
-            {t('view_project')}
-            <span className="sr-only">(opens in new tab)</span>
-            <svg
-              className="w-4 h-4"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2}
-              aria-hidden="true"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M7 17L17 7M17 7H7M17 7v10"
-              />
-            </svg>
-          </a>
-        </div>
-
-        {/* Image Side */}
-        <div className="w-full lg:w-[400px] hidden lg:block">
-          <div className="rounded-sm overflow-hidden">
-            <img
-              src={project.image}
-              alt={project.title}
-              loading="lazy"
-              className="w-full h-[280px] object-cover grayscale-[30%] hover:grayscale-0 transition-all duration-500"
-            />
-          </div>
-        </div>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M7 17L17 7M17 7H7M17 7v10" />
+          </svg>
+        </span>
       </div>
-    </motion.div>
+
+      {/* Title */}
+      <h3 className="font-display text-2xl lg:text-3xl font-bold text-bone mb-3 group-hover:text-vermillion transition-colors duration-300">
+        {project.title}
+      </h3>
+
+      {/* Description */}
+      <p className="text-ash text-sm leading-relaxed mb-6">
+        {project.description}
+      </p>
+
+      {/* Tags */}
+      <div className="flex gap-2 flex-wrap">
+        {project.tags.map((tag) => (
+          <span
+            key={tag}
+            className="bg-elevated border border-white/5 px-3 py-1 text-[11px] uppercase tracking-wider text-ash/70 group-hover:text-ash group-hover:border-white/10 transition-colors"
+          >
+            {tag}
+          </span>
+        ))}
+      </div>
+
+      {/* Bottom accent line */}
+      <div className="absolute bottom-0 left-0 w-0 h-[2px] bg-vermillion group-hover:w-full transition-all duration-500" />
+
+      <span className="sr-only">{t('view_project')} (opens in new tab)</span>
+    </motion.a>
   )
 }
 
@@ -152,10 +131,12 @@ export default function Projects() {
           <h2 id="work-heading" className="font-display text-3xl font-bold">{t('work_title')}</h2>
         </motion.div>
 
-        {/* Project Blocks */}
-        {projects.map((project, index) => (
-          <ProjectBlock key={project.title} project={project} index={index} reducedMotion={!!reducedMotion} />
-        ))}
+        {/* Project Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6">
+          {projects.map((project, index) => (
+            <ProjectCard key={project.title} project={project} index={index} reducedMotion={!!reducedMotion} />
+          ))}
+        </div>
       </div>
     </section>
   )
