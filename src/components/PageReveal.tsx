@@ -9,7 +9,8 @@ export default function PageReveal() {
 
   return (
     <motion.div
-      className="fixed inset-0 z-[9990] bg-void"
+      className="fixed inset-0 z-[9990]"
+      style={{ backgroundColor: '#050505' }}
       initial={{ y: 0 }}
       animate={{ y: '-100%' }}
       transition={{

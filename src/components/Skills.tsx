@@ -60,6 +60,7 @@ const skillDomains: SkillDomain[] = [
       'Git',
       'CI/CD',
     ],
+    span: true,
   },
 ]
 
