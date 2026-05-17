@@ -1,16 +1,20 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-
-const navLinks = [
-  { label: 'About', href: '#about' },
-  { label: 'Work', href: '#work' },
-  { label: 'Skills', href: '#skills' },
-  { label: 'Contact', href: '#contact' },
-]
+import { useLanguage } from '../contexts/LanguageContext'
+import LanguageToggle from './LanguageToggle'
+import ThemeToggle from './ThemeToggle'
 
 export default function Navigation() {
+  const { t } = useLanguage()
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
+
+  const navLinks = [
+    { label: t('nav_about'), href: '#about' },
+    { label: t('nav_work'), href: '#work' },
+    { label: t('nav_skills'), href: '#skills' },
+    { label: t('nav_contact'), href: '#contact' },
+  ]
 
   useEffect(() => {
     const handleScroll = () => {
@@ -68,12 +72,14 @@ export default function Navigation() {
                 {link.label}
               </a>
             ))}
+            <LanguageToggle />
+            <ThemeToggle />
             <a
               href="#contact"
               onClick={(e) => handleNavClick(e, '#contact')}
               className="border border-white/10 hover:border-vermillion text-bone text-xs uppercase tracking-widest px-5 py-2.5 transition-colors"
             >
-              Let&apos;s Talk
+              {t('nav_lets_talk')}
             </a>
           </div>
 
@@ -127,6 +133,16 @@ export default function Navigation() {
                   {link.label}
                 </motion.a>
               ))}
+              <motion.div
+                className="mt-4 flex gap-3"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 20 }}
+                transition={{ delay: 0.4, duration: 0.4 }}
+              >
+                <LanguageToggle />
+                <ThemeToggle />
+              </motion.div>
               <motion.a
                 href="#contact"
                 onClick={(e) => handleNavClick(e, '#contact')}
@@ -134,9 +150,9 @@ export default function Navigation() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 20 }}
-                transition={{ delay: 0.4, duration: 0.4 }}
+                transition={{ delay: 0.5, duration: 0.4 }}
               >
-                Let&apos;s Talk
+                {t('nav_lets_talk')}
               </motion.a>
             </div>
           </motion.div>

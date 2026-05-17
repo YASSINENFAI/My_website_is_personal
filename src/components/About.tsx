@@ -1,30 +1,24 @@
 import { motion, useReducedMotion } from 'framer-motion'
-
-const timeline = [
-  {
-    title: 'AI Developer & Automation Specialist',
-    date: '2024 - Present',
-    company: 'Freelance',
-    points: [
-      'Building AI-powered applications with LLM integrations',
-      'Developing intelligent automation workflows with n8n and Make',
-      'Creating RAG systems and conversational AI agents',
-    ],
-  },
-  {
-    title: 'UI/UX Designer & Web Developer',
-    date: '2022 - 2023',
-    company: 'Freelance',
-    points: [
-      'Designing responsive web interfaces and mobile app UIs',
-      'Building full-stack applications with Next.js and Supabase',
-      'Creating brand identities and visual design systems',
-    ],
-  },
-]
+import { useLanguage } from '../contexts/LanguageContext'
 
 export default function About() {
+  const { t } = useLanguage()
   const reducedMotion = useReducedMotion()
+
+  const timeline = [
+    {
+      title: t('exp_1_title'),
+      date: t('exp_1_date'),
+      company: t('exp_1_company'),
+      points: [t('exp_1_1'), t('exp_1_2'), t('exp_1_3')],
+    },
+    {
+      title: t('exp_2_title'),
+      date: t('exp_2_date'),
+      company: t('exp_2_company'),
+      points: [t('exp_2_1'), t('exp_2_2'), t('exp_2_3')],
+    },
+  ]
   const initial = reducedMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }
   const initialSmall = reducedMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
   const transition = reducedMotion ? { duration: 0 } : { duration: 0.8 }
@@ -41,7 +35,7 @@ export default function About() {
           transition={transition}
         >
           <div className="w-2 h-2 bg-vermillion rotate-45" />
-          <h2 id="about-heading" className="font-display text-3xl font-bold">About</h2>
+          <h2 id="about-heading" className="font-display text-3xl font-bold">{t('about_title')}</h2>
         </motion.div>
 
         {/* Two-Column Layout */}
@@ -57,8 +51,7 @@ export default function About() {
               &ldquo;
             </span>
             <p className="text-2xl lg:text-3xl font-display italic leading-snug text-bone/90 -mt-4">
-              I build intelligent systems that feel human and design interfaces
-              that feel alive.
+              {t('about_quote')}
             </p>
           </motion.div>
 
@@ -71,14 +64,7 @@ export default function About() {
               viewport={{ once: true, margin: '-100px' }}
               transition={reducedMotion ? { duration: 0 } : { duration: 0.8, delay: 0.3 }}
             >
-              I&apos;m Yassine Nfouh, an AI Developer and Web Designer based in
-              Morocco. Over the past 3+ years, I&apos;ve focused on bridging the
-              gap between artificial intelligence and human-centered design.
-              From building LLM-powered applications and intelligent automation
-              systems to crafting responsive web interfaces, my work lives at
-              the intersection of technology and creativity. I specialize in
-              GPT-4, Claude API, Next.js, Python, and workflow automation
-              tools like n8n and Make.
+              {t('about_bio')}
             </motion.p>
 
             {/* Timeline */}

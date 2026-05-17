@@ -1,14 +1,16 @@
 import { motion, useReducedMotion } from 'framer-motion'
-
-const stats = [
-  { number: '10+', label: 'Projects' },
-  { number: '3+', label: 'Years Experience' },
-  { number: '15+', label: 'AI Tools' },
-  { number: '70%', label: 'Efficiency Gain' },
-]
+import { useLanguage } from '../contexts/LanguageContext'
 
 export default function Hero() {
+  const { t } = useLanguage()
   const prefersReducedMotion = useReducedMotion()
+
+  const stats = [
+    { number: '10+', label: t('stat_projects') },
+    { number: '3+', label: t('stat_years') },
+    { number: '15+', label: t('stat_tools') },
+    { number: '70%', label: t('stat_efficiency') },
+  ]
 
   const getTransition = (duration: number, delay: number) => {
     if (prefersReducedMotion) {
@@ -36,7 +38,7 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={getTransition(0.8, 1.0)}
             >
-              &mdash;&mdash;&mdash; AI Developer + Creative Designer
+              {t('hero_subtitle')}
             </motion.p>
 
             <div className="overflow-hidden">
@@ -47,7 +49,7 @@ export default function Hero() {
                 animate={{ y: 0, opacity: 1 }}
                 transition={getClipTransition(1.1)}
               >
-                YASSINE
+                {t('hero_name1')}
               </motion.h1>
             </div>
             <div className="overflow-hidden">
@@ -57,7 +59,7 @@ export default function Hero() {
                 animate={{ y: 0, opacity: 1 }}
                 transition={getClipTransition(1.2)}
               >
-                NFOUH
+                {t('hero_name2')}
               </motion.h1>
             </div>
 
@@ -67,9 +69,7 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={getTransition(0.8, 1.5)}
             >
-              AI Developer and Web Designer with 3+ years of experience building
-              AI-powered applications, LLM integrations, and intelligent
-              automation systems.
+              {t('hero_desc')}
             </motion.p>
 
             <motion.div
@@ -86,7 +86,7 @@ export default function Hero() {
                 }}
                 className="bg-vermillion text-white px-8 py-3 text-sm font-bold uppercase tracking-wide hover:shadow-[0_8px_30px_rgba(255,61,0,0.3)] transition-all"
               >
-                View Work
+                {t('hero_view_work')}
               </a>
               <a
                 href="#contact"
@@ -96,7 +96,7 @@ export default function Hero() {
                 }}
                 className="border border-white/15 text-bone px-8 py-3 text-sm font-bold uppercase tracking-wide hover:border-vermillion hover:text-vermillion transition-all"
               >
-                Get in Touch
+                {t('hero_get_in_touch')}
               </a>
             </motion.div>
           </div>
