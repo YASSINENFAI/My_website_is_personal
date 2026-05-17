@@ -1,4 +1,5 @@
 import { motion, useReducedMotion } from 'framer-motion'
+import { useLanguage } from '../contexts/LanguageContext'
 
 const contactCards = [
   {
@@ -31,6 +32,7 @@ const contactCards = [
 ]
 
 export default function Contact() {
+  const { t } = useLanguage()
   const reducedMotion = useReducedMotion()
   const initial = reducedMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }
 
@@ -48,7 +50,7 @@ export default function Contact() {
           viewport={{ once: true, margin: '-100px' }}
           transition={reducedMotion ? { duration: 0 } : { duration: 0.8 }}
         >
-          Let&apos;s Build Something
+          {t('contact_title')}
         </motion.h2>
 
         <motion.p
@@ -58,8 +60,7 @@ export default function Contact() {
           viewport={{ once: true, margin: '-100px' }}
           transition={reducedMotion ? { duration: 0 } : { duration: 0.8, delay: 0.1 }}
         >
-          Currently available for freelance projects and remote opportunities in
-          AI development and web design.
+          {t('contact_desc')}
         </motion.p>
 
         {/* Contact Cards */}
@@ -110,6 +111,8 @@ export default function Contact() {
           >
             Email
           </a>
+          <span className="text-ash/30">|</span>
+          <span className="text-xs text-ash">{t('contact_location')}</span>
         </motion.div>
       </div>
     </section>

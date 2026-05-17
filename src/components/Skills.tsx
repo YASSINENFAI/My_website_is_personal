@@ -1,4 +1,5 @@
 import { motion, useReducedMotion } from 'framer-motion'
+import { useLanguage } from '../contexts/LanguageContext'
 
 interface SkillDomain {
   title: string
@@ -63,6 +64,7 @@ const skillDomains: SkillDomain[] = [
 ]
 
 export default function Skills() {
+  const { t } = useLanguage()
   const reducedMotion = useReducedMotion()
   const initial = reducedMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }
 
@@ -79,7 +81,7 @@ export default function Skills() {
         >
           <div className="w-2 h-2 bg-vermillion rotate-45" />
           <h2 id="skills-heading" className="font-display text-3xl font-bold">
-            Technical Expertise
+            {t('skills_title')}
           </h2>
         </motion.div>
 

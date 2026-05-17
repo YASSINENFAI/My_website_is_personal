@@ -51,3 +51,75 @@
   scrollbar-width: thin;
   scrollbar-color: #444444 #050505;
 }
+
+/* Light mode overrides */
+html.light-mode body {
+  background-color: #F5F3EF;
+  color: #1a1a1a;
+}
+
+html.light-mode .bg-void {
+  background-color: #F5F3EF;
+}
+
+html.light-mode .bg-surface {
+  background-color: #EDEAE4;
+}
+
+html.light-mode .bg-elevated {
+  background-color: #E0DDD7;
+}
+
+html.light-mode .text-bone {
+  color: #1a1a1a;
+}
+
+html.light-mode .text-ash {
+  color: #555555;
+}
+
+html.light-mode .border-white\/5,
+html.light-mode .border-white\/10,
+html.light-mode .border-white\/15 {
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+html.light-mode .bg-void\/90 {
+  background-color: rgba(245, 243, 239, 0.9);
+}
+
+html.light-mode .bg-void\/80 {
+  background-color: rgba(245, 243, 239, 0.8);
+}
+
+html.light-mode .bg-void\/95 {
+  background-color: rgba(245, 243, 239, 0.95);
+}
+
+html.light-mode .text-bone\/70 {
+  color: rgba(26, 26, 26, 0.7);
+}
+
+html.light-mode .text-bone\/90 {
+  color: rgba(26, 26, 26, 0.9);
+}
+
+html.light-mode .film-grain::before {
+  opacity: 0.015;
+}
+
+html.light-mode ::-webkit-scrollbar-track {
+  background: #F5F3EF;
+}
+
+html.light-mode ::-webkit-scrollbar-thumb {
+  background: #CCCCCC;
+}
+
+html.light-mode ::-webkit-scrollbar-thumb:hover {
+  background: #999999;
+}
+
+html.light-mode * {
+  scrollbar-color: #CCCCCC #F5F3EF;
+}

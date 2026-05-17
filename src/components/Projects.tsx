@@ -1,4 +1,5 @@
 import { motion, useReducedMotion } from 'framer-motion'
+import { useLanguage } from '../contexts/LanguageContext'
 
 interface Project {
   number: string
@@ -49,6 +50,7 @@ const projects: Project[] = [
 ]
 
 function ProjectBlock({ project, index, reducedMotion }: { project: Project; index: number; reducedMotion: boolean }) {
+  const { t } = useLanguage()
   const isEven = index % 2 === 1
   const initial = reducedMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }
 
@@ -95,7 +97,7 @@ function ProjectBlock({ project, index, reducedMotion }: { project: Project; ind
             rel="noopener noreferrer"
             className="text-sm text-ash hover:text-vermillion flex items-center gap-2 mt-4 transition-colors"
           >
-            View Project
+            {t('view_project')}
             <span className="sr-only">(opens in new tab)</span>
             <svg
               className="w-4 h-4"
@@ -131,6 +133,7 @@ function ProjectBlock({ project, index, reducedMotion }: { project: Project; ind
 }
 
 export default function Projects() {
+  const { t } = useLanguage()
   const reducedMotion = useReducedMotion()
   const initial = reducedMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }
 
@@ -146,7 +149,7 @@ export default function Projects() {
           transition={reducedMotion ? { duration: 0 } : { duration: 0.8 }}
         >
           <div className="w-2 h-2 bg-vermillion rotate-45" />
-          <h2 id="work-heading" className="font-display text-3xl font-bold">Selected Work</h2>
+          <h2 id="work-heading" className="font-display text-3xl font-bold">{t('work_title')}</h2>
         </motion.div>
 
         {/* Project Blocks */}
