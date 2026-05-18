@@ -1,4 +1,4 @@
-module.exports = async (request, response) => {
+export default async function handler(request, response) {
     // 1. Handle CORS (Optional, good practice)
     response.setHeader('Access-Control-Allow-Origin', '*');
     response.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
