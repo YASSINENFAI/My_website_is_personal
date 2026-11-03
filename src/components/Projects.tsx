@@ -42,6 +42,14 @@ const projects: Project[] = [
     link: 'https://github.com/YASSINENFAI/hirafi',
     tags: ['Next.js', 'Tailwind CSS', 'Supabase'],
   },
+  {
+    number: '05',
+    title: 'Quran Gamma',
+    description:
+      'An interactive Quran-focused web experience for reading and exploring the Quran.',
+    link: 'https://quran-gamma-orpin.vercel.app/',
+    tags: ['Quran', 'Web App', 'Vercel'],
+  },
 ]
 
 function ProjectCard({ project, index, reducedMotion }: { project: Project; index: number; reducedMotion: boolean }) {
